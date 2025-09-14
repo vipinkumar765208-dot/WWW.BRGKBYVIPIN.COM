@@ -93,34 +93,193 @@
   <section id="subjects">
     <h2>📚 Subjects</h2>
 
-    <div class="subject">
-      <h3>🔬 Physics</h3>
-      <p>✔ Complete Syllabus (11th & 12th)<br>✔ Important Formulas<br>✔ PYQs & MCQs</p>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRGK BY VIPIN - Study Material</title>
 
-    <div class="subject">
-      <h3>⚗️ Chemistry</h3>
-      <p>✔ Chapter-wise Notes<br>✔ Easy Tricks for Numericals<br>✔ Previous Year Questions</p>
-    </div>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <div class="subject">
-      <h3>🧬 Biology</h3>
-      <p>✔ NCERT Explanation<br>✔ Diagrams & Flowcharts<br>✔ Important Definitions</p>
-    </div>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #eef2f3, #dfe9f3);
+      color: #222;
+    }
+    header {
+      background: linear-gradient(135deg, #007bff, #00d4ff);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: #007bff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00d4ff;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 20px;
+      border-left: 6px solid #00d4ff;
+      padding-left: 10px;
+    }
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .subject {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .subject:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .subject h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .subject p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #007bff, #00d4ff);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: linear-gradient(135deg, #0056b3, #0099cc);
+    }
+    .downloads, .contact {
+      text-align: center;
+    }
+    .downloads p, .contact p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+    .pdf-frame {
+      border: 1px solid #ccc;
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
 
-    <div class="subject">
-      <h3>📝 Hindi</h3>
-      <p>✔ व्याकरण & साहित्य<br>✔ महत्वपूर्ण प्रश्न<br>✔ नोट्स PDF</p>
-    </div>
+  <!-- Header -->
+  <header>
+    <h1>📘 BRGK BY VIPIN</h1>
+    <p>All Subjects | Free Notes | Exam Preparation</p>
+  </header>
 
-    <div class="subject">
-      <h3>📖 English</h3>
-      <p>✔ Grammar (Tenses, Modals, Voice)<br>✔ Writing Section<br>✔ Unseen Passages</p>
+  <!-- Navigation -->
+  <nav>
+    <a href="#subjects">Subjects</a>
+    <a href="#downloads">Downloads</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Subjects Section -->
+  <section id="subjects">
+    <h2>📚 Subjects</h2>
+
+    <div class="subject-grid">
+      <div class="subject">
+        <h3>🔬 Physics</h3>
+        <p>✔ Complete Syllabus (11th & 12th)<br>✔ Important Formulas<br>✔ PYQs & MCQs</p>
+        <a href="physics.pdf" class="btn" download>📥 Download Notes</a>
+      </div>
+
+      <div class="subject">
+        <h3>⚗️ Chemistry</h3>
+        <p>✔ Chapter-wise Notes<br>✔ Easy Tricks for Numericals<br>✔ Previous Year Questions</p>
+        <a href="chemistry.pdf" class="btn" download>📥 Download Notes</a>
+      </div>
+
+      <div class="subject">
+        <h3>🧬 Biology</h3>
+        <p>✔ NCERT Explanation<br>✔ Diagrams & Flowcharts<br>✔ Important Definitions</p>
+        <a href="biology.pdf" class="btn" download>📥 Download Notes</a>
+      </div>
+
+      <div class="subject">
+        <h3>📝 Hindi</h3>
+        <p>✔ व्याकरण & साहित्य<br>✔ महत्वपूर्ण प्रश्न<br>✔ नोट्स PDF</p>
+        <a href="hindi.pdf" class="btn" download>📥 Download Notes</a>
+      </div>
+
+      <div class="subject">
+        <h3>📖 English</h3>
+        <p>✔ Grammar (Tenses, Modals, Voice)<br>✔ Writing Section<br>✔ Unseen Passages</p>
+        <a href="english.pdf" class="btn" download>📥 Download Notes</a>
+      </div>
     </div>
   </section>
 
   <!-- Downloads -->
-  <section id="downloads">
+  <section id="downloads" class="downloads">
     <h2>📥 Free Downloads</h2>
     <p>Get free PDFs, Question Banks & Practice Sets for all subjects.</p>
     <a href="https://youtube.com/@brgk_by_vipin?si=PrBuNVwxpI4hhTfn" class="btn">📺 YouTube Channel</a>
@@ -128,7 +287,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" class="contact">
     <h2>📞 Contact</h2>
     <p>For study materials & queries:</p>
     <p>📱 Phone: <a href="tel:9882409061">9882409061</a></p>
@@ -141,4 +300,4 @@
   </footer>
 
 </body>
-</html>
+  </html>
