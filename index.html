@@ -569,53 +569,244 @@
   <section id="features">
     <h2>✨ Features</h2>
     <p>✔ Free PDFs<br>✔ Mock Tests<br>✔ PYQs<br>✔ Daily Updates</p>
+  </section><!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRGK BY VIPIN – Free Study Material & Model Papers</title>
+  <style>
+    :root {
+      --bg-light: #f4f6f9;
+      --text-light: #222;
+      --primary: #007bff;
+      --accent: #00d4ff;
+      --bg-dark: #1e1e1e;
+      --text-dark: #f0f0f0;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .toggle-btn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: white;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      border-left: 5px solid var(--accent);
+      padding-left: 10px;
+    }
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .subject {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    body.dark-mode .subject {
+      background: #2a2a2a;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+    .subject:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .subject h3 {
+      margin: 0 0 12px;
+    }
+    .subject p {
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: linear-gradient(135deg, #0056b3, #0099cc);
+    }
+    .model-papers {
+      margin-top: 30px;
+    }
+    .model-papers a {
+      display: block;
+      margin: 8px 0;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .model-papers a:hover {
+      color: var(--accent);
+    }
+    .connect, .contact {
+      text-align: center;
+    }
+    footer {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="toggle-btn" id="modeToggle">🌙</button>
+    <h1>📘 BRGK BY VIPIN</h1>
+    <p>Free Notes | Model Papers | Exam Preparation</p>
+  </header>
+
+  <nav>
+    <a href="#subjects">Subjects</a>
+    <a href="#modelpapers">Model Papers</a>
+    <a href="#connect">Connect</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Subjects Section -->
+  <section id="subjects">
+    <h2>📚 Subjects</h2>
+    <div class="subject-grid">
+      <div class="subject">
+        <h3>🔬 Physics</h3>
+        <p>Complete Syllabus, Important Formulas, PYQs & MCQs</p>
+        <a href="#" class="btn">📥 Download Notes</a>
+      </div>
+      <div class="subject">
+        <h3>⚗️ Chemistry</h3>
+        <p>Chapter-wise Notes, Tricks for Numericals, PYQs</p>
+        <a href="#" class="btn">📥 Download Notes</a>
+      </div>
+      <div class="subject">
+        <h3>🧬 Biology</h3>
+        <p>NCERT Explanation, Diagrams, Important Terms</p>
+        <a href="#" class="btn">📥 Download Notes</a>
+      </div>
+      <div class="subject">
+        <h3>📝 Hindi</h3>
+        <p>व्याकरण, साहित्य, महत्वपूर्ण प्रश्न</p>
+        <a href="#" class="btn">📥 Download Notes</a>
+      </div>
+      <div class="subject">
+        <h3>📖 English</h3>
+        <p>Grammar, Writing, Unseen Passages</p>
+        <a href="#" class="btn">📥 Download Notes</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Downloads -->
-  <section id="downloads">
-    <h2>📥 Free Downloads</h2>
-    <p>Get free PDFs, Question Banks & Practice Sets for all subjects.</p>
-    <a href="https://youtube.com/@brgk_by_vipin" class="btn">📺 YouTube Channel</a>
-    <a href="https://t.me/BRGK_BY_VIPIN_SIR" class="btn">📢 Telegram Group</a>
+  <!-- Model Papers Section -->
+  <section id="modelpapers">
+    <h2>🗒️ UPMSP Model Papers & Sample Papers</h2>
+    <div class="model-papers">
+      <p>Official UPMSP Model Papers (High School / Intermediate):</p>
+      <a href="https://upmsp.edu.in/modal-paper.html" target="_blank">Model Paper – उत्तर प्रदेश माध्यमिक शिक्षा परिषद् (UPMSP) (official) 1</a>
+      <p>Class 12 Latest Model Papers:</p>
+      <a href="https://www.jagranjosh.com/articles/up-board-upmsp-class-12-model-papers-2025-download-in-pdf-1734502354-1" target="_blank">Class 12 Model Papers 2025 (JagranJosh) 2</a>
+      <p>Class 10 Latest Model Papers:</p>
+      <a href="https://www.jagranjosh.com/articles/up-board-class-10th-model-sample-paper-free-pdf-download-1734503229-1" target="_blank">Class 10 Model Paper 2025 (JagranJosh) 3</a>
+      <p>Previous Year Papers / Practice Papers:</p>
+      <a href="https://www.vedantu.com/up-board/upmsp-previous-year-question-paper" target="_blank">UPMSP Previous Year Papers – Vedantu (Class 10 & 12) 4</a>
+      <a href="https://upboardbook.com/previous-year-papers" target="_blank">UPMSP Previous Year Papers (All Classes) 5</a>
+    </div>
   </section>
 
-  <!-- About -->
-  <section id="about">
-    <h2>ℹ️ About</h2>
-    <p>BRGK BY VIPIN is an educational platform providing free notes, syllabus, question banks, and study materials for all subjects.</p>
+  <!-- Connect / About Section -->
+  <section id="connect">
+    <h2>🌐 Connect With Us</h2>
+    <p>Stay updated. Join our YouTube, Telegram & social media.</p>
+    <a href="https://youtube.com/@brgk_by_vipin" target="_blank" class="btn" style="background: #FF0000;">YouTube Channel</a>
+    <a href="https://t.me/BRGK_BY_VIPIN_SIR" target="_blank" class="btn">Telegram Group</a>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section id="contact">
     <h2>📞 Contact</h2>
-    <p>📱 Phone: <a href="tel:9882409061">9882409061</a></p>
-    <p>💬 WhatsApp: <a href="https://wa.me/919882409061">Click Here</a></p>
+    <p>Phone / WhatsApp: <a href="tel:9882409061">9882409061</a></p>
+    <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
   </section>
 
-  <!-- Login -->
-  <section id="login">
-    <h2>🔑 Login</h2>
-    <div id="g_id_onload"
-         data-client_id="YOUR_GOOGLE_CLIENT_ID"
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
-         data-auto_prompt="false">
-    </div>
-    <div class="g_id_signin" data-type="standard"></div>
-  </section>
-
-  <!-- Footer -->
   <footer>
     <p>© 2025 BRGK BY VIPIN | All Rights Reserved</p>
   </footer>
 
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
-    function handleCredentialResponse(response) {
-      console.log("Login Token:", response.credential);
-      alert("✅ Login Successful!");
-    }
+    // Dark / Light mode toggle
+    const toggleBtn = document.getElementById('modeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = '☀️';
+      } else {
+        toggleBtn.textContent = '🌙';
+      }
+    });
   </script>
 </body>
     </html>
