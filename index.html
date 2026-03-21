@@ -97,14 +97,16 @@
     .options input { margin-right: 15px; transform: scale(1.3); cursor: pointer; }
     
     /* --- Buttons --- */
-    .btn-group { display: flex; gap: 15px; margin-top: 30px; }
+    .btn-group { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; justify-content: center; }
     .btn {
-      flex: 1; padding: 15px; border-radius: 10px; font-weight: 600; font-size: 1.1rem;
+      padding: 15px 25px; border-radius: 10px; font-weight: 600; font-size: 1.1rem;
       border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; color: white;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-submit { background: linear-gradient(45deg, var(--primary-color), #8f94fb); box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3); }
-    .btn-skip { background: #95a5a6; box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3); }
+    .btn-submit { background: linear-gradient(45deg, var(--primary-color), #8f94fb); box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3); flex: 1; min-width: 200px; }
+    .btn-skip { background: #95a5a6; box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3); flex: 1; min-width: 200px; }
+    .btn-review { background: linear-gradient(45deg, #11998e, #38ef7d); box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3); flex: 1; min-width: 200px; }
+    .btn-home { background: var(--info); box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); flex: 1; min-width: 200px; }
     
     /* --- Result UI --- */
     .result-container {
@@ -125,6 +127,19 @@
     .bg-skipped { background: var(--warning); color: #333; }
     .bg-percent { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); }
 
+    /* --- Review Section UI --- */
+    .review-container {
+      background-color: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow);
+      padding: 30px; border: 1px solid var(--border-color); display: none; text-align: left;
+    }
+    .review-header { font-size: 1.8rem; color: var(--primary-color); text-align: center; margin-bottom: 30px; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; }
+    .review-item { background: var(--bg-color); margin-bottom: 20px; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); }
+    .review-q { font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; color: var(--text-color); }
+    .ans-box { padding: 10px; border-radius: 8px; margin-bottom: 5px; font-weight: 600; }
+    .ans-correct { background-color: rgba(46, 204, 113, 0.1); color: var(--success); border: 1px solid var(--success); }
+    .ans-wrong { background-color: rgba(231, 76, 60, 0.1); color: var(--danger); border: 1px solid var(--danger); }
+    .ans-skipped { background-color: rgba(241, 196, 15, 0.1); color: #d35400; border: 1px solid var(--warning); }
+    
     /* Footer */
     footer { text-align: center; padding: 25px; border-top: 1px solid var(--border-color); font-weight: 600; margin-top: auto; }
   </style>
@@ -138,7 +153,7 @@
 
   <section class="hero">
     <h1>UP Board Class 12th Mock Tests 🎯</h1>
-    <p>विषय चुनें और अपनी बोर्ड परीक्षा 2026-27 की तैयारी चेक करें</p>
+    <p>विषय चुनें और अपनी बोर्ड परीक्षा की तैयारी चेक करें</p>
   </section>
 
   <div class="container">
@@ -210,7 +225,19 @@
         </div>
       </div>
       
-      <button onclick="location.reload()" class="btn btn-submit" style="width: 100%; max-width: 300px;">🔄 विषय बदलें / फिर से टेस्ट दें</button>
+      <div class="btn-group">
+        <button onclick="showReview()" class="btn btn-review">👁️ उत्तरों की समीक्षा करें (Review)</button>
+        <button onclick="location.reload()" class="btn btn-home">🔄 विषय बदलें (Home)</button>
+      </div>
+    </div>
+
+    <div id="reviewContainer" class="review-container">
+      <h2 class="review-header">📝 उत्तरों की समीक्षा (Review Answers)</h2>
+      <div id="reviewContent">
+        </div>
+      <div class="btn-group" style="margin-top: 40px;">
+        <button onclick="location.reload()" class="btn btn-home" style="width: 100%; max-width: 400px;">🏠 होम पेज पर जाएँ</button>
+      </div>
     </div>
 
   </div>
@@ -236,7 +263,7 @@
         { question: "2. वैद्युत क्षेत्र की तीव्रता का मात्रक है?", a: "न्यूटन/कूलॉम", b: "जूल/न्यूटन", c: "कूलॉम/न्यूटन", d: "जूल/कूलॉम", correct: "a" },
         { question: "3. किरचॉफ का प्रथम नियम किसके संरक्षण पर आधारित है?", a: "ऊर्जा", b: "संवेग", c: "आवेश", d: "द्रव्यमान", correct: "c" },
         { question: "4. लेन्ज का नियम किसके संरक्षण से संबंधित है?", a: "आवेश", b: "द्रव्यमान", c: "ऊर्जा", d: "संवेग", correct: "c" },
-        { question: "5. प्रकाश की अनुप्रस्थ (Transverse) प्रकृति की पुष्टि कौन करता है?", a: "व्यतिकरण", b: "परावर्तन", c: "ध्रुवण (Polarization)", d: "विवर्तन", correct: "c" }
+        { question: "5. प्रकाश की अनुप्रस्थ प्रकृति की पुष्टि कौन करता है?", a: "व्यतिकरण", b: "परावर्तन", c: "ध्रुवण", d: "विवर्तन", correct: "c" }
       ],
       hindi: [
         { question: "1. 'कामायनी' महाकाव्य के रचयिता कौन हैं?", a: "महादेवी वर्मा", b: "सुमित्रानंदन पंत", c: "सूर्यकांत त्रिपाठी 'निराला'", d: "जयशंकर प्रसाद", correct: "d" },
@@ -246,14 +273,12 @@
         { question: "5. वीर रस का स्थायी भाव क्या है?", a: "क्रोध", b: "भय", c: "उत्साह", d: "शोक", correct: "c" }
       ],
       chemistry: [
-        { question: "1. शुद्ध जल की मोलरता (Molarity) कितनी होती है?", a: "55.56", b: "18.00", c: "49.87", d: "81.00", correct: "a" },
+        { question: "1. शुद्ध जल की मोलरता कितनी होती है?", a: "55.56", b: "18.00", c: "49.87", d: "81.00", correct: "a" },
         { question: "2. फ्रेंकेल तथा शॉटकी दोनों दोष प्रदर्शित करने वाला यौगिक है?", a: "NaCl", b: "KCl", c: "AgBr", d: "CsCl", correct: "c" }
-        // यहाँ आप केमिस्ट्री के और सवाल जोड़ सकते हैं 
       ],
       math: [
-        { question: "1. यदि A = {1, 2, 3} तो A पर कितने तुल्यता संबंध (Equivalence relations) परिभाषित हो सकते हैं?", a: "3", b: "4", c: "5", d: "6", correct: "c" },
+        { question: "1. यदि A = {1, 2, 3} तो A पर कितने तुल्यता संबंध परिभाषित हो सकते हैं?", a: "3", b: "4", c: "5", d: "6", correct: "c" },
         { question: "2. d/dx (sin x) का मान क्या होगा?", a: "cos x", b: "-cos x", c: "tan x", d: "sec² x", correct: "a" }
-        // यहाँ गणित के सवाल जोड़ सकते हैं
       ]
     };
 
@@ -263,26 +288,29 @@
     let score = 0;
     let skippedCount = 0;
     let incorrectCount = 0;
+    
+    // Array to track user's answers for review
+    let userAnswersTrack = []; 
 
     // DOM Elements
     const subjectSelection = document.getElementById('subjectSelection');
     const quizContainer = document.getElementById('quizContainer');
     const resultContainer = document.getElementById('resultContainer');
+    const reviewContainer = document.getElementById('reviewContainer');
     const questionText = document.getElementById('questionText');
     const answerEls = document.querySelectorAll('.answer');
     
-    // Start Test for specific subject
+    // Start Test
     function startSubjectTest(subjectKey) {
       currentSubjectData = allQuestions[subjectKey];
+      userAnswersTrack = []; // Reset tracking
       
-      // Update UI Subject Name
       let subName = "";
       if(subjectKey === 'physics') subName = "भौतिक विज्ञान (Physics)";
       if(subjectKey === 'hindi') subName = "सामान्य हिंदी (Hindi)";
       if(subjectKey === 'chemistry') subName = "रसायन विज्ञान (Chemistry)";
       if(subjectKey === 'math') subName = "गणित (Mathematics)";
       document.getElementById('subjectNameDisplay').innerText = subName;
-      
       document.getElementById('totalQNum').innerText = currentSubjectData.length;
       
       subjectSelection.style.display = "none";
@@ -316,6 +344,10 @@
 
     // Skip Button Logic
     function skipQuestion() {
+      userAnswersTrack.push({
+        question: currentSubjectData[currentQuiz],
+        selected: null // null means skipped
+      });
       skippedCount++;
       moveToNext();
     }
@@ -324,6 +356,11 @@
     function submitAnswer() {
       const answer = getSelected();
       if(answer) {
+        userAnswersTrack.push({
+          question: currentSubjectData[currentQuiz],
+          selected: answer
+        });
+
         if(answer === currentSubjectData[currentQuiz].correct) {
           score++;
         } else {
@@ -344,7 +381,7 @@
       }
     }
 
-    // Show Final Attractive Results
+    // Show Final Results
     function showResults() {
       quizContainer.style.display = "none";
       resultContainer.style.display = "block";
@@ -352,14 +389,12 @@
       let totalQ = currentSubjectData.length;
       let percentage = Math.round((score / totalQ) * 100);
 
-      // Set Stats
       document.getElementById('resTotal').innerText = totalQ;
       document.getElementById('resCorrect').innerText = score;
       document.getElementById('resIncorrect').innerText = incorrectCount;
       document.getElementById('resSkipped').innerText = skippedCount;
       document.getElementById('resPercent').innerText = percentage + "%";
 
-      // Dynamic Message
       let msgEl = document.getElementById('resultMessage');
       if(percentage >= 80) {
         msgEl.innerHTML = "🌟 बहुत बढ़िया! आपकी बोर्ड परीक्षा की तैयारी शानदार है।";
@@ -371,6 +406,50 @@
         msgEl.innerHTML = "📚 मेहनत की ज़रुरत है! कृपया अपने नोट्स को दोबारा ध्यान से पढ़ें।";
         msgEl.style.color = "var(--danger)";
       }
+    }
+
+    // Show Review Section
+    function showReview() {
+      resultContainer.style.display = "none";
+      reviewContainer.style.display = "block";
+      
+      const reviewContent = document.getElementById('reviewContent');
+      reviewContent.innerHTML = ""; // Clear old content
+      
+      userAnswersTrack.forEach((item, index) => {
+        const qData = item.question;
+        const selectedOpt = item.selected;
+        const correctOpt = qData.correct;
+        
+        let statusHtml = "";
+        
+        if(selectedOpt === null) {
+          // Skipped
+          statusHtml = `
+            <div class="ans-box ans-skipped">⚠️ आपने यह सवाल छोड़ दिया था (Skipped)</div>
+            <div class="ans-box ans-correct">✅ सही जवाब: ${qData[correctOpt]}</div>
+          `;
+        } else if(selectedOpt === correctOpt) {
+          // Correct
+          statusHtml = `
+            <div class="ans-box ans-correct">✅ आपका जवाब सही है: ${qData[selectedOpt]}</div>
+          `;
+        } else {
+          // Incorrect
+          statusHtml = `
+            <div class="ans-box ans-wrong">❌ आपका जवाब: ${qData[selectedOpt]}</div>
+            <div class="ans-box ans-correct">✅ सही जवाब: ${qData[correctOpt]}</div>
+          `;
+        }
+
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('review-item');
+        questionDiv.innerHTML = `
+          <div class="review-q">${qData.question}</div>
+          ${statusHtml}
+        `;
+        reviewContent.appendChild(questionDiv);
+      });
     }
   </script>
 </body>
