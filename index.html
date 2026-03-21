@@ -36,95 +36,69 @@
     body { background-color: var(--bg-color); color: var(--text-color); transition: all 0.4s ease; line-height: 1.6; }
     a { text-decoration: none; }
 
-    /* --- Header & Glassmorphism Navbar --- */
+    /* --- Header --- */
     header {
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      padding: 15px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
+      background: var(--nav-bg); backdrop-filter: blur(10px); padding: 15px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color);
     }
     .logo {
-      font-size: 26px;
-      font-weight: 700;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 26px; font-weight: 700; background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     nav ul { list-style: none; display: flex; gap: 25px; }
-    nav ul li a { font-weight: 600; color: var(--text-color); transition: color 0.3s; font-size: 0.95rem; }
+    nav ul li a { font-weight: 600; color: var(--text-color); font-size: 0.95rem; }
     nav ul li a:hover { color: var(--primary-color); }
-    .mode-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-color); transition: transform 0.3s; }
-    .mode-btn:hover { transform: scale(1.1); }
+    .mode-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-color); }
 
-    /* --- Animated Hero Section --- */
+    /* --- Hero Section --- */
     .hero {
-      text-align: center;
-      padding: 80px 20px;
+      text-align: center; padding: 80px 20px; color: white;
       background: linear-gradient(-45deg, #4e54c8, #8f94fb, #ff4b2b, #ff416c);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      color: white;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      background-size: 400% 400%; animation: gradientBG 12s ease infinite;
+      border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
     }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
+    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; }
     .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; font-weight: 300; }
 
-    /* --- Sections Layout --- */
+    /* --- Sections & Cards --- */
     section { padding: 60px 5%; text-align: center; }
-    section h2 {
-      font-size: 2.2rem; margin-bottom: 40px; color: var(--text-color); font-weight: 700; position: relative; display: inline-block;
-    }
-    section h2::after {
-      content: ''; width: 60%; height: 4px; background: var(--primary-color); position: absolute; bottom: -10px; left: 20%; border-radius: 5px;
-    }
+    section h2 { font-size: 2.2rem; margin-bottom: 40px; color: var(--text-color); font-weight: 700; position: relative; display: inline-block; }
+    section h2::after { content: ''; width: 60%; height: 4px; background: var(--primary-color); position: absolute; bottom: -10px; left: 20%; border-radius: 5px; }
     .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-    /* --- Cards Design --- */
-    .card {
-      background-color: var(--card-bg); padding: 30px 20px; border-radius: 16px; box-shadow: var(--shadow);
-      border: 1px solid var(--border-color); transition: transform 0.4s ease, box-shadow 0.4s ease; position: relative; overflow: hidden;
-    }
-    .card::before {
-      content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    }
-    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-    .card h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--primary-color); }
-    .card p { margin-bottom: 15px; }
+    .card { background-color: var(--card-bg); padding: 30px 20px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--border-color); transition: transform 0.4s; position: relative; }
+    .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); }
+    .card:hover { transform: translateY(-10px); }
+    .card h3 { margin-bottom: 15px; color: var(--primary-color); }
 
     /* --- Buttons --- */
     .btn {
-      display: inline-block; padding: 10px 20px; margin-top: 10px; margin-bottom: 5px;
+      display: inline-block; padding: 10px 20px; margin-top: 10px;
       background: linear-gradient(45deg, var(--primary-color), #8f94fb); color: white !important;
-      border-radius: 30px; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 30px; font-weight: 600; border: none; cursor: pointer;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(78, 84, 200, 0.4); }
-    .btn-red { background: linear-gradient(45deg, #ff416c, #ff4b2b); }
-    .btn-red:hover { box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4); }
-    .btn-outline { background: transparent; color: var(--primary-color) !important; border: 2px solid var(--primary-color); }
-    .btn-outline:hover { background: var(--primary-color); color: white !important; }
 
+    /* --- Live Test Section Styling --- */
+    .quiz-container {
+      background-color: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow);
+      padding: 40px; max-width: 700px; margin: 0 auto; text-align: left; border: 1px solid var(--border-color);
+      display: none; /* Hidden by default, shown when test starts */
+    }
+    .quiz-header { font-size: 1.2rem; margin-bottom: 20px; font-weight: 600; color: var(--primary-color); }
+    .question { font-size: 1.4rem; font-weight: 600; margin-bottom: 20px; }
+    .options { list-style: none; padding: 0; }
+    .options li {
+      background: var(--bg-color); margin: 10px 0; padding: 15px; border-radius: 8px;
+      cursor: pointer; transition: background 0.3s; border: 1px solid var(--border-color);
+    }
+    .options li:hover { background: var(--primary-color); color: white; }
+    .options input { margin-right: 10px; cursor: pointer; }
+    .quiz-footer { text-align: center; margin-top: 20px; }
+    
     /* --- Footer --- */
     footer { background-color: var(--card-bg); text-align: center; padding: 25px; border-top: 1px solid var(--border-color); font-weight: 600; }
-
-    /* --- Responsive --- */
-    @media (max-width: 768px) {
-      nav ul { display: none; }
-      .hero h1 { font-size: 2.2rem; }
-      .logo { font-size: 20px; }
-    }
   </style>
 </head>
 <body>
@@ -133,10 +107,9 @@
     <div class="logo">BRGK BY VIPIN</div>
     <nav>
       <ul>
+        <li><a href="#competitive">Live Test</a></li>
         <li><a href="#board">Board Exams</a></li>
-        <li><a href="#competitive">Competitive Exams</a></li>
         <li><a href="#foundation">Foundation</a></li>
-        <li><a href="#freepdf">Free PDFs</a></li>
       </ul>
     </nav>
     <button id="modeToggle" class="mode-btn">🌙</button>
@@ -144,26 +117,31 @@
 
   <section class="hero">
     <h1>Master Your Exams in 2026-27 🚀</h1>
-    <p>UP Board (10th & 12th), Foundation Classes, aur Competitive Exams (UP Police, SSC, RRB) ki behtareen tayari ek hi platform par.</p>
+    <p>UP Board, Foundation Classes, aur Competitive Exams ki behtareen tayari ek hi platform par.</p>
   </section>
 
   <section id="competitive">
-    <h2>🎯 Competitive Exams (UP Police, SSC, RRB)</h2>
-    <div class="grid-container">
-      <div class="card">
-        <h3>👮‍♂️ UP Police (Constable / SI)</h3>
-        <p>Latest Syllabus, Mock Tests, aur Previous Year Papers ka solution.</p>
-        <a href="#" class="btn">View Study Material</a>
+    <h2>🔥 Live Mega Test (Competitive Exams)</h2>
+    
+    <div id="startTestCard" class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <h3>🏆 UP Police, SSC & RRB Mock Test</h3>
+      <p>Total Questions: 50 | Time: 45 Mins | All Subjects Mix</p>
+      <button onclick="startTest()" class="btn" style="font-size: 1.2rem; padding: 15px 30px;">Start Test Now 🚀</button>
+    </div>
+
+    <div id="quizContainer" class="quiz-container">
+      <div class="quiz-header">
+        Question <span id="currentQNum">1</span> of <span id="totalQNum">50</span>
       </div>
-      <div class="card">
-        <h3>🏛️ SSC (CGL, CHSL, GD)</h3>
-        <p>Objective Questions (GK, Reasoning, Maths) ki practice series.</p>
-        <a href="#" class="btn">Start Practicing</a>
-      </div>
-      <div class="card">
-        <h3>🚂 RRB (NTPC & Group D)</h3>
-        <p>Railway exams ke liye important Science aur GK ke notes.</p>
-        <a href="#" class="btn">Download Notes</a>
+      <div class="question" id="questionText">Question goes here...</div>
+      <ul class="options">
+        <li><input type="radio" name="answer" id="a" class="answer"><label for="a" id="a_text">Option A</label></li>
+        <li><input type="radio" name="answer" id="b" class="answer"><label for="b" id="b_text">Option B</label></li>
+        <li><input type="radio" name="answer" id="c" class="answer"><label for="c" id="c_text">Option C</label></li>
+        <li><input type="radio" name="answer" id="d" class="answer"><label for="d" id="d_text">Option D</label></li>
+      </ul>
+      <div class="quiz-footer">
+        <button onclick="submitAnswer()" class="btn" style="width: 100%;">Submit & Next</button>
       </div>
     </div>
   </section>
@@ -177,75 +155,10 @@
         <a href="#" class="btn">View Syllabus</a>
       </div>
       <div class="card">
-        <h3>⏳ PYQs & Solutions</h3>
-        <p>Pichle saalo ke question papers (All Subjects).</p>
-        <a href="https://www.vedantu.com/up-board/upmsp-previous-year-question-paper" target="_blank" class="btn">Vedantu PYQs</a>
-        <a href="https://upboardbook.com/previous-year-papers" target="_blank" class="btn btn-outline">All Classes PYQs</a>
-      </div>
-      <div class="card">
         <h3>🗒️ Model Papers</h3>
         <p>UPMSP official aur latest sample papers (Class 10th & 12th).</p>
-        <a href="https://upmsp.edu.in/modal-paper.html" target="_blank" class="btn">Official Papers</a><br>
-        <a href="https://www.jagranjosh.com/articles/up-board-upmsp-class-12-model-papers-2025-download-in-pdf-1734502354-1" target="_blank" class="btn btn-outline">12th Model Papers</a>
-        <a href="https://www.jagranjosh.com/articles/up-board-class-10th-model-sample-paper-free-pdf-download-1734503229-1" target="_blank" class="btn btn-outline">10th Model Papers</a>
+        <a href="https://upmsp.edu.in/modal-paper.html" target="_blank" class="btn">Official Papers</a>
       </div>
-    </div>
-  </section>
-
-  <section id="foundation">
-    <h2>🌱 Foundation Classes (2nd to 10th)</h2>
-    <div class="grid-container">
-      <div class="card">
-        <h3>🔢 Mathematics Basics</h3>
-        <p>Class 2 se 10th tak ke bachon ke liye aasan Maths tricks aur syllabus.</p>
-        <a href="#" class="btn">Explore Maths</a>
-      </div>
-      <div class="card">
-        <h3>📝 English Grammar</h3>
-        <p>Tenses, Active-Passive, aur speaking skills ko majboot banayein.</p>
-        <a href="#" class="btn">Learn Grammar</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="freepdf">
-    <h2>📥 Free PDF Library</h2>
-    <div class="grid-container">
-      <div class="card">
-        <h3>English Grammar</h3>
-        <p>Grammar rules, Writing skills, Unseen passages & letters.</p>
-        <a href="#" class="btn">📥 Download Notes</a>
-      </div>
-      <div class="card">
-        <h3>Mathematics Formula</h3>
-        <p>Class 12th ke sabhi important formulas aur short tricks ek jagah.</p>
-        <a href="#" class="btn">📥 Download PDF</a>
-      </div>
-      <div class="card">
-        <h3>Physics & Chemistry</h3>
-        <p>Important derivations, reactions, and objective questions.</p>
-        <a href="#" class="btn">📥 Download PDF</a>
-      </div>
-      <div class="card">
-        <h3>GK & Current Affairs</h3>
-        <p>Competitive exams ke liye daily aur monthly GK notes.</p>
-        <a href="#" class="btn">📥 Download PDF</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="connect">
-    <h2>🌐 Let's Connect</h2>
-    <p>Daily updates, live classes aur doubts clear karne ke liye humari community join karein:</p>
-    <div style="margin-top: 25px;">
-      <a href="https://youtube.com/@brgk_by_vipin" target="_blank" class="btn btn-red" style="font-size: 1.1rem; padding: 15px 30px;">📺 Subscribe on YouTube</a>
-      <a href="https://t.me/BRGK_BY_VIPIN_SIR" target="_blank" class="btn" style="background: linear-gradient(45deg, #0088cc, #00bfff); font-size: 1.1rem; padding: 15px 30px;">✈️ Join Telegram</a>
-    </div>
-    
-    <div style="margin-top: 50px;">
-      <h3>📞 Contact Support</h3>
-      <p style="margin-top: 15px;">WhatsApp/Call: <a href="tel:9882409061" style="color: var(--primary-color);"><strong>9882409061</strong></a></p>
-      <p>Email: <a href="mailto:your-email@example.com" style="color: var(--primary-color);"><strong>your-email@example.com</strong></a></p>
     </div>
   </section>
 
@@ -254,15 +167,115 @@
   </footer>
 
   <script>
+    // Dark Mode Logic
     const toggleBtn = document.getElementById('modeToggle');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
-      if (document.body.classList.contains('dark-mode')) {
-        toggleBtn.textContent = '☀️'; 
-      } else {
-        toggleBtn.textContent = '🌙'; 
-      }
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     });
+
+    // ==========================================
+    // MOCK TEST JAVASCRIPT LOGIC
+    // ==========================================
+
+    // Yahan par aap apne 50 questions add kar sakte hain. Maine 5 demo add kiye hain.
+    const quizData = [
+      {
+        question: "Uttar Pradesh ke pehle Mukhyamantri kaun the?",
+        a: "Sucheta Kriplani", b: "Govind Ballabh Pant", c: "Charan Singh", d: "Yogi Adityanath",
+        correct: "b"
+      },
+      {
+        question: "Indian Constitution ka kaunsa Article 'Right to Equality' se juda hai?",
+        a: "Article 12", b: "Article 14", c: "Article 17", d: "Article 21",
+        correct: "b"
+      },
+      {
+        question: "Sulfuric Acid ka chemical formula kya hota hai? (RRB Science)",
+        a: "H2O", b: "NaCl", c: "H2SO4", d: "HCl",
+        correct: "c"
+      },
+      {
+        question: "Maurya Samrajya (Empire) ki sthapana kisne ki thi?",
+        a: "Ashoka", b: "Bindusara", c: "Chandragupta Maurya", d: "Bimbisara",
+        correct: "c"
+      },
+      {
+        question: "Maths: Agar 10 vastuon ka Cost Price, 8 vastuon ke Selling Price ke barabar hai, toh Profit % kya hoga?",
+        a: "20%", b: "25%", c: "15%", d: "30%",
+        correct: "b"
+      }
+      // Aap baaki 45 questions yahan same format me comma (,) lagakar add kar sakte hain.
+    ];
+
+    const startTestCard = document.getElementById('startTestCard');
+    const quizContainer = document.getElementById('quizContainer');
+    const questionText = document.getElementById('questionText');
+    const a_text = document.getElementById('a_text');
+    const b_text = document.getElementById('b_text');
+    const c_text = document.getElementById('c_text');
+    const d_text = document.getElementById('d_text');
+    const answerEls = document.querySelectorAll('.answer');
+    
+    let currentQuiz = 0;
+    let score = 0;
+
+    function startTest() {
+      startTestCard.style.display = "none";
+      quizContainer.style.display = "block";
+      document.getElementById('totalQNum').innerText = quizData.length;
+      loadQuiz();
+    }
+
+    function loadQuiz() {
+      deselectAnswers();
+      const currentQuizData = quizData[currentQuiz];
+      document.getElementById('currentQNum').innerText = currentQuiz + 1;
+      questionText.innerText = currentQuizData.question;
+      a_text.innerText = currentQuizData.a;
+      b_text.innerText = currentQuizData.b;
+      c_text.innerText = currentQuizData.c;
+      d_text.innerText = currentQuizData.d;
+    }
+
+    function deselectAnswers() {
+      answerEls.forEach(answerEl => answerEl.checked = false);
+    }
+
+    function getSelected() {
+      let answer;
+      answerEls.forEach(answerEl => {
+        if(answerEl.checked) {
+          answer = answerEl.id;
+        }
+      });
+      return answer;
+    }
+
+    function submitAnswer() {
+      const answer = getSelected();
+      if(answer) {
+        if(answer === quizData[currentQuiz].correct) {
+          score++;
+        }
+        currentQuiz++;
+        if(currentQuiz < quizData.length) {
+          loadQuiz();
+        } else {
+          // Final Score Display
+          quizContainer.innerHTML = `
+            <div style="text-align:center;">
+              <h2>🏆 Test Completed!</h2>
+              <h3 style="margin: 20px 0; color: var(--primary-color); font-size: 2rem;">Your Score: ${score}/${quizData.length}</h3>
+              <p>Great job! Regular practice is the key to success in competitive exams.</p>
+              <button onclick="location.reload()" class="btn" style="margin-top: 20px;">Return to Home</button>
+            </div>
+          `;
+        }
+      } else {
+        alert("Bhai, pehle ek option toh select karo!");
+      }
+    }
   </script>
 </body>
 </html>
