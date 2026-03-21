@@ -36,7 +36,7 @@
     body { background-color: var(--bg-color); color: var(--text-color); transition: all 0.4s ease; line-height: 1.6; }
     a { text-decoration: none; }
 
-    /* --- Header --- */
+    /* --- Header & Navbar --- */
     header {
       background: var(--nav-bg); backdrop-filter: blur(10px); padding: 15px 5%;
       display: flex; justify-content: space-between; align-items: center;
@@ -46,59 +46,78 @@
       font-size: 26px; font-weight: 700; background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    nav ul { list-style: none; display: flex; gap: 25px; }
-    nav ul li a { font-weight: 600; color: var(--text-color); font-size: 0.95rem; }
+    nav ul { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav ul li a { font-weight: 600; color: var(--text-color); font-size: 0.95rem; transition: color 0.3s; }
     nav ul li a:hover { color: var(--primary-color); }
-    .mode-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-color); }
+    .mode-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-color); transition: transform 0.3s; }
+    .mode-btn:hover { transform: scale(1.1); }
 
-    /* --- Hero Section --- */
+    /* --- Animated Hero Section --- */
     .hero {
       text-align: center; padding: 80px 20px; color: white;
       background: linear-gradient(-45deg, #4e54c8, #8f94fb, #ff4b2b, #ff416c);
       background-size: 400% 400%; animation: gradientBG 12s ease infinite;
       border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
     @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; }
+    .hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
     .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; font-weight: 300; }
 
-    /* --- Sections & Cards --- */
+    /* --- Sections & Cards Layout --- */
     section { padding: 60px 5%; text-align: center; }
     section h2 { font-size: 2.2rem; margin-bottom: 40px; color: var(--text-color); font-weight: 700; position: relative; display: inline-block; }
     section h2::after { content: ''; width: 60%; height: 4px; background: var(--primary-color); position: absolute; bottom: -10px; left: 20%; border-radius: 5px; }
     .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-    .card { background-color: var(--card-bg); padding: 30px 20px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--border-color); transition: transform 0.4s; position: relative; }
+    
+    .card {
+      background-color: var(--card-bg); padding: 30px 20px; border-radius: 16px; box-shadow: var(--shadow);
+      border: 1px solid var(--border-color); transition: transform 0.4s ease, box-shadow 0.4s ease; position: relative; overflow: hidden;
+    }
     .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); }
-    .card:hover { transform: translateY(-10px); }
-    .card h3 { margin-bottom: 15px; color: var(--primary-color); }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+    .card h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--primary-color); }
+    .card p { margin-bottom: 15px; }
 
     /* --- Buttons --- */
     .btn {
-      display: inline-block; padding: 10px 20px; margin-top: 10px;
+      display: inline-block; padding: 10px 20px; margin-top: 10px; margin-bottom: 5px;
       background: linear-gradient(45deg, var(--primary-color), #8f94fb); color: white !important;
-      border-radius: 30px; font-weight: 600; border: none; cursor: pointer;
+      border-radius: 30px; font-weight: 600; font-size: 0.9rem; transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(78, 84, 200, 0.4); }
+    .btn-red { background: linear-gradient(45deg, #ff416c, #ff4b2b); }
+    .btn-red:hover { box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4); }
+    .btn-outline { background: transparent; color: var(--primary-color) !important; border: 2px solid var(--primary-color); }
+    .btn-outline:hover { background: var(--primary-color); color: white !important; }
 
     /* --- Live Test Section Styling --- */
     .quiz-container {
       background-color: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow);
-      padding: 40px; max-width: 700px; margin: 0 auto; text-align: left; border: 1px solid var(--border-color);
-      display: none; /* Hidden by default, shown when test starts */
+      padding: 40px; max-width: 800px; margin: 0 auto; text-align: left; border: 1px solid var(--border-color);
+      display: none; 
     }
-    .quiz-header { font-size: 1.2rem; margin-bottom: 20px; font-weight: 600; color: var(--primary-color); }
+    .quiz-header { font-size: 1.2rem; margin-bottom: 20px; font-weight: 600; color: var(--primary-color); display: flex; justify-content: space-between; }
     .question { font-size: 1.4rem; font-weight: 600; margin-bottom: 20px; }
     .options { list-style: none; padding: 0; }
     .options li {
       background: var(--bg-color); margin: 10px 0; padding: 15px; border-radius: 8px;
-      cursor: pointer; transition: background 0.3s; border: 1px solid var(--border-color);
+      cursor: pointer; transition: background 0.3s; border: 1px solid var(--border-color); font-size: 1.1rem;
     }
     .options li:hover { background: var(--primary-color); color: white; }
-    .options input { margin-right: 10px; cursor: pointer; }
+    .options input { margin-right: 10px; cursor: pointer; transform: scale(1.2); }
     .quiz-footer { text-align: center; margin-top: 20px; }
-    
+
     /* --- Footer --- */
     footer { background-color: var(--card-bg); text-align: center; padding: 25px; border-top: 1px solid var(--border-color); font-weight: 600; }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+      .logo { font-size: 20px; }
+      .quiz-container { padding: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -107,9 +126,11 @@
     <div class="logo">BRGK BY VIPIN</div>
     <nav>
       <ul>
-        <li><a href="#competitive">Live Test</a></li>
+        <li><a href="#test">Live Test</a></li>
         <li><a href="#board">Board Exams</a></li>
+        <li><a href="#competitive">Competitive</a></li>
         <li><a href="#foundation">Foundation</a></li>
+        <li><a href="#freepdf">Free PDFs</a></li>
       </ul>
     </nav>
     <button id="modeToggle" class="mode-btn">🌙</button>
@@ -117,21 +138,22 @@
 
   <section class="hero">
     <h1>Master Your Exams in 2026-27 🚀</h1>
-    <p>UP Board, Foundation Classes, aur Competitive Exams ki behtareen tayari ek hi platform par.</p>
+    <p>UP Board (10th & 12th), Foundation Classes, aur Competitive Exams (UP Police, SSC, RRB) ki behtareen tayari एक ही प्लेटफार्म पर।</p>
   </section>
 
-  <section id="competitive">
-    <h2>🔥 Live Mega Test (Competitive Exams)</h2>
+  <section id="test">
+    <h2>🔥 Live Mega Test (Hindi Medium)</h2>
     
     <div id="startTestCard" class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
       <h3>🏆 UP Police, SSC & RRB Mock Test</h3>
-      <p>Total Questions: 50 | Time: 45 Mins | All Subjects Mix</p>
-      <button onclick="startTest()" class="btn" style="font-size: 1.2rem; padding: 15px 30px;">Start Test Now 🚀</button>
+      <p>Total Questions: 50 | Subject: Mix (GK, Science, Hindi) | Medium: Hindi</p>
+      <button onclick="startTest()" class="btn btn-red" style="font-size: 1.2rem; padding: 15px 30px;">Start Test Now 🚀</button>
     </div>
 
     <div id="quizContainer" class="quiz-container">
       <div class="quiz-header">
-        Question <span id="currentQNum">1</span> of <span id="totalQNum">50</span>
+        <span>Question <span id="currentQNum">1</span> of <span id="totalQNum">50</span></span>
+        <span style="color: var(--secondary-color);">BRGK BY VIPIN</span>
       </div>
       <div class="question" id="questionText">Question goes here...</div>
       <ul class="options">
@@ -141,7 +163,28 @@
         <li><input type="radio" name="answer" id="d" class="answer"><label for="d" id="d_text">Option D</label></li>
       </ul>
       <div class="quiz-footer">
-        <button onclick="submitAnswer()" class="btn" style="width: 100%;">Submit & Next</button>
+        <button onclick="submitAnswer()" class="btn" style="width: 100%; font-size: 1.1rem; padding: 12px;">Submit & Next</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="competitive">
+    <h2>🎯 Competitive Exams Study Material</h2>
+    <div class="grid-container">
+      <div class="card">
+        <h3>👮‍♂️ UP Police (Constable / SI)</h3>
+        <p>Latest Syllabus, Mock Tests, aur Previous Year Papers ka solution.</p>
+        <a href="#" class="btn">View Study Material</a>
+      </div>
+      <div class="card">
+        <h3>🏛️ SSC (CGL, CHSL, GD)</h3>
+        <p>Objective Questions (GK, Reasoning, Maths) ki practice series.</p>
+        <a href="#" class="btn">Start Practicing</a>
+      </div>
+      <div class="card">
+        <h3>🚂 RRB (NTPC & Group D)</h3>
+        <p>Railway exams ke liye important Science aur GK ke notes.</p>
+        <a href="#" class="btn">Download Notes</a>
       </div>
     </div>
   </section>
@@ -155,10 +198,75 @@
         <a href="#" class="btn">View Syllabus</a>
       </div>
       <div class="card">
+        <h3>⏳ PYQs & Solutions</h3>
+        <p>Pichle 5 saalo ke question papers (All Subjects).</p>
+        <a href="https://www.vedantu.com/up-board/upmsp-previous-year-question-paper" target="_blank" class="btn">Vedantu PYQs</a>
+        <a href="https://upboardbook.com/previous-year-papers" target="_blank" class="btn btn-outline">All Classes PYQs</a>
+      </div>
+      <div class="card">
         <h3>🗒️ Model Papers</h3>
         <p>UPMSP official aur latest sample papers (Class 10th & 12th).</p>
-        <a href="https://upmsp.edu.in/modal-paper.html" target="_blank" class="btn">Official Papers</a>
+        <a href="https://upmsp.edu.in/modal-paper.html" target="_blank" class="btn">Official Papers</a><br>
+        <a href="https://www.jagranjosh.com/articles/up-board-upmsp-class-12-model-papers-2025-download-in-pdf-1734502354-1" target="_blank" class="btn btn-outline">12th Model Papers</a>
+        <a href="https://www.jagranjosh.com/articles/up-board-class-10th-model-sample-paper-free-pdf-download-1734503229-1" target="_blank" class="btn btn-outline">10th Model Papers</a>
       </div>
+    </div>
+  </section>
+
+  <section id="foundation">
+    <h2>🌱 Foundation Classes (2nd to 10th)</h2>
+    <div class="grid-container">
+      <div class="card">
+        <h3>🔢 Mathematics Basics</h3>
+        <p>Class 2 se 10th tak ke bachon ke liye aasan Maths tricks aur syllabus.</p>
+        <a href="#" class="btn">Explore Maths</a>
+      </div>
+      <div class="card">
+        <h3>📝 English Grammar</h3>
+        <p>Tenses, Active-Passive, aur speaking skills ko majboot banayein.</p>
+        <a href="#" class="btn">Learn Grammar</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="freepdf">
+    <h2>📥 Free PDF Library</h2>
+    <div class="grid-container">
+      <div class="card">
+        <h3>English Grammar</h3>
+        <p>Grammar rules, Writing skills, Unseen passages & letters.</p>
+        <a href="#" class="btn">📥 Download Notes</a>
+      </div>
+      <div class="card">
+        <h3>Mathematics Formula</h3>
+        <p>Class 12th ke sabhi important formulas aur short tricks.</p>
+        <a href="#" class="btn">📥 Download PDF</a>
+      </div>
+      <div class="card">
+        <h3>Physics & Chemistry</h3>
+        <p>Important derivations, reactions, and objective questions.</p>
+        <a href="#" class="btn">📥 Download PDF</a>
+      </div>
+      <div class="card">
+        <h3>GK & Current Affairs</h3>
+        <p>Competitive exams ke liye daily aur monthly GK notes.</p>
+        <a href="#" class="btn">📥 Download PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="connect">
+    <h2>🌐 Let's Connect</h2>
+    <p>Daily updates, live classes aur doubts clear karne ke liye हमारी कम्युनिटी से जुड़ें:</p>
+    <div style="margin-top: 25px;">
+      <a href="https://youtube.com/@brgk_by_vipin" target="_blank" class="btn btn-red" style="font-size: 1.1rem; padding: 15px 30px;">📺 Subscribe on YouTube</a>
+      <a href="https://t.me/BRGK_BY_VIPIN_SIR" target="_blank" class="btn" style="background: linear-gradient(45deg, #0088cc, #00bfff); font-size: 1.1rem; padding: 15px 30px;">✈️ Join Telegram</a>
+    </div>
+    
+    <div style="margin-top: 50px;">
+      <h3>📞 Contact Support</h3>
+      <p style="margin-top: 15px;">WhatsApp/Call: <a href="tel:9882409061" style="color: var(--primary-color);"><strong>9882409061</strong></a></p>
+      <p>Email: <a href="mailto:your-email@example.com" style="color: var(--primary-color);"><strong>your-email@example.com</strong></a></p>
     </div>
   </section>
 
@@ -175,37 +283,59 @@
     });
 
     // ==========================================
-    // MOCK TEST JAVASCRIPT LOGIC
+    // 50 QUESTIONS HINDI MOCK TEST LOGIC
     // ==========================================
-
-    // Yahan par aap apne 50 questions add kar sakte hain. Maine 5 demo add kiye hain.
     const quizData = [
-      {
-        question: "Uttar Pradesh ke pehle Mukhyamantri kaun the?",
-        a: "Sucheta Kriplani", b: "Govind Ballabh Pant", c: "Charan Singh", d: "Yogi Adityanath",
-        correct: "b"
-      },
-      {
-        question: "Indian Constitution ka kaunsa Article 'Right to Equality' se juda hai?",
-        a: "Article 12", b: "Article 14", c: "Article 17", d: "Article 21",
-        correct: "b"
-      },
-      {
-        question: "Sulfuric Acid ka chemical formula kya hota hai? (RRB Science)",
-        a: "H2O", b: "NaCl", c: "H2SO4", d: "HCl",
-        correct: "c"
-      },
-      {
-        question: "Maurya Samrajya (Empire) ki sthapana kisne ki thi?",
-        a: "Ashoka", b: "Bindusara", c: "Chandragupta Maurya", d: "Bimbisara",
-        correct: "c"
-      },
-      {
-        question: "Maths: Agar 10 vastuon ka Cost Price, 8 vastuon ke Selling Price ke barabar hai, toh Profit % kya hoga?",
-        a: "20%", b: "25%", c: "15%", d: "30%",
-        correct: "b"
-      }
-      // Aap baaki 45 questions yahan same format me comma (,) lagakar add kar sakte hain.
+      { question: "1. उत्तर प्रदेश के पहले मुख्यमंत्री कौन थे?", a: "सुचेता कृपलानी", b: "गोविंद वल्लभ पंत", c: "चौधरी चरण सिंह", d: "योगी आदित्यनाथ", correct: "b" },
+      { question: "2. भारतीय संविधान में कुल कितनी अनुसूचियां हैं?", a: "8", b: "10", c: "12", d: "14", correct: "c" },
+      { question: "3. पानीपत का प्रथम युद्ध किस वर्ष हुआ था?", a: "1526", b: "1556", c: "1761", d: "1576", correct: "a" },
+      { question: "4. मानव शरीर की सबसे बड़ी हड्डी कौन सी है?", a: "स्टेप्स", b: "फीमर (जांघ की हड्डी)", c: "टीबिया", d: "कपाल", correct: "b" },
+      { question: "5. 'कमल' का पर्यायवाची शब्द क्या है?", a: "जलद", b: "पंकज", c: "दिनकर", d: "सुधा", correct: "b" },
+      { question: "6. उत्तर प्रदेश में लोकसभा की कुल कितनी सीटें हैं?", a: "75", b: "80", c: "85", d: "90", correct: "b" },
+      { question: "7. जल (Water) का रासायनिक सूत्र क्या है?", a: "CO2", b: "NaCl", c: "H2O", d: "O2", correct: "c" },
+      { question: "8. 'आकाश' का विलोम शब्द क्या होगा?", a: "धरती", b: "पाताल", c: "समुद्र", d: "गगन", correct: "b" },
+      { question: "9. वास्कोडिगामा भारत कब आया था?", a: "1492", b: "1498", c: "1502", d: "1526", correct: "b" },
+      { question: "10. भारत की सबसे लंबी नदी कौन सी है?", a: "यमुना", b: "ब्रह्मपुत्र", c: "गोदावरी", d: "गंगा", correct: "d" },
+      { question: "11. 'आँख का तारा होना' मुहावरे का क्या अर्थ है?", a: "आँख में दर्द होना", b: "बहुत प्यारा होना", c: "दुश्मन होना", d: "तारे देखना", correct: "b" },
+      { question: "12. चौरी-चौरा कांड किस वर्ष हुआ था?", a: "1919", b: "1920", c: "1922", d: "1925", correct: "c" },
+      { question: "13. उत्तर प्रदेश का राजकीय पुष्प कौन सा है?", a: "कमल", b: "गुलाब", c: "गेंदा", d: "पलाश (टेसू)", correct: "d" },
+      { question: "14. नीति आयोग का अध्यक्ष कौन होता है?", a: "राष्ट्रपति", b: "वित्त मंत्री", c: "प्रधानमंत्री", d: "उपराष्ट्रपति", correct: "c" },
+      { question: "15. ध्वनि की चाल सबसे अधिक किसमें होती है?", a: "निर्वात में", b: "जल में", c: "हवा में", d: "ठोस (Solid) में", correct: "d" },
+      { question: "16. 'महोत्सव' का सही संधि विच्छेद क्या होगा?", a: "मह + उत्सव", b: "महा + उत्सव", c: "महो + त्सव", d: "मही + उत्सव", correct: "b" },
+      { question: "17. काजीरंगा राष्ट्रीय उद्यान किस राज्य में स्थित है?", a: "पश्चिम बंगाल", b: "असम", c: "मध्य प्रदेश", d: "उत्तराखंड", correct: "b" },
+      { question: "18. आर्य समाज की स्थापना किसने की थी?", a: "स्वामी विवेकानंद", b: "राजा राममोहन राय", c: "स्वामी दयानंद सरस्वती", d: "ज्योतिबा फुले", correct: "c" },
+      { question: "19. जो ईश्वर में विश्वास रखता हो, उसे क्या कहते हैं?", a: "नास्तिक", b: "आस्तिक", c: "अज्ञेय", d: "धार्मिक", correct: "b" },
+      { question: "20. बल (Force) का SI मात्रक क्या है?", a: "पास्कल", b: "जूल", c: "न्यूटन", d: "वाट", correct: "c" },
+      { question: "21. क्षेत्रफल की दृष्टि से भारत का विश्व में कौन सा स्थान है?", a: "पांचवां", b: "छठा", c: "सातवां", d: "आठवां", correct: "c" },
+      { question: "22. उत्तर प्रदेश का उच्च न्यायालय कहाँ स्थित है?", a: "लखनऊ", b: "कानपुर", c: "प्रयागराज (इलाहाबाद)", d: "वाराणसी", correct: "c" },
+      { question: "23. रक्त का लाल रंग किसके कारण होता है?", a: "प्लाज्मा", b: "हीमोग्लोबिन", c: "प्लेटलेट्स", d: "WBC", correct: "b" },
+      { question: "24. 'चौराहा' शब्द में कौन सा समास है?", a: "द्वंद्व समास", b: "कर्मधारय समास", c: "बहुव्रीहि समास", d: "द्विगु समास", correct: "d" },
+      { question: "25. भारत की पहली महिला शासिका कौन थीं?", a: "चाँद बीबी", b: "रजिया सुल्तान", c: "रानी लक्ष्मीबाई", d: "नूरजहां", correct: "b" },
+      { question: "26. सूर्य के प्रकाश से हमें कौन सा विटामिन प्राप्त होता है?", a: "विटामिन A", b: "विटामिन B", c: "विटामिन C", d: "विटामिन D", correct: "d" },
+      { question: "27. 'गुलाबी शहर' (Pink City) के नाम से किसे जाना जाता है?", a: "जोधपुर", b: "उदयपुर", c: "जयपुर", d: "अहमदाबाद", correct: "c" },
+      { question: "28. संविधान सभा की प्रारूप समिति के अध्यक्ष कौन थे?", a: "डॉ. राजेंद्र प्रसाद", b: "जवाहरलाल नेहरू", c: "डॉ. बी.आर. अंबेडकर", d: "सरदार पटेल", correct: "c" },
+      { question: "29. हिंदी वर्णमाला में कुल कितने मूल स्वर होते हैं?", a: "11", b: "13", c: "9", d: "15", correct: "a" },
+      { question: "30. आगरा शहर की स्थापना किसने की थी?", a: "अकबर", b: "सिकंदर लोदी", c: "शाहजहां", d: "इल्तुतमिश", correct: "b" },
+      { question: "31. एक त्रिभुज के तीनों आंतरिक कोणों का योग कितना होता है?", a: "90°", b: "180°", c: "360°", d: "270°", correct: "b" },
+      { question: "32. वायुमंडल में सबसे अधिक मात्रा में कौन सी गैस पाई जाती है?", a: "ऑक्सीजन", b: "कार्बन डाइऑक्साइड", c: "नाइट्रोजन", d: "आर्गन", correct: "c" },
+      { question: "33. 'अंधे की लकड़ी' मुहावरे का सही अर्थ क्या है?", a: "अनपढ़ व्यक्ति", b: "एकमात्र सहारा", c: "अंधे व्यक्ति की छड़ी", d: "कमजोर होना", correct: "b" },
+      { question: "34. भारत का सबसे छोटा राज्य कौन सा है?", a: "सिक्किम", b: "त्रिपुरा", c: "गोवा", d: "मिजोरम", correct: "c" },
+      { question: "35. राज्य सभा के सदस्यों का कार्यकाल कितने वर्ष का होता है?", a: "4 वर्ष", b: "5 वर्ष", c: "6 वर्ष", d: "आजीवन", correct: "c" },
+      { question: "36. महात्मा बुद्ध ने अपना पहला उपदेश कहाँ दिया था?", a: "बोधगया", b: "लुम्बिनी", c: "कुशीनगर", d: "सारनाथ", correct: "d" },
+      { question: "37. 'अग्नि' का तद्भव रूप क्या होगा?", a: "अनल", b: "पावक", c: "आग", d: "दहन", correct: "c" },
+      { question: "38. उत्तर प्रदेश दिवस कब मनाया जाता है?", a: "24 जनवरी", b: "1 नवंबर", c: "15 अगस्त", d: "26 जनवरी", correct: "a" },
+      { question: "39. निकट दृष्टि दोष को दूर करने के लिए किस लेंस का प्रयोग किया जाता है?", a: "उत्तल लेंस", b: "अवतल लेंस", c: "समतल लेंस", d: "बाइफोकल लेंस", correct: "b" },
+      { question: "40. दुधवा राष्ट्रीय उद्यान उत्तर प्रदेश के किस जिले में है?", a: "पीलीभीत", b: "लखीमपुर खीरी", c: "बहराइच", d: "सीतापुर", correct: "b" },
+      { question: "41. 'करो या मरो' का नारा किसने दिया था?", a: "सुभाष चंद्र बोस", b: "भगत सिंह", c: "महात्मा गांधी", d: "लाला लाजपत राय", correct: "c" },
+      { question: "42. मूल अधिकार संविधान के किस भाग में वर्णित हैं?", a: "भाग 2", b: "भाग 3", c: "भाग 4", d: "भाग 5", correct: "b" },
+      { question: "43. भारत कला भवन कहाँ स्थित है?", a: "प्रयागराज", b: "लखनऊ", c: "आगरा", d: "वाराणसी", correct: "d" },
+      { question: "44. नवाबों का शहर किसे कहा जाता है?", a: "हैदराबाद", b: "लखनऊ", c: "भोपाल", d: "दिल्ली", correct: "b" },
+      { question: "45. इनमें से शुद्ध वर्तनी वाला शब्द कौन सा है?", a: "उज्वल", b: "उज्जवल", c: "उज्ज्वल", d: "उजवल", correct: "c" },
+      { question: "46. विद्युत धारा को मापने का यंत्र क्या कहलाता है?", a: "वोल्टमीटर", b: "बैरोमीटर", c: "अमीटर", d: "थर्मामीटर", correct: "c" },
+      { question: "47. राष्ट्रपति का कार्यकाल कितने वर्ष का होता है?", a: "4 वर्ष", b: "5 वर्ष", c: "6 वर्ष", d: "तय नहीं है", correct: "b" },
+      { question: "48. दुनिया का सबसे बड़ा महाद्वीप कौन सा है?", a: "अफ्रीका", b: "उत्तरी अमेरिका", c: "यूरोप", d: "एशिया", correct: "d" },
+      { question: "49. वृत्त (Circle) के क्षेत्रफल का सूत्र क्या है?", a: "2πr", b: "πr²", c: "πd", d: "2πr²", correct: "b" },
+      { question: "50. जो कभी बूढ़ा न हो, उसे एक शब्द में क्या कहेंगे?", a: "अमर", b: "अजर", c: "चिरंजीवी", d: "युवा", correct: "b" }
     ];
 
     const startTestCard = document.getElementById('startTestCard');
@@ -263,17 +393,22 @@
           loadQuiz();
         } else {
           // Final Score Display
+          let performanceMsg = "";
+          if(score >= 40) performanceMsg = "Outstanding! आपकी तैयारी बहुत शानदार है। 🌟";
+          else if(score >= 25) performanceMsg = "Good! थोड़ी और मेहनत से आप एग्जाम क्लियर कर सकते हैं। 👍";
+          else performanceMsg = "Needs Improvement! आपको नोट्स और पीडीएफ पढ़ने की ज़रुरत है। 📚";
+
           quizContainer.innerHTML = `
-            <div style="text-align:center;">
+            <div style="text-align:center; padding: 20px;">
               <h2>🏆 Test Completed!</h2>
-              <h3 style="margin: 20px 0; color: var(--primary-color); font-size: 2rem;">Your Score: ${score}/${quizData.length}</h3>
-              <p>Great job! Regular practice is the key to success in competitive exams.</p>
-              <button onclick="location.reload()" class="btn" style="margin-top: 20px;">Return to Home</button>
+              <h3 style="margin: 20px 0; color: var(--primary-color); font-size: 2.5rem;">Your Score: ${score} / ${quizData.length}</h3>
+              <p style="font-size: 1.2rem; font-weight: bold; color: var(--secondary-color);">${performanceMsg}</p>
+              <button onclick="location.reload()" class="btn" style="margin-top: 30px; font-size: 1.1rem; padding: 12px 25px;">Go to Home Page</button>
             </div>
           `;
         }
       } else {
-        alert("Bhai, pehle ek option toh select karo!");
+        alert("भाई, कृपया आगे बढ़ने से पहले एक विकल्प (Option) चुनें! 🙏");
       }
     }
   </script>
