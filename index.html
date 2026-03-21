@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
@@ -86,25 +86,37 @@
       background-color: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow);
       padding: 40px; text-align: left; border: 1px solid var(--border-color); display: none;
     }
-    .quiz-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 600; color: var(--primary-color); margin-bottom: 25px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
+    
+    /* Timer Style */
+    .quiz-info-bar { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 25px; }
+    .subject-name { font-size: 1.2rem; font-weight: 600; color: var(--primary-color); }
+    .timer { font-size: 1.4rem; font-weight: 700; color: var(--danger); background: rgba(231, 76, 60, 0.1); padding: 5px 15px; border-radius: 20px; }
+    
+    .question-status { font-size: 1.1rem; font-weight: 600; color: var(--text-color); margin-bottom: 20px; }
     .question { font-size: 1.5rem; font-weight: 600; margin-bottom: 25px; }
+    
+    /* Clickable Options */
     .options { list-style: none; }
     .options li {
-      background: var(--bg-color); margin: 12px 0; padding: 15px 20px; border-radius: 10px;
-      cursor: pointer; transition: background 0.3s, border 0.3s; border: 2px solid transparent; font-size: 1.1rem;
+      background: var(--bg-color); margin: 12px 0; border-radius: 10px;
+      transition: background 0.3s, border 0.3s; border: 2px solid transparent; font-size: 1.1rem;
     }
     .options li:hover { border-color: var(--primary-color); }
+    
+    /* Making whole row clickable using label */
+    .options label { display: flex; align-items: center; width: 100%; height: 100%; padding: 15px 20px; cursor: pointer; }
     .options input { margin-right: 15px; transform: scale(1.3); cursor: pointer; }
     
     /* --- Buttons --- */
     .btn-group { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; justify-content: center; }
     .btn {
-      padding: 15px 25px; border-radius: 10px; font-weight: 600; font-size: 1.1rem;
+      padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: 1.1rem;
       border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; color: white;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-submit { background: linear-gradient(45deg, var(--primary-color), #8f94fb); box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3); flex: 1; min-width: 200px; }
-    .btn-skip { background: #95a5a6; box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3); flex: 1; min-width: 200px; }
+    .btn-submit { background: linear-gradient(45deg, var(--primary-color), #8f94fb); box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3); flex: 1; min-width: 150px; }
+    .btn-skip { background: #e67e22; box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3); flex: 1; min-width: 150px; }
+    .btn-prev { background: #95a5a6; box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3); flex: 1; min-width: 150px; }
     .btn-review { background: linear-gradient(45deg, #11998e, #38ef7d); box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3); flex: 1; min-width: 200px; }
     .btn-home { background: var(--info); box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); flex: 1; min-width: 200px; }
     
@@ -153,7 +165,7 @@
 
   <section class="hero">
     <h1>UP Board Class 12th Mock Tests 🎯</h1>
-    <p>विषय चुनें और अपनी बोर्ड परीक्षा की तैयारी चेक करें</p>
+    <p>विषय चुनें और अपनी बोर्ड परीक्षा की तैयारी चेक करें (60 Minutes Timer)</p>
   </section>
 
   <div class="container">
@@ -163,38 +175,64 @@
       <div class="subject-grid">
         <div class="subject-card" onclick="startSubjectTest('hindi')">
           <h3 style="color: #e74c3c;">सामान्य हिंदी (Hindi)</h3>
-          <p>50 Important Objective Questions</p>
+          <p>50 Important MCQs</p>
         </div>
         <div class="subject-card" onclick="startSubjectTest('physics')">
           <h3 style="color: #3498db;">भौतिक विज्ञान (Physics)</h3>
-          <p>Important Objective Questions</p>
+          <p>50 Important MCQs</p>
         </div>
         <div class="subject-card" onclick="startSubjectTest('chemistry')">
           <h3 style="color: #2ecc71;">रसायन विज्ञान (Chemistry)</h3>
-          <p>Reactions & Formulas</p>
+          <p>50 Important MCQs</p>
         </div>
         <div class="subject-card" onclick="startSubjectTest('math')">
           <h3 style="color: #f39c12;">गणित (Mathematics)</h3>
-          <p>Calculus & Algebra</p>
+          <p>50 Important MCQs</p>
         </div>
       </div>
     </div>
 
     <div id="quizContainer" class="quiz-container">
-      <div class="quiz-header">
-        <span id="subjectNameDisplay">Subject</span>
-        <span>Question <span id="currentQNum">1</span> / <span id="totalQNum">10</span></span>
+      <div class="quiz-info-bar">
+        <div class="subject-name" id="subjectNameDisplay">Subject</div>
+        <div class="timer" id="timerDisplay">⏱️ 60:00</div>
       </div>
+      
+      <div class="question-status">
+        Question <span id="currentQNum">1</span> of <span id="totalQNum">50</span>
+      </div>
+      
       <div class="question" id="questionText">Question Text</div>
       <ul class="options">
-        <li><input type="radio" name="answer" id="a" class="answer"><label for="a" id="a_text">Option A</label></li>
-        <li><input type="radio" name="answer" id="b" class="answer"><label for="b" id="b_text">Option B</label></li>
-        <li><input type="radio" name="answer" id="c" class="answer"><label for="c" id="c_text">Option C</label></li>
-        <li><input type="radio" name="answer" id="d" class="answer"><label for="d" id="d_text">Option D</label></li>
+        <li>
+          <label for="a">
+            <input type="radio" name="answer" id="a" class="answer">
+            <span id="a_text">Option A</span>
+          </label>
+        </li>
+        <li>
+          <label for="b">
+            <input type="radio" name="answer" id="b" class="answer">
+            <span id="b_text">Option B</span>
+          </label>
+        </li>
+        <li>
+          <label for="c">
+            <input type="radio" name="answer" id="c" class="answer">
+            <span id="c_text">Option C</span>
+          </label>
+        </li>
+        <li>
+          <label for="d">
+            <input type="radio" name="answer" id="d" class="answer">
+            <span id="d_text">Option D</span>
+          </label>
+        </li>
       </ul>
       <div class="btn-group">
+        <button id="btnPrev" onclick="prevQuestion()" class="btn btn-prev">⬅️ Previous (पिछला)</button>
         <button onclick="skipQuestion()" class="btn btn-skip">⏭️ Skip (छोड़ें)</button>
-        <button onclick="submitAnswer()" class="btn btn-submit">✅ Submit & Next</button>
+        <button id="btnNext" onclick="nextQuestion()" class="btn btn-submit">✅ Next (अगला)</button>
       </div>
     </div>
 
@@ -255,9 +293,10 @@
     });
 
     // ==========================================
-    // ALL SUBJECTS QUESTIONS DATABASE
+    // ALL SUBJECTS QUESTIONS DATABASE (200 Questions)
     // ==========================================
     const allQuestions = {
+      // --------- HINDI (50 Qs) ---------
       hindi: [
         { question: "1. 'कामायनी' महाकाव्य के रचयिता कौन हैं?", a: "महादेवी वर्मा", b: "सुमित्रानंदन पंत", c: "सूर्यकांत त्रिपाठी 'निराला'", d: "जयशंकर प्रसाद", correct: "d" },
         { question: "2. 'तार सप्तक' का प्रकाशन वर्ष क्या है?", a: "1943 ई.", b: "1953 ई.", c: "1936 ई.", d: "1950 ई.", correct: "a" },
@@ -310,30 +349,178 @@
         { question: "49. 'अंधे की लाठी' मुहावरे का अर्थ है?", a: "अंधे व्यक्ति की छड़ी", b: "एकमात्र सहारा", c: "लाठी से मारना", d: "कमज़ोर होना", correct: "b" },
         { question: "50. 'कलम का सिपाही' जीवनी किसके जीवन पर आधारित है?", a: "अमृतराय", b: "मुंशी प्रेमचंद", c: "महावीर प्रसाद द्विवेदी", d: "हजारी प्रसाद द्विवेदी", correct: "b" }
       ],
+
+      // --------- PHYSICS (50 Qs) ---------
       physics: [
         { question: "1. निर्वात की वैद्युतशीलता (ε₀) का मात्रक क्या है?", a: "न्यूटन-मीटर²/कूलॉम²", b: "कूलॉम²/न्यूटन-मीटर²", c: "न्यूटन/कूलॉम", d: "जूल/कूलॉम", correct: "b" },
         { question: "2. वैद्युत क्षेत्र की तीव्रता का मात्रक है?", a: "न्यूटन/कूलॉम", b: "जूल/न्यूटन", c: "कूलॉम/न्यूटन", d: "जूल/कूलॉम", correct: "a" },
-        { question: "3. किरचॉफ का प्रथम नियम किसके संरक्षण पर आधारित है?", a: "ऊर्जा", b: "संवेग", c: "आवेश", d: "द्रव्यमान", correct: "c" }
+        { question: "3. वैद्युत विभव का मात्रक है?", a: "जूल-कूलॉम", b: "जूल/कूलॉम", c: "न्यूटन/कूलॉम", d: "फैरड", correct: "b" },
+        { question: "4. एक इलेक्ट्रॉन वोल्ट (1 eV) का मान कितना होता है?", a: "1.6 × 10⁻¹⁹ जूल", b: "9.1 × 10⁻³¹ जूल", c: "1.6 × 10⁻¹³ जूल", d: "3.2 × 10⁻¹⁹ जूल", correct: "a" },
+        { question: "5. वैद्युत द्विध्रुव आघूर्ण का मात्रक क्या है?", a: "कूलॉम/मीटर", b: "कूलॉम-मीटर", c: "कूलॉम-मीटर²", d: "फैरड", correct: "b" },
+        { question: "6. संधारित्र की धारिता का मात्रक है?", a: "हेनरी", b: "ओम", c: "फैरड", d: "वेबर", correct: "c" },
+        { question: "7. किरचॉफ का प्रथम नियम (संधि का नियम) किसके संरक्षण पर आधारित है?", a: "ऊर्जा", b: "संवेग", c: "आवेश", d: "द्रव्यमान", correct: "c" },
+        { question: "8. किरचॉफ का द्वितीय नियम (पाश का नियम) किसके संरक्षण पर आधारित है?", a: "आवेश", b: "द्रव्यमान", c: "ऊर्जा", d: "संवेग", correct: "c" },
+        { question: "9. विशिष्ट प्रतिरोध (प्रतिरोधकता) का मात्रक है?", a: "ओम", b: "ओम/मीटर", c: "ओम-मीटर", d: "ओम-मीटर²", correct: "c" },
+        { question: "10. व्हीटस्टोन सेतु से क्या मापा जाता है?", a: "केवल उच्च प्रतिरोध", b: "केवल निम्न प्रतिरोध", c: "उच्च तथा निम्न दोनों प्रतिरोध", d: "विभवांतर", correct: "c" },
+        { question: "11. चुम्बकीय क्षेत्र की तीव्रता का मात्रक है?", a: "वेबर", b: "वेबर/मीटर", c: "वेबर/मीटर² (टेस्ला)", d: "हेनरी", correct: "c" },
+        { question: "12. μ₀ε₀ का मान होता है? (जहाँ c प्रकाश की चाल है)", a: "c²", b: "1/c²", c: "c", d: "1/c", correct: "b" },
+        { question: "13. लॉरेन्ज बल का सूत्र क्या है?", a: "F = qE", b: "F = q(v × B)", c: "F = IBl", d: "F = qvB", correct: "b" },
+        { question: "14. एक आदर्श अमीटर का प्रतिरोध कितना होना चाहिए?", a: "अनंत", b: "शून्य", c: "बहुत अधिक", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "15. एक आदर्श वोल्टमीटर का प्रतिरोध कितना होना चाहिए?", a: "शून्य", b: "1 ओम", c: "100 ओम", d: "अनंत", correct: "d" },
+        { question: "16. पृथ्वी के चुम्बकीय ध्रुवों पर नति (नमन) कोण का मान कितना होता है?", a: "0°", b: "45°", c: "90°", d: "180°", correct: "c" },
+        { question: "17. विषुवत रेखा पर नति कोण का मान कितना होता है?", a: "90°", b: "45°", c: "0°", d: "60°", correct: "c" },
+        { question: "18. लेन्ज का नियम किसके संरक्षण के नियम के अनुरूप है?", a: "आवेश", b: "संवेग", c: "द्रव्यमान", d: "ऊर्जा", correct: "d" },
+        { question: "19. स्वप्रेरकत्व (Self Inductance) का मात्रक है?", a: "फैरड", b: "हेनरी", c: "वेबर", d: "टेस्ला", correct: "b" },
+        { question: "20. प्रत्यावर्ती धारा के वर्ग-माध्य-मूल मान (Irms) और शिखर मान (I0) में क्या संबंध है?", a: "Irms = I0", b: "Irms = I0/√2", c: "Irms = √2 I0", d: "Irms = I0/2", correct: "b" },
+        { question: "21. ट्रांसफॉर्मर किस सिद्धांत पर कार्य करता है?", a: "स्व-प्रेरण", b: "अन्योन्य प्रेरण (Mutual Induction)", c: "भंवर धाराएं", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "22. ट्रांसफॉर्मर में क्या अपरिवर्तित रहता है?", a: "वोल्टेज", b: "धारा", c: "आवृत्ति (Frequency)", d: "शक्ति", correct: "c" },
+        { question: "23. विद्युत चुम्बकीय तरंगें होती हैं?", a: "अनुदैर्ध्य", b: "अनुप्रस्थ (Transverse)", c: "दोनों", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "24. सबसे अधिक आवृत्ति वाली विद्युत चुम्बकीय तरंग कौन सी है?", a: "रेडियो तरंगें", b: "एक्स किरणें", c: "गामा किरणें", d: "पराबैंगनी किरणें", correct: "c" },
+        { question: "25. दृश्य प्रकाश की तरंगदैर्घ्य परास लगभग कितनी होती है?", a: "400 Å से 800 Å", b: "4000 Å से 8000 Å", c: "1000 Å से 2000 Å", d: "8000 Å से ऊपर", correct: "b" },
+        { question: "26. समतल दर्पण की फोकस दूरी कितनी होती है?", a: "शून्य", b: "10 सेमी", c: "25 सेमी", d: "अनंत", correct: "d" },
+        { question: "27. पूर्ण आंतरिक परावर्तन के लिए प्रकाश को जाना चाहिए?", a: "विरल से सघन माध्यम में", b: "सघन से विरल माध्यम में", c: "समान माध्यम में", d: "किसी भी माध्यम में", correct: "b" },
+        { question: "28. मृगमरीचिका (Mirage) का कारण क्या है?", a: "प्रकाश का व्यतिकरण", b: "प्रकाश का विवर्तन", c: "प्रकाश का पूर्ण आंतरिक परावर्तन", d: "प्रकाश का प्रकीर्णन", correct: "c" },
+        { question: "29. प्रिज्म से गुजरने पर किस रंग के प्रकाश का विचलन सबसे अधिक होता है?", a: "लाल", b: "हरा", c: "पीला", d: "बैंगनी", correct: "d" },
+        { question: "30. प्रिज्म से गुजरने पर किस रंग के प्रकाश का विचलन सबसे कम होता है?", a: "लाल", b: "बैंगनी", c: "नीला", d: "हरा", correct: "a" },
+        { question: "31. लेंस की क्षमता (Power) का मात्रक है?", a: "मीटर", b: "वाट", c: "डायोप्टर", d: "लक्स", correct: "c" },
+        { question: "32. स्वस्थ नेत्र के लिए स्पष्ट दृष्टि की न्यूनतम दूरी कितनी होती है?", a: "25 मीटर", b: "25 सेमी", c: "अनंत", d: "10 सेमी", correct: "b" },
+        { question: "33. निकट दृष्टि दोष को दूर करने के लिए किस लेंस का उपयोग किया जाता है?", a: "उत्तल लेंस", b: "अवतल लेंस", c: "बेलनाकार लेंस", d: "बाइफोकल लेंस", correct: "b" },
+        { question: "34. दूर दृष्टि दोष को दूर करने के लिए कौन सा लेंस प्रयुक्त होता है?", a: "उत्तल लेंस", b: "अवतल लेंस", c: "समतल लेंस", d: "इनमें से कोई नहीं", correct: "a" },
+        { question: "35. प्रकाश की अनुप्रस्थ प्रकृति की पुष्टि कौन सी घटना करती है?", a: "व्यतिकरण", b: "विवर्तन", c: "ध्रुवण (Polarization)", d: "परावर्तन", correct: "c" },
+        { question: "36. फोटॉन की ऊर्जा (E) का सूत्र क्या है?", a: "E = h/v", b: "E = hν", c: "E = hc", d: "E = λ/h", correct: "b" },
+        { question: "37. कार्य फलन (Work Function) का मात्रक क्या है?", a: "न्यूटन", b: "वाट", c: "जूल या eV", d: "एम्पीयर", correct: "c" },
+        { question: "38. हाइड्रोजन परमाणु की प्रथम बोहर कक्षा की त्रिज्या कितनी होती है?", a: "0.53 Å", b: "1.06 Å", c: "2.12 Å", d: "0.26 Å", correct: "a" },
+        { question: "39. रिडबर्ग नियतांक (R) का मात्रक क्या है?", a: "मीटर", b: "मीटर⁻¹", c: "सेकंड⁻¹", d: "जूल", correct: "b" },
+        { question: "40. सूर्य की अपार ऊर्जा का मुख्य कारण क्या है?", a: "नाभिकीय विखंडन", b: "नाभिकीय संलयन", c: "रासायनिक अभिक्रिया", d: "रेडियोएक्टिवता", correct: "b" },
+        { question: "41. 1 a.m.u. (परमाणु द्रव्यमान मात्रक) कितने MeV ऊर्जा के बराबर होता है?", a: "931 MeV", b: "1000 MeV", c: "9.31 MeV", d: "1 MeV", correct: "a" },
+        { question: "42. नाभिक का आकार लगभग किस कोटि का होता है?", a: "10⁻¹⁰ मीटर (एंग्स्ट्रॉम)", b: "10⁻¹⁵ मीटर (फर्मी)", c: "10⁻⁶ मीटर", d: "10⁻³ मीटर", correct: "b" },
+        { question: "43. P-N संधि डायोड में अवक्षय पर्त (Depletion layer) में क्या होते हैं?", a: "केवल इलेक्ट्रॉन", b: "केवल कोटर (Holes)", c: "इलेक्ट्रॉन तथा कोटर दोनों", d: "स्थिर आयन (न इलेक्ट्रॉन न कोटर)", correct: "d" },
+        { question: "44. N-प्रकार के अर्द्धचालक में बहुसंख्यक आवेश वाहक कौन होते हैं?", a: "इलेक्ट्रॉन", b: "कोटर (Holes)", c: "प्रोटॉन", d: "न्यूट्रॉन", correct: "a" },
+        { question: "45. P-प्रकार के अर्द्धचालक में बहुसंख्यक आवेश वाहक कौन होते हैं?", a: "इलेक्ट्रॉन", b: "कोटर (Holes)", c: "धनायन", d: "ऋणायन", correct: "b" },
+        { question: "46. AND गेट का बूलियन व्यंजक क्या है?", a: "Y = A + B", b: "Y = A · B", c: "Y = A̅", d: "Y = A̅ + B̅", correct: "b" },
+        { question: "47. OR गेट का बूलियन व्यंजक क्या है?", a: "Y = A · B", b: "Y = A + B", c: "Y = A̅", d: "Y = A̅ · B̅", correct: "b" },
+        { question: "48. परम शून्य ताप (0 K) पर शुद्ध अर्द्धचालक कैसा व्यवहार करता है?", a: "सुचालक (Conductor)", b: "पूर्ण अचालक (Insulator)", c: "अतिचालक", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "49. प्लैंक नियतांक (h) का मात्रक क्या है?", a: "जूल/सेकंड", b: "जूल-सेकंड", c: "वाट-सेकंड", d: "न्यूटन-मीटर", correct: "b" },
+        { question: "50. इलेक्ट्रॉन पर कितना आवेश होता है?", a: "+1.6 × 10⁻¹⁹ C", b: "-1.6 × 10⁻¹⁹ C", c: "9.1 × 10⁻³¹ C", d: "1.6 × 10¹⁹ C", correct: "b" }
       ],
+
+      // --------- CHEMISTRY (50 Qs) ---------
       chemistry: [
-        { question: "1. शुद्ध जल की मोलरता कितनी होती है?", a: "55.56", b: "18.00", c: "49.87", d: "81.00", correct: "a" },
-        { question: "2. फ्रेंकेल तथा शॉटकी दोनों दोष प्रदर्शित करने वाला यौगिक है?", a: "NaCl", b: "KCl", c: "AgBr", d: "CsCl", correct: "c" }
+        { question: "1. शुद्ध जल की मोलरता (Molarity) कितनी होती है?", a: "55.56", b: "18.00", c: "49.87", d: "81.00", correct: "a" },
+        { question: "2. फ्रेंकेल तथा शॉटकी दोनों दोष प्रदर्शित करने वाला यौगिक है?", a: "NaCl", b: "KCl", c: "AgBr", d: "CsCl", correct: "c" },
+        { question: "3. निम्न में से कौन-सा अणुसंख्य गुणधर्म (Colligative property) है?", a: "पृष्ठ तनाव", b: "श्यानता", c: "परासरण दाब", d: "प्रकाशिक सक्रियता", correct: "c" },
+        { question: "4. 8 ग्राम NaOH, 450 mL विलयन में घुला है। विलयन की मोलरता है?", a: "0.444 M", b: "0.492 M", c: "0.02 M", d: "0.2 M", correct: "a" },
+        { question: "5. विशिष्ट चालकता का मात्रक है?", a: "ओम⁻¹ सेमी⁻¹", b: "ओम सेमी", c: "ओम⁻¹ सेमी²", d: "ओम सेमी⁻²", correct: "a" },
+        { question: "6. प्रथम कोटि की अभिक्रिया के लिए वेग स्थिरांक का मात्रक है?", a: "मोल लीटर⁻¹ सेकंड⁻¹", b: "लीटर मोल⁻¹ सेकंड⁻¹", c: "सेकंड⁻¹", d: "मोल लीटर⁻² सेकंड⁻¹", correct: "c" },
+        { question: "7. शून्य कोटि की अभिक्रिया के लिए वेग स्थिरांक का मात्रक है?", a: "मोल लीटर⁻¹ सेकंड⁻¹", b: "सेकंड⁻¹", c: "लीटर मोल⁻¹ सेकंड⁻¹", d: "कोई मात्रक नहीं", correct: "a" },
+        { question: "8. कोहरे को भेदने वाले लैम्पों में प्रयुक्त गैस है?", a: "Ne", b: "He", c: "Ar", d: "Kr", correct: "a" },
+        { question: "9. सबसे अधिक विद्युत ऋणात्मक तत्व कौन सा है?", a: "F", b: "Cl", c: "Br", d: "I", correct: "a" },
+        { question: "10. संक्रमण तत्व (Transition elements) किस ब्लॉक से संबंधित हैं?", a: "s-ब्लॉक", b: "p-ब्लॉक", c: "d-ब्लॉक", d: "f-ब्लॉक", correct: "c" },
+        { question: "11. रंगीन आयन का निर्माण संभव है जब आयन में होते हैं?", a: "अयुग्मित इलेक्ट्रॉन", b: "युग्मित इलेक्ट्रॉन", c: "अक्रिय गैस विन्यास", d: "इनमें से कोई नहीं", correct: "a" },
+        { question: "12. K4[Fe(CN)6] में Fe की ऑक्सीकरण संख्या क्या है?", a: "+2", b: "+3", c: "+4", d: "0", correct: "a" },
+        { question: "13. ल्यूकास अभिकर्मक (Lucas Reagent) है?", a: "सांद्र HCl + निर्जल ZnCl2", b: "Pd + BaSO4", c: "तनु HCl + ZnCl2", d: "इनमें से कोई नहीं", correct: "a" },
+        { question: "14. क्लोरोफॉर्म प्रकाश की उपस्थिति में वायु द्वारा धीरे-धीरे ऑक्सीकृत होकर बनाता है?", a: "फॉसजीन गैस", b: "फॉर्मिक अम्ल", c: "फॉर्मेल्डिहाइड", d: "मेथिल क्लोराइड", correct: "a" },
+        { question: "15. फीनॉल को जिंक चूर्ण के साथ गर्म करने पर क्या बनता है?", a: "बेंजीन", b: "टॉलूईन", c: "एनिलीन", d: "बेंजोइक अम्ल", correct: "a" },
+        { question: "16. फॉर्मेल्डिहाइड (HCHO) और KOH की अभिक्रिया कहलाती है?", a: "कैनिजारो अभिक्रिया", b: "एल्डोल संघनन", c: "पर्किन अभिक्रिया", d: "क्लीमेंसन अपचयन", correct: "a" },
+        { question: "17. रोज़ेनमुंड अपचयन द्वारा मुख्य रूप से क्या प्राप्त होता है?", a: "एल्डिहाइड", b: "कीटोन", c: "कार्बोक्सिलिक अम्ल", d: "एल्कोहॉल", correct: "a" },
+        { question: "18. जल में विलेय विटामिन कौन-से हैं?", a: "A और D", b: "B और C", c: "E और K", d: "A और C", correct: "b" },
+        { question: "19. विटामिन C का रासायनिक नाम क्या है?", a: "रेटिनॉल", b: "एस्कॉर्बिक अम्ल", c: "कैल्सीफेरॉल", d: "थायमीन", correct: "b" },
+        { question: "20. DNA में कौन-सा क्षारक (Base) नहीं पाया जाता है?", a: "एडेनिन", b: "ग्वानिन", c: "थाइमिन", d: "यूरेसिल", correct: "d" },
+        { question: "21. RNA में थाइमिन के स्थान पर कौन-सा क्षारक होता है?", a: "यूरेसिल", b: "एडेनिन", c: "साइटोसिन", d: "ग्वानिन", correct: "a" },
+        { question: "22. ग्लूकोज़ में कितने प्राथमिक ऐल्कोहॉलिक समूह होते हैं?", a: "1", b: "2", c: "3", d: "4", correct: "a" },
+        { question: "23. कैल्सीफेरॉल किस विटामिन का रासायनिक नाम है?", a: "विटामिन A", b: "विटामिन B", c: "विटामिन C", d: "विटामिन D", correct: "d" },
+        { question: "24. निम्न में से कौन-सा कार्बोहाइड्रेट शरीर में ऊर्जा का तात्कालिक स्रोत है?", a: "सेलूलोज़", b: "ग्लूकोज़", c: "स्टार्च", d: "सुक्रोज़", correct: "b" },
+        { question: "25. एनिलीन के नाइट्रीकरण से क्या प्राप्त होता है?", a: "o-नाइट्रोएनिलीन", b: "p-नाइट्रोएनिलीन", c: "m-नाइट्रोएनिलीन", d: "ये सभी का मिश्रण", correct: "d" },
+        { question: "26. कार्बिल एमीन अभिक्रिया कौन देते हैं?", a: "प्राथमिक एमीन", b: "द्वितीयक एमीन", c: "तृतीयक एमीन", d: "सभी एमीन", correct: "a" },
+        { question: "27. मस्टर्ड ऑयल अभिक्रिया का मुख्य उत्पाद क्या होता है?", a: "एल्किल आइसोथायोसायनेट", b: "एल्किल सायनाइड", c: "एमाइड", d: "एमीन", correct: "a" },
+        { question: "28. निम्न में से सबसे प्रबल अम्ल कौन-सा है?", a: "CCl3COOH", b: "CHCl2COOH", c: "CH2ClCOOH", d: "CH3COOH", correct: "a" },
+        { question: "29. सिरके (Vinegar) में कौन-सा अम्ल पाया जाता है?", a: "फॉर्मिक अम्ल", b: "एसिटिक अम्ल", c: "ऑक्जेलिक अम्ल", d: "टार्टरिक अम्ल", correct: "b" },
+        { question: "30. टॉलेंन अभिकर्मक (Tollen's Reagent) क्या है?", a: "अमोनियामय सिल्वर नाइट्रेट", b: "क्षारीय कॉपर सल्फेट", c: "फेहलिंग विलयन", d: "ल्यूकास अभिकर्मक", correct: "a" },
+        { question: "31. क्लोरल का सूत्र क्या है?", a: "CCl3CHO", b: "CCl3COOH", c: "CH3CHO", d: "CCl4", correct: "a" },
+        { question: "32. आयोडोफॉर्म परीक्षण कौन नहीं देता है?", a: "एथेनॉल", b: "एथेनल", c: "एसीटोन", d: "मेथेनॉल", correct: "d" },
+        { question: "33. वुर्ट्ज़ अभिक्रिया (Wurtz Reaction) में किसका प्रयोग होता है?", a: "Na और शुष्क ईथर", b: "Zn और HCl", c: "KOH", d: "LiAlH4", correct: "a" },
+        { question: "34. ग्रिगनार्ड अभिकर्मक (Grignard Reagent) का सामान्य सूत्र है?", a: "RMgX", b: "RCuX", c: "RZnX", d: "RNa", correct: "a" },
+        { question: "35. कौन-सा हैलोजन उर्ध्वपातन (Sublimation) का गुण दर्शाता है?", a: "फ्लोरीन", b: "क्लोरीन", c: "ब्रोमीन", d: "आयोडीन", correct: "d" },
+        { question: "36. उत्कृष्ट गैसों (Noble gases) की इलेक्ट्रॉन बंधुता कितनी होती है?", a: "शून्य", b: "बहुत अधिक", c: "ऋणात्मक", d: "धनात्मक", correct: "a" },
+        { question: "37. 'हँसाने वाली गैस' (Laughing Gas) का सूत्र क्या है?", a: "NO", b: "N2O", c: "NO2", d: "N2O5", correct: "b" },
+        { question: "38. ओलियम (Oleum) का रासायनिक सूत्र क्या है?", a: "H2SO4", b: "H2S2O7", c: "H2SO3", d: "H2S2O8", correct: "b" },
+        { question: "39. सम्पर्क विधि (Contact Process) से किसका निर्माण किया जाता है?", a: "अमोनिया", b: "सल्फ्यूरिक अम्ल", c: "नाइट्रिक अम्ल", d: "क्लोरीन", correct: "b" },
+        { question: "40. हैबर विधि द्वारा अमोनिया के निर्माण में उत्प्रेरक कौन सा प्रयुक्त होता है?", a: "Fe (चूर्ण)", b: "Pt", c: "Ni", d: "V2O5", correct: "a" },
+        { question: "41. प्रथम कोटि अभिक्रिया की अर्ध-आयु (t1/2) का सूत्र क्या है?", a: "0.693/k", b: "k/0.693", c: "a/2k", d: "1/k", correct: "a" },
+        { question: "42. गैल्वेनिक सेल में एनोड पर क्या होता है?", a: "ऑक्सीकरण", b: "अपचयन", c: "दोनों", d: "इनमें से कोई नहीं", correct: "a" },
+        { question: "43. लोहे पर जंग लगना किस प्रकार की प्रक्रिया है?", a: "ऑक्सीकरण", b: "अपचयन", c: "संक्षारण (Corrosion)", d: "बहुलकीकरण", correct: "c" },
+        { question: "44. फैराडे का विद्युत अपघटन का प्रथम नियम क्या है?", a: "m = Zit", b: "E = mc²", c: "V = IR", d: "P = VI", correct: "a" },
+        { question: "45. दूध किस प्रकार का कोलॉइडी तंत्र है?", a: "पायस (Emulsion)", b: "जेल", c: "एयरोसोल", d: "सॉल", correct: "a" },
+        { question: "46. टिन्डल प्रभाव (Tyndall Effect) कौन दर्शाता है?", a: "वास्तविक विलयन", b: "कोलॉइडी विलयन", c: "निलंबन", d: "ये सभी", correct: "b" },
+        { question: "47. स्वर्ण संख्या (Gold Number) किससे संबंधित है?", a: "रक्षी कोलॉइड", b: "वैद्युत कण संचलन", c: "अपोहन", d: "स्कंदन", correct: "a" },
+        { question: "48. अनुचुंबकत्व (Paramagnetism) प्रदर्शित करने वाला पदार्थ है?", a: "H2O", b: "NaCl", c: "O2", d: "C6H6", correct: "c" },
+        { question: "49. राउल्ट का नियम किससे संबंधित है?", a: "परासरण दाब से", b: "वाष्प दाब के अवनमन से", c: "हिमांक से", d: "क्वथनांक से", correct: "b" },
+        { question: "50. रक्त (Blood) का pH मान लगभग कितना होता है?", a: "7.4", b: "6.4", c: "8.4", d: "5.4", correct: "a" }
       ],
+
+      // --------- MATH (50 Qs) ---------
       math: [
         { question: "1. यदि A = {1, 2, 3} तो A पर कितने तुल्यता संबंध परिभाषित हो सकते हैं?", a: "3", b: "4", c: "5", d: "6", correct: "c" },
-        { question: "2. d/dx (sin x) का मान क्या होगा?", a: "cos x", b: "-cos x", c: "tan x", d: "sec² x", correct: "a" }
+        { question: "2. d/dx (sin x) का मान क्या होगा?", a: "cos x", b: "-cos x", c: "tan x", d: "sec² x", correct: "a" },
+        { question: "3. ∫ xⁿ dx का मान क्या होगा? (n ≠ -1)", a: "xⁿ⁺¹ / (n+1) + C", b: "nxⁿ⁻¹ + C", c: "xⁿ / n + C", d: "xⁿ⁻¹ / (n-1) + C", correct: "a" },
+        { question: "4. d/dx (eˣ) का मान क्या होता है?", a: "x eˣ", b: "eˣ", c: "log x", d: "1/x", correct: "b" },
+        { question: "5. d/dx (log x) का मान क्या है?", a: "eˣ", b: "x", c: "1/x", d: "1", correct: "c" },
+        { question: "6. ∫ (1/x) dx का मान क्या होगा?", a: "x² / 2 + C", b: "log|x| + C", c: "eˣ + C", d: "-1/x² + C", correct: "b" },
+        { question: "7. यदि आव्यूह A और B के लिए AB = BA = I, तो B क्या है?", a: "A का व्युत्क्रम (A⁻¹)", b: "A का परिवर्त (A')", c: "शून्य आव्यूह", d: "तत्समक आव्यूह", correct: "a" },
+        { question: "8. यदि आव्यूह A = [cos θ  -sin θ; sin θ  cos θ], तो A'A का मान क्या होगा?", a: "0", b: "A", c: "I (तत्समक आव्यूह)", d: "-I", correct: "c" },
+        { question: "9. sin⁻¹(sin 2π/3) का मुख्य मान क्या है?", a: "2π/3", b: "π/3", c: "4π/3", d: "π/6", correct: "b" },
+        { question: "10. tan⁻¹(1) + cos⁻¹(-1/2) + sin⁻¹(-1/2) का मान क्या होगा?", a: "π", b: "3π/4", c: "π/2", d: "π/4", correct: "b" },
+        { question: "11. सारणिक |1  2| \n |3  4| का मान क्या होगा?", a: "2", b: "-2", c: "10", d: "0", correct: "b" },
+        { question: "12. यदि A एक 3×3 कोटि का वर्ग आव्यूह है, तो |kA| का मान क्या होगा?", a: "k|A|", b: "k²|A|", c: "k³|A|", d: "3k|A|", correct: "c" },
+        { question: "13. d/dx (xˣ) का मान क्या होगा?", a: "xˣ", b: "xˣ⁻¹", c: "xˣ (1 + log x)", d: "1 + log x", correct: "c" },
+        { question: "14. d/dx (sin⁻¹ x) का मान क्या है?", a: "1 / √(1-x²)", b: "-1 / √(1-x²)", c: "1 / (1+x²)", d: "1 / (1-x²)", correct: "a" },
+        { question: "15. ∫ eˣ [f(x) + f'(x)] dx का मान क्या होता है?", a: "eˣ f'(x) + C", b: "eˣ f(x) + C", c: "eˣ + C", d: "f(x) + C", correct: "b" },
+        { question: "16. अवकल समीकरण dy/dx = y/x का हल क्या है?", a: "y = x", b: "y = cx", c: "xy = c", d: "y = c/x", correct: "b" },
+        { question: "17. अवकल समीकरण d²y/dx² + (dy/dx)³ + y = 0 की कोटि (Order) क्या है?", a: "1", b: "2", c: "3", d: "0", correct: "b" },
+        { question: "18. अवकल समीकरण d²y/dx² + (dy/dx)³ + y = 0 की घात (Degree) क्या है?", a: "1", b: "2", c: "3", d: "परिभाषित नहीं", correct: "a" },
+        { question: "19. सदिश a = 2i + 3j + k का परिमाण (Magnitude) क्या है?", a: "√6", b: "√12", c: "√14", d: "6", correct: "c" },
+        { question: "20. i · i का मान क्या होता है?", a: "0", b: "1", c: "i", d: "-1", correct: "b" },
+        { question: "21. i × i का मान क्या होता है?", a: "1", b: "i", c: "0", d: "j", correct: "c" },
+        { question: "22. यदि a · b = 0, तो इसका क्या अर्थ है?", a: "a और b समांतर हैं", b: "a और b लम्बवत (Perpendicular) हैं", c: "a = b", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "23. यदि a × b = 0, तो इसका क्या अर्थ है?", a: "a और b लम्बवत हैं", b: "a और b समांतर (Parallel) हैं", c: "a और b बराबर हैं", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "24. बिंदु P(1, 2, 3) की x-अक्ष से दूरी क्या है?", a: "1", b: "√5", c: "√13", d: "√14", correct: "c" },
+        { question: "25. x-अक्ष की दिक्-कोज्याएँ (Direction Cosines) क्या हैं?", a: "(1, 1, 1)", b: "(1, 0, 0)", c: "(0, 1, 0)", d: "(0, 0, 1)", correct: "b" },
+        { question: "26. किसी घटना A के लिए P(A) + P(A') का मान क्या होता है?", a: "0", b: "0.5", c: "1", d: "अनंत", correct: "c" },
+        { question: "27. यदि A और B स्वतंत्र घटनाएँ हैं, तो P(A ∩ B) का मान क्या होगा?", a: "P(A) + P(B)", b: "P(A) - P(B)", c: "P(A) × P(B)", d: "P(A) / P(B)", correct: "c" },
+        { question: "28. एक पासे को फेंकने पर सम संख्या (Even number) आने की प्रायिकता क्या है?", a: "1/6", b: "1/3", c: "1/2", d: "2/3", correct: "c" },
+        { question: "29. 52 पत्तों की ताश की गड्डी से एक पत्ता निकालने पर उसके इक्का (Ace) होने की प्रायिकता क्या है?", a: "1/52", b: "1/13", c: "4/13", d: "1/4", correct: "b" },
+        { question: "30. ∫ (सीमा -a से a) f(x) dx का मान क्या होगा यदि f(x) एक विषम फलन (Odd function) है?", a: "2 ∫(0 से a) f(x) dx", b: "a", c: "0", d: "-a", correct: "c" },
+        { question: "31. ∫ (सीमा 0 से π/2) [sin x / (sin x + cos x)] dx का मान क्या है?", a: "π/2", b: "π/4", c: "π", d: "0", correct: "b" },
+        { question: "32. परवलय y = x² और x-अक्ष से घिरे क्षेत्र का क्षेत्रफल x=0 से x=2 तक कितना होगा?", a: "2/3", b: "4/3", c: "8/3", d: "8", correct: "c" },
+        { question: "33. फलन f(x) = |x|, बिंदु x = 0 पर कैसा है?", a: "सतत और अवकलनीय दोनों", b: "न सतत न अवकलनीय", c: "अवकलनीय है लेकिन सतत नहीं", d: "सतत है लेकिन अवकलनीय नहीं", correct: "d" },
+        { question: "34. रोले के प्रमेय (Rolle's Theorem) के अनुसार किसी बिंदु c पर f'(c) का मान क्या होता है?", a: "1", b: "0", c: "f(a)", d: "अनंत", correct: "b" },
+        { question: "35. d/dx (tan x) का मान क्या है?", a: "sec x tan x", b: "cot x", c: "sec² x", d: "-cosec² x", correct: "c" },
+        { question: "36. ∫ sec² x dx का मान क्या होगा?", a: "tan x + C", b: "sec x + C", c: "log|sec x| + C", d: "cot x + C", correct: "a" },
+        { question: "37. वक्र y = eˣ के बिंदु (0,1) पर स्पर्श रेखा की प्रवणता (Slope) क्या होगी?", a: "0", b: "e", c: "1", d: "अनंत", correct: "c" },
+        { question: "38. फलन f(x) = x² का न्यूनतम (Minimum) मान क्या है?", a: "-1", b: "0", c: "1", d: "अनंत", correct: "b" },
+        { question: "39. ∫ [dx / (1+x²)] का मान क्या होगा?", a: "sin⁻¹ x + C", b: "cos⁻¹ x + C", c: "tan⁻¹ x + C", d: "log(1+x²) + C", correct: "c" },
+        { question: "40. ∫ [dx / √(1-x²)] का मान क्या होगा?", a: "sin⁻¹ x + C", b: "cos⁻¹ x + C", c: "tan⁻¹ x + C", d: "sec⁻¹ x + C", correct: "a" },
+        { question: "41. रेखीय प्रोग्रामन समस्या (LPP) में 'उद्देश्य फलन' (Objective function) क्या होता है?", a: "शर्तें (Constraints)", b: "वह फलन जिसका अधिकतम या न्यूनतम मान ज्ञात करना हो", c: "x ≥ 0, y ≥ 0", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "42. यदि P(A|B) = P(A), तो A और B घटनाएँ कैसी हैं?", a: "परस्पर अपवर्जी (Mutually Exclusive)", b: "आश्रित (Dependent)", c: "स्वतंत्र (Independent)", d: "समान", correct: "c" },
+        { question: "43. फलन f: R → R, f(x) = 2x कैसा फलन है?", a: "एकैकी और आच्छादक (One-One Onto)", b: "बहुएक (Many-One)", c: "अंतरक्षेपी (Into)", d: "इनमें से कोई नहीं", correct: "a" },
+        { question: "44. एक वर्ग आव्यूह A 'सममित' (Symmetric) कहलाता है यदि?", a: "A' = -A", b: "A' = A", c: "A' = I", d: "A' = 0", correct: "b" },
+        { question: "45. एक वर्ग आव्यूह A 'विषम-सममित' (Skew-Symmetric) कहलाता है यदि?", a: "A' = A", b: "A' = I", c: "A' = -A", d: "A' = 0", correct: "c" },
+        { question: "46. यदि y = sin(x²), तो dy/dx का मान क्या होगा?", a: "cos(x²)", b: "2x cos(x²)", c: "2x sin(x²)", d: "x² cos(x²)", correct: "b" },
+        { question: "47. ∫ 1 dx का मान क्या होता है?", a: "1 + C", b: "0", c: "x + C", d: "x² + C", correct: "c" },
+        { question: "48. रैखिक अवकल समीकरण dy/dx + Py = Q के लिए 'समाकलन गुणांक' (IF) क्या है?", a: "e^(∫Q dx)", b: "e^(∫P dy)", c: "e^(∫P dx)", d: "∫P dx", correct: "c" },
+        { question: "49. सदिश a = i + j + k की दिशा में मात्रक सदिश (Unit Vector) क्या होगा?", a: "i + j + k", b: "(i + j + k) / 3", c: "(i + j + k) / √3", d: "1", correct: "c" },
+        { question: "50. समतल 2x - 3y + 4z - 6 = 0 के अभिलंब के दिक्-अनुपात (Direction Ratios) क्या हैं?", a: "(2, 3, 4)", b: "(2, -3, 4)", c: "(-2, 3, -4)", d: "(6, 6, 6)", correct: "b" }
       ]
     };
 
-    // Variables
+    // Variables for State Management
     let currentSubjectData = [];
     let currentQuiz = 0;
-    let score = 0;
-    let skippedCount = 0;
-    let incorrectCount = 0;
+    let userSelections = []; // Stores user's selected option ('a', 'b', 'c', 'd' or null) for each question
     
-    // Array to track user's answers for review
-    let userAnswersTrack = []; 
+    // Timer Variables
+    let timerInterval;
+    let timeLeft = 3600; // 60 minutes in seconds
 
     // DOM Elements
     const subjectSelection = document.getElementById('subjectSelection');
@@ -346,31 +533,83 @@
     // Start Test
     function startSubjectTest(subjectKey) {
       currentSubjectData = allQuestions[subjectKey];
-      userAnswersTrack = []; 
+      
+      // Initialize array with null (no answer selected initially)
+      userSelections = new Array(currentSubjectData.length).fill(null);
+      currentQuiz = 0;
+      timeLeft = 3600; // Reset timer to 60 mins
       
       let subName = "";
       if(subjectKey === 'physics') subName = "भौतिक विज्ञान (Physics)";
       if(subjectKey === 'hindi') subName = "सामान्य हिंदी (Hindi)";
       if(subjectKey === 'chemistry') subName = "रसायन विज्ञान (Chemistry)";
       if(subjectKey === 'math') subName = "गणित (Mathematics)";
+      
       document.getElementById('subjectNameDisplay').innerText = subName;
       document.getElementById('totalQNum').innerText = currentSubjectData.length;
       
       subjectSelection.style.display = "none";
       quizContainer.style.display = "block";
+      
+      startTimer();
       loadQuiz();
+    }
+
+    // Timer Logic
+    function startTimer() {
+      clearInterval(timerInterval); // Clear any existing timer
+      updateTimerDisplay();
+      
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        
+        if(timeLeft <= 0) {
+          clearInterval(timerInterval);
+          alert("⏳ समय समाप्त! आपका टेस्ट अपने आप सबमिट हो रहा है।");
+          showResults();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      let m = Math.floor(timeLeft / 60);
+      let s = timeLeft % 60;
+      document.getElementById('timerDisplay').innerText = `⏱️ ${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
     }
 
     // Load Question
     function loadQuiz() {
       deselectAnswers();
       const currentQuizData = currentSubjectData[currentQuiz];
+      
       document.getElementById('currentQNum').innerText = currentQuiz + 1;
       questionText.innerText = currentQuizData.question;
       document.getElementById('a_text').innerText = currentQuizData.a;
       document.getElementById('b_text').innerText = currentQuizData.b;
       document.getElementById('c_text').innerText = currentQuizData.c;
       document.getElementById('d_text').innerText = currentQuizData.d;
+      
+      // If user had already selected an answer previously, check it again
+      if(userSelections[currentQuiz] !== null) {
+        document.getElementById(userSelections[currentQuiz]).checked = true;
+      }
+
+      // Hide/Show Previous Button
+      if(currentQuiz === 0) {
+        document.getElementById('btnPrev').style.display = 'none';
+      } else {
+        document.getElementById('btnPrev').style.display = 'inline-block';
+      }
+
+      // Change 'Next' button to 'Submit Test' on the last question
+      if(currentQuiz === currentSubjectData.length - 1) {
+        document.getElementById('btnNext').innerText = "✅ Submit Test (सबमिट)";
+        document.getElementById('btnNext').style.background = "linear-gradient(45deg, #2ecc71, #27ae60)";
+      } else {
+        document.getElementById('btnNext').innerText = "✅ Next (अगला)";
+        document.getElementById('btnNext').style.background = "linear-gradient(45deg, var(--primary-color), #8f94fb)";
+      }
     }
 
     function deselectAnswers() {
@@ -385,39 +624,39 @@
       return answer;
     }
 
-    // Skip Button Logic
-    function skipQuestion() {
-      userAnswersTrack.push({
-        question: currentSubjectData[currentQuiz],
-        selected: null 
-      });
-      skippedCount++;
-      moveToNext();
+    function saveCurrentSelection() {
+      // Save current selected radio option (or null if nothing is selected)
+      userSelections[currentQuiz] = getSelected() || null;
     }
 
-    // Submit Button Logic
-    function submitAnswer() {
-      const answer = getSelected();
-      if(answer) {
-        userAnswersTrack.push({
-          question: currentSubjectData[currentQuiz],
-          selected: answer
-        });
-
-        if(answer === currentSubjectData[currentQuiz].correct) {
-          score++;
-        } else {
-          incorrectCount++;
-        }
-        moveToNext();
-      } else {
-        alert("कृपया कोई एक विकल्प चुनें या 'Skip' बटन दबाएं! 🙏");
+    // Previous Button Logic
+    function prevQuestion() {
+      saveCurrentSelection(); // Save current state before moving back
+      if(currentQuiz > 0) {
+        currentQuiz--;
+        loadQuiz();
       }
     }
 
-    function moveToNext() {
-      currentQuiz++;
-      if(currentQuiz < currentSubjectData.length) {
+    // Skip Button Logic
+    function skipQuestion() {
+      deselectAnswers(); // Uncheck UI
+      saveCurrentSelection(); // Will save as null
+      
+      if(currentQuiz < currentSubjectData.length - 1) {
+        currentQuiz++;
+        loadQuiz();
+      } else {
+        showResults(); // If it's the last question and user skips, submit test
+      }
+    }
+
+    // Next/Submit Button Logic
+    function nextQuestion() {
+      saveCurrentSelection(); // Save whatever user selected
+      
+      if(currentQuiz < currentSubjectData.length - 1) {
+        currentQuiz++;
         loadQuiz();
       } else {
         showResults();
@@ -426,10 +665,31 @@
 
     // Show Final Results
     function showResults() {
+      clearInterval(timerInterval); // Stop timer
+      saveCurrentSelection(); // Save last question just in case
+      
+      let score = 0;
+      let skippedCount = 0;
+      let incorrectCount = 0;
+      let totalQ = currentSubjectData.length;
+
+      // Evaluate logic based on userSelections array
+      for(let i = 0; i < totalQ; i++) {
+        let correctAns = currentSubjectData[i].correct;
+        let userAns = userSelections[i];
+
+        if(userAns === correctAns) {
+          score++;
+        } else if(userAns === null) {
+          skippedCount++;
+        } else {
+          incorrectCount++;
+        }
+      }
+
       quizContainer.style.display = "none";
       resultContainer.style.display = "block";
       
-      let totalQ = currentSubjectData.length;
       let percentage = Math.round((score / totalQ) * 100);
 
       document.getElementById('resTotal').innerText = totalQ;
@@ -459,25 +719,25 @@
       const reviewContent = document.getElementById('reviewContent');
       reviewContent.innerHTML = ""; 
       
-      userAnswersTrack.forEach((item, index) => {
-        const qData = item.question;
-        const selectedOpt = item.selected;
+      // Generate review using userSelections array
+      userSelections.forEach((userAns, index) => {
+        const qData = currentSubjectData[index];
         const correctOpt = qData.correct;
         
         let statusHtml = "";
         
-        if(selectedOpt === null) {
+        if(userAns === null) {
           statusHtml = `
             <div class="ans-box ans-skipped">⚠️ आपने यह सवाल छोड़ दिया था (Skipped)</div>
             <div class="ans-box ans-correct">✅ सही जवाब: ${qData[correctOpt]}</div>
           `;
-        } else if(selectedOpt === correctOpt) {
+        } else if(userAns === correctOpt) {
           statusHtml = `
-            <div class="ans-box ans-correct">✅ आपका जवाब सही है: ${qData[selectedOpt]}</div>
+            <div class="ans-box ans-correct">✅ आपका जवाब सही है: ${qData[userAns]}</div>
           `;
         } else {
           statusHtml = `
-            <div class="ans-box ans-wrong">❌ आपका जवाब: ${qData[selectedOpt]}</div>
+            <div class="ans-box ans-wrong">❌ आपका जवाब: ${qData[userAns]}</div>
             <div class="ans-box ans-correct">✅ सही जवाब: ${qData[correctOpt]}</div>
           `;
         }
