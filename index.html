@@ -6,6 +6,8 @@
   <title>Class 12th Board - Live Mock Test</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
     /* --- Color Variables --- */
@@ -23,6 +25,11 @@
       --danger: #e74c3c;
       --warning: #f1c40f;
       --info: #3498db;
+      
+      /* Social Media Colors */
+      --youtube-color: #ff0000;
+      --telegram-color: #0088cc;
+      --whatsapp-color: #25d366;
     }
 
     body.dark-mode {
@@ -153,6 +160,21 @@
     .ans-wrong { background-color: rgba(231, 76, 60, 0.1); color: var(--danger); border: 1px solid var(--danger); }
     .ans-skipped { background-color: rgba(241, 196, 15, 0.1); color: #d35400; border: 1px solid var(--warning); }
     
+    /* =========================================
+       NEW: ATTRACTIVE SOCIAL MEDIA LINKS
+       ========================================= */
+    .social-links { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 30px; }
+    .social-links a {
+      display: flex; justify-content: center; align-items: center; width: 55px; height: 55px; border-radius: 50%;
+      background-color: var(--card-bg); border: 2px solid var(--border-color); color: #7f8c8d; font-size: 26px;
+      text-decoration: none; transition: all 0.3s ease; box-shadow: var(--shadow);
+    }
+    
+    /* Specific Colors on Hover */
+    .social-links a.youtube:hover { color: white; background-color: var(--youtube-color); border-color: var(--youtube-color); transform: scale(1.1); }
+    .social-links a.telegram:hover { color: white; background-color: var(--telegram-color); border-color: var(--telegram-color); transform: scale(1.1); }
+    .social-links a.whatsapp:hover { color: white; background-color: var(--whatsapp-color); border-color: var(--whatsapp-color); transform: scale(1.1); }
+    
     /* Footer */
     #mainFooter { text-align: center; padding: 25px; border-top: 1px solid var(--border-color); font-weight: 600; margin-top: auto; }
 
@@ -204,6 +226,18 @@
 
     <footer id="mainFooter">
       <p>© 2026 BRGK BY VIPIN | Class 12th Test Portal</p>
+      
+      <div class="social-links">
+        <a href="https://youtube.com/@brgk_by_vipin?si=53TzfbSDurVN3QuK" target="_blank" class="youtube" title="Subscribe YouTube Channel">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://t.me/BRGK_BY_VIPIN_SIR" target="_blank" class="telegram" title="Join Telegram Channel for PDFs">
+          <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="https://wa.me/919882409061" target="_blank" class="whatsapp" title="Chat on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
     </footer>
   </div>
 
@@ -294,6 +328,19 @@
         <button onclick="showReview()" class="btn btn-review">👁️ उत्तरों की समीक्षा करें (Review)</button>
         <button onclick="location.reload()" class="btn btn-home">🏠 मुख्य पृष्ठ (Home)</button>
       </div>
+
+      <p style="margin-top: 40px; font-weight: 600; color: #7f8c8d;">फ्री क्लासेज और PDFs के लिए हमसे जुड़ें:</p>
+      <div class="social-links" style="margin-top: 15px;">
+        <a href="https://youtube.com/@brgk_by_vipin?si=53TzfbSDurVN3QuK" target="_blank" class="youtube" title="Subscribe YouTube Channel">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://t.me/BRGK_BY_VIPIN_SIR" target="_blank" class="telegram" title="Join Telegram Channel for PDFs">
+          <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="https://wa.me/919882409061" target="_blank" class="whatsapp" title="Chat on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
 
     <div id="reviewContainer" class="review-container">
@@ -319,6 +366,7 @@
     // ALL SUBJECTS QUESTIONS DATABASE (200 Questions)
     // ==========================================
     const allQuestions = {
+      // Questions data remains the same...
       hindi: [
         { question: "1. 'कामायनी' महाकाव्य के रचयिता कौन हैं?", a: "महादेवी वर्मा", b: "सुमित्रानंदन पंत", c: "सूर्यकांत त्रिपाठी 'निराला'", d: "जयशंकर प्रसाद", correct: "d" },
         { question: "2. 'तार सप्तक' का प्रकाशन वर्ष क्या है?", a: "1943 ई.", b: "1953 ई.", c: "1936 ई.", d: "1950 ई.", correct: "a" },
@@ -429,7 +477,7 @@
         { question: "3. निम्न में से कौन-सा अणुसंख्य गुणधर्म (Colligative property) है?", a: "पृष्ठ तनाव", b: "श्यानता", c: "परासरण दाब", d: "प्रकाशिक सक्रियता", correct: "c" },
         { question: "4. 8 ग्राम NaOH, 450 mL विलयन में घुला है। विलयन की मोलरता है?", a: "0.444 M", b: "0.492 M", c: "0.02 M", d: "0.2 M", correct: "a" },
         { question: "5. विशिष्ट चालकता का मात्रक है?", a: "ओम⁻¹ सेमी⁻¹", b: "ओम सेमी", c: "ओम⁻¹ सेमी²", d: "ओम सेमी⁻²", correct: "a" },
-        { question: "6. प्रथम कोटि की अभिक्रिया के लिए वेग स्थिरांक का मात्रक है?", a: "मोल लीटर⁻¹ सेकंड⁻¹", b: "लीटर मोल⁻¹ सेकंड⁻¹", c: "सेकंड⁻¹", d: "मोल लीटर⁻² सेकंड⁻¹", correct: "c" },
+        { question: "6. प्रथम कोटि की अभिक्रिया के लिए वेग स्थिरांक का मात्रक है?", a: "मोल लीकटर⁻¹ सेकंड⁻¹", b: "लीटर मोल⁻¹ सेकंड⁻¹", c: "सेकंड⁻¹", d: "मोल लीटर⁻² सेकंड⁻¹", correct: "c" },
         { question: "7. शून्य कोटि की अभिक्रिया के लिए वेग स्थिरांक का मात्रक है?", a: "मोल लीटर⁻¹ सेकंड⁻¹", b: "सेकंड⁻¹", c: "लीटर मोल⁻¹ सेकंड⁻¹", d: "कोई मात्रक नहीं", correct: "a" },
         { question: "8. कोहरे को भेदने वाले लैम्पों में प्रयुक्त गैस है?", a: "Ne", b: "He", c: "Ar", d: "Kr", correct: "a" },
         { question: "9. सबसे अधिक विद्युत ऋणात्मक तत्व कौन सा है?", a: "F", b: "Cl", c: "Br", d: "I", correct: "a" },
