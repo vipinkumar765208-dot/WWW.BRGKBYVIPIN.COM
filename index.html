@@ -86,7 +86,11 @@
     .subject-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
     .subject-card h3 { font-size: 1.4rem; color: var(--text-color); margin-bottom: 10px; }
     .subject-card p { font-size: 0.9rem; color: #7f8c8d; }
-    .time-badge { display: inline-block; background: rgba(52, 152, 219, 0.1); color: var(--info); padding: 5px 10px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; margin-top: 10px; }
+    
+    /* Badges (Timer & Students Attempted) */
+    .card-badges { display: flex; justify-content: center; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
+    .time-badge { display: inline-block; background: rgba(52, 152, 219, 0.1); color: var(--info); padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
+    .attempt-badge { display: inline-block; background: rgba(46, 204, 113, 0.1); color: var(--success); padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
 
     /* =========================================
        DEDICATED TEST PAGE UI
@@ -161,7 +165,7 @@
     .ans-skipped { background-color: rgba(241, 196, 15, 0.1); color: #d35400; border: 1px solid var(--warning); }
     
     /* =========================================
-       NEW: ATTRACTIVE SOCIAL MEDIA LINKS
+       SOCIAL MEDIA LINKS
        ========================================= */
     .social-links { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 30px; }
     .social-links a {
@@ -170,7 +174,6 @@
       text-decoration: none; transition: all 0.3s ease; box-shadow: var(--shadow);
     }
     
-    /* Specific Colors on Hover */
     .social-links a.youtube:hover { color: white; background-color: var(--youtube-color); border-color: var(--youtube-color); transform: scale(1.1); }
     .social-links a.telegram:hover { color: white; background-color: var(--telegram-color); border-color: var(--telegram-color); transform: scale(1.1); }
     .social-links a.whatsapp:hover { color: white; background-color: var(--whatsapp-color); border-color: var(--whatsapp-color); transform: scale(1.1); }
@@ -201,26 +204,43 @@
     <div class="container">
       <h2 class="section-title">विषय चुनें (Select Subject)</h2>
       <div class="subject-grid">
+        
         <div class="subject-card" onclick="startSubjectTest('hindi', 30)">
           <h3 style="color: #e74c3c;">सामान्य हिंदी</h3>
           <p>50 Important MCQs</p>
-          <span class="time-badge">⏱️ 30 Minutes</span>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 30 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 5,420+ Students</span>
+          </div>
         </div>
+
         <div class="subject-card" onclick="startSubjectTest('physics', 40)">
           <h3 style="color: #3498db;">भौतिक विज्ञान</h3>
           <p>50 Important MCQs</p>
-          <span class="time-badge">⏱️ 40 Minutes</span>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 40 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 4,830+ Students</span>
+          </div>
         </div>
+
         <div class="subject-card" onclick="startSubjectTest('chemistry', 40)">
           <h3 style="color: #2ecc71;">रसायन विज्ञान</h3>
           <p>50 Important MCQs</p>
-          <span class="time-badge">⏱️ 40 Minutes</span>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 40 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 4,150+ Students</span>
+          </div>
         </div>
+
         <div class="subject-card" onclick="startSubjectTest('math', 60)">
           <h3 style="color: #f39c12;">गणित</h3>
           <p>50 Important MCQs</p>
-          <span class="time-badge">⏱️ 60 Minutes</span>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 60 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 3,920+ Students</span>
+          </div>
         </div>
+
       </div>
     </div>
 
@@ -366,7 +386,6 @@
     // ALL SUBJECTS QUESTIONS DATABASE (200 Questions)
     // ==========================================
     const allQuestions = {
-      // Questions data remains the same...
       hindi: [
         { question: "1. 'कामायनी' महाकाव्य के रचयिता कौन हैं?", a: "महादेवी वर्मा", b: "सुमित्रानंदन पंत", c: "सूर्यकांत त्रिपाठी 'निराला'", d: "जयशंकर प्रसाद", correct: "d" },
         { question: "2. 'तार सप्तक' का प्रकाशन वर्ष क्या है?", a: "1943 ई.", b: "1953 ई.", c: "1936 ई.", d: "1950 ई.", correct: "a" },
@@ -433,7 +452,7 @@
         { question: "11. चुम्बकीय क्षेत्र की तीव्रता का मात्रक है?", a: "वेबर", b: "वेबर/मीटर", c: "वेबर/मीटर² (टेस्ला)", d: "हेनरी", correct: "c" },
         { question: "12. μ₀ε₀ का मान होता है? (जहाँ c प्रकाश की चाल है)", a: "c²", b: "1/c²", c: "c", d: "1/c", correct: "b" },
         { question: "13. लॉरेन्ज बल का सूत्र क्या है?", a: "F = qE", b: "F = q(v × B)", c: "F = IBl", d: "F = qvB", correct: "b" },
-        { question: "14. एक आदर्श अमीटर का प्रतिरोध कितना होना चाहिए?", a: "अनंत", b: "शून्य", c: "बहुत अधिक", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "14. एक आदर्श अमीटर का प्रतिरोध कितना होना चाहिए?", a: "अनंत", b: "शून्य", c: "बहुत अधिक", d: "इनमें से कोई চিহ্নিত नहीं", correct: "b" },
         { question: "15. एक आदर्श वोल्टमीटर का प्रतिरोध कितना होना चाहिए?", a: "शून्य", b: "1 ओम", c: "100 ओम", d: "अनंत", correct: "d" },
         { question: "16. पृथ्वी के चुम्बकीय ध्रुवों पर नति (नमन) कोण का मान कितना होता है?", a: "0°", b: "45°", c: "90°", d: "180°", correct: "c" },
         { question: "17. विषुवत रेखा पर नति कोण का मान कितना होता है?", a: "90°", b: "45°", c: "0°", d: "60°", correct: "c" },
@@ -477,7 +496,7 @@
         { question: "3. निम्न में से कौन-सा अणुसंख्य गुणधर्म (Colligative property) है?", a: "पृष्ठ तनाव", b: "श्यानता", c: "परासरण दाब", d: "प्रकाशिक सक्रियता", correct: "c" },
         { question: "4. 8 ग्राम NaOH, 450 mL विलयन में घुला है। विलयन की मोलरता है?", a: "0.444 M", b: "0.492 M", c: "0.02 M", d: "0.2 M", correct: "a" },
         { question: "5. विशिष्ट चालकता का मात्रक है?", a: "ओम⁻¹ सेमी⁻¹", b: "ओम सेमी", c: "ओम⁻¹ सेमी²", d: "ओम सेमी⁻²", correct: "a" },
-        { question: "6. प्रथम कोटि की अभिक्रिया के लिए वेग स्थिरांक का मात्रक है?", a: "मोल लीकटर⁻¹ सेकंड⁻¹", b: "लीटर मोल⁻¹ सेकंड⁻¹", c: "सेकंड⁻¹", d: "मोल लीटर⁻² सेकंड⁻¹", correct: "c" },
+        { question: "6. प्रथम कोटि की अभिक्रिया के लिए वेग स्थिरांक का मात्रक है?", a: "मोल लीटर⁻¹ सेकंड⁻¹", b: "लीटर मोल⁻¹ सेकंड⁻¹", c: "सेकंड⁻¹", d: "मोल लीटर⁻² सेकंड⁻¹", correct: "c" },
         { question: "7. शून्य कोटि की अभिक्रिया के लिए वेग स्थिरांक का मात्रक है?", a: "मोल लीटर⁻¹ सेकंड⁻¹", b: "सेकंड⁻¹", c: "लीटर मोल⁻¹ सेकंड⁻¹", d: "कोई मात्रक नहीं", correct: "a" },
         { question: "8. कोहरे को भेदने वाले लैम्पों में प्रयुक्त गैस है?", a: "Ne", b: "He", c: "Ar", d: "Kr", correct: "a" },
         { question: "9. सबसे अधिक विद्युत ऋणात्मक तत्व कौन सा है?", a: "F", b: "Cl", c: "Br", d: "I", correct: "a" },
