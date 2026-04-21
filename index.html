@@ -154,6 +154,10 @@
     .bg-skipped { background: var(--warning); color: #333; }
     .bg-percent { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); }
 
+    /* Changed text color to black for better visibility */
+    .btn-review { background: linear-gradient(45deg, #11998e, #38ef7d); box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3); flex: 1; min-width: 200px; color: #000000 !important; }
+    .btn-home { background: var(--info); box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); flex: 1; min-width: 200px; color: #000000 !important; }
+
     /* --- Review Section UI --- */
     .review-container { background-color: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow); padding: 30px; border: 1px solid var(--border-color); display: none; text-align: left; max-width: 900px; margin: 40px auto; }
     .review-header { font-size: 1.8rem; color: var(--primary-color); text-align: center; margin-bottom: 30px; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 15px; }
@@ -452,7 +456,7 @@
         { question: "11. चुम्बकीय क्षेत्र की तीव्रता का मात्रक है?", a: "वेबर", b: "वेबर/मीटर", c: "वेबर/मीटर² (टेस्ला)", d: "हेनरी", correct: "c" },
         { question: "12. μ₀ε₀ का मान होता है? (जहाँ c प्रकाश की चाल है)", a: "c²", b: "1/c²", c: "c", d: "1/c", correct: "b" },
         { question: "13. लॉरेन्ज बल का सूत्र क्या है?", a: "F = qE", b: "F = q(v × B)", c: "F = IBl", d: "F = qvB", correct: "b" },
-        { question: "14. एक आदर्श अमीटर का प्रतिरोध कितना होना चाहिए?", a: "अनंत", b: "शून्य", c: "बहुत अधिक", d: "इनमें से कोई চিহ্নিত नहीं", correct: "b" },
+        { question: "14. एक आदर्श अमीटर का प्रतिरोध कितना होना चाहिए?", a: "अनंत", b: "शून्य", c: "बहुत अधिक", d: "इनमें से कोई नहीं", correct: "b" },
         { question: "15. एक आदर्श वोल्टमीटर का प्रतिरोध कितना होना चाहिए?", a: "शून्य", b: "1 ओम", c: "100 ओम", d: "अनंत", correct: "d" },
         { question: "16. पृथ्वी के चुम्बकीय ध्रुवों पर नति (नमन) कोण का मान कितना होता है?", a: "0°", b: "45°", c: "90°", d: "180°", correct: "c" },
         { question: "17. विषुवत रेखा पर नति कोण का मान कितना होता है?", a: "90°", b: "45°", c: "0°", d: "60°", correct: "c" },
@@ -842,4 +846,5 @@
     }
   </script>
 </body>
-</html>
+  </html>
+  
