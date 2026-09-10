@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Class 12th Board - Live Mock Test</title>
   
+  <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   
+  <!-- Font Awesome Icons for Social Media & Students Icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
@@ -194,6 +196,7 @@
 </head>
 <body>
 
+  <!-- HOMEPAGE SECTION -->
   <div id="homeSection">
     <header id="mainHeader">
       <div class="logo">Class 12th Test Portal</div>
@@ -209,6 +212,7 @@
       <h2 class="section-title">विषय चुनें (Select Subject)</h2>
       <div class="subject-grid">
         
+        <!-- Hindi Card -->
         <div class="subject-card" onclick="startSubjectTest('hindi', 30)">
           <h3 style="color: #e74c3c;">सामान्य हिंदी</h3>
           <p>50 Important MCQs</p>
@@ -218,6 +222,7 @@
           </div>
         </div>
 
+        <!-- Physics Card -->
         <div class="subject-card" onclick="startSubjectTest('physics', 40)">
           <h3 style="color: #3498db;">भौतिक विज्ञान</h3>
           <p>50 Important MCQs</p>
@@ -227,6 +232,7 @@
           </div>
         </div>
 
+        <!-- Chemistry Card -->
         <div class="subject-card" onclick="startSubjectTest('chemistry', 40)">
           <h3 style="color: #2ecc71;">रसायन विज्ञान</h3>
           <p>50 Important MCQs</p>
@@ -236,6 +242,7 @@
           </div>
         </div>
 
+        <!-- Math Card -->
         <div class="subject-card" onclick="startSubjectTest('math', 60)">
           <h3 style="color: #f39c12;">गणित</h3>
           <p>50 Important MCQs</p>
@@ -245,17 +252,28 @@
           </div>
         </div>
 
+        <!-- Biology Card (NEW) -->
+        <div class="subject-card" onclick="startSubjectTest('biology', 40)">
+          <h3 style="color: #9b59b6;">जीव विज्ञान (Biology)</h3>
+          <p>50 Important MCQs</p>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 40 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 4,500+ Students</span>
+          </div>
+        </div>
+
       </div>
     </div>
 
     <footer id="mainFooter">
-      <p>© 2026 EXAM SATHEE VIPIN| Class 12th Test Portal</p>
+      <p>© 2026 BRGK BY VIPIN | Class 12th Test Portal</p>
       
+      <!-- SOCIAL MEDIA LINKS IN FOOTER -->
       <div class="social-links">
-        <a href="https://youtube.com/@Exam_Sathee_Vipin?si=53TzfbSDurVN3QuK" target="_blank" class="youtube" title="Subscribe YouTube Channel">
+        <a href="https://youtube.com/@brgk_by_vipin?si=53TzfbSDurVN3QuK" target="_blank" class="youtube" title="Subscribe YouTube Channel">
           <i class="fab fa-youtube"></i>
         </a>
-        <a href="https://t.me/Exam_Sathee_Vipin" target="_blank" class="telegram" title="Join Telegram Channel for PDFs">
+        <a href="https://t.me/BRGK_BY_VIPIN_SIR" target="_blank" class="telegram" title="Join Telegram Channel for PDFs">
           <i class="fab fa-telegram-plane"></i>
         </a>
         <a href="https://wa.me/919882409061" target="_blank" class="whatsapp" title="Chat on WhatsApp">
@@ -266,13 +284,16 @@
   </div>
 
 
+  <!-- DEDICATED TEST PAGE SECTION (Hidden by default) -->
   <div id="testPage">
+    <!-- Top Bar -->
     <div class="test-header-bar">
       <button class="btn-leave" onclick="leaveTest()">🚪 टेस्ट छोड़ें</button>
       <div class="test-subject-name" id="subjectNameDisplay">Subject</div>
       <div class="timer" id="timerDisplay">60:00</div>
     </div>
 
+    <!-- Quiz Box -->
     <div class="quiz-container">
       <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
@@ -320,7 +341,9 @@
   </div>
 
 
+  <!-- RESULT & REVIEW SECTION (Hidden by default) -->
   <div id="resultPage" style="display: none; padding: 20px; background-color: var(--bg-color); min-height: 100vh;">
+    <!-- Attractive Result Section -->
     <div id="resultContainer" class="result-container">
       <h2 class="result-title">📊 टेस्ट समाप्त! (Test Completed)</h2>
       <p id="resultMessage" class="result-message">Your Performance</p>
@@ -353,6 +376,7 @@
         <button onclick="location.reload()" class="btn btn-home">🏠 मुख्य पृष्ठ (Home)</button>
       </div>
 
+      <!-- SOCIAL MEDIA LINKS IN RESULT PAGE -->
       <p style="margin-top: 40px; font-weight: 600; color: #7f8c8d;">फ्री क्लासेज और PDFs के लिए हमसे जुड़ें:</p>
       <div class="social-links" style="margin-top: 15px;">
         <a href="https://youtube.com/@brgk_by_vipin?si=53TzfbSDurVN3QuK" target="_blank" class="youtube" title="Subscribe YouTube Channel">
@@ -367,10 +391,12 @@
       </div>
     </div>
 
+    <!-- Review Answers Section -->
     <div id="reviewContainer" class="review-container">
       <h2 class="review-header">📝 उत्तरों की समीक्षा (Review Answers)</h2>
       <div id="reviewContent">
-        </div>
+        <!-- Review items injected here by JS -->
+      </div>
       <div class="quiz-controls" style="justify-content: center; margin-top: 40px;">
         <button onclick="location.reload()" class="btn btn-home" style="max-width: 400px;">🏠 मुख्य पृष्ठ पर जाएँ (Home)</button>
       </div>
@@ -378,6 +404,7 @@
   </div>
 
 
+  <!-- JAVASCRIPT LOGIC -->
   <script>
     // Dark Mode Toggle
     const toggleBtn = document.getElementById('modeToggle');
@@ -387,7 +414,7 @@
     });
 
     // ==========================================
-    // ALL SUBJECTS QUESTIONS DATABASE (200 Questions)
+    // ALL SUBJECTS QUESTIONS DATABASE (250 Questions Total)
     // ==========================================
     const allQuestions = {
       hindi: [
@@ -597,6 +624,59 @@
         { question: "48. रैखिक अवकल समीकरण dy/dx + Py = Q के लिए 'समाकलन गुणांक' (IF) क्या है?", a: "e^(∫Q dx)", b: "e^(∫P dy)", c: "e^(∫P dx)", d: "∫P dx", correct: "c" },
         { question: "49. सदिश a = i + j + k की दिशा में मात्रक सदिश (Unit Vector) क्या होगा?", a: "i + j + k", b: "(i + j + k) / 3", c: "(i + j + k) / √3", d: "1", correct: "c" },
         { question: "50. समतल 2x - 3y + 4z - 6 = 0 के अभिलंब के दिक्-अनुपात (Direction Ratios) क्या हैं?", a: "(2, 3, 4)", b: "(2, -3, 4)", c: "(-2, 3, -4)", d: "(6, 6, 6)", correct: "b" }
+      ],
+      // --------- BIOLOGY (NEW: 50 Qs) ---------
+      biology: [
+        { question: "1. द्विनिषेचन (Double fertilization) की खोज किसने की थी?", a: "स्ट्रॉसबर्गर", b: "नवाशचिन", c: "रॉबर्ट हुक", d: "ल्यूवेनहॉक", correct: "b" },
+        { question: "2. मुकुलन (Budding) द्वारा जनन किसमें होता है?", a: "अमीबा", b: "पैरामीशियम", c: "यीस्ट (Yeast)", d: "प्लाज्मोडियम", correct: "c" },
+        { question: "3. मानव में गुणसूत्रों की संख्या कितनी होती है?", a: "42", b: "44", c: "46", d: "48", correct: "c" },
+        { question: "4. आनुवंशिकी (Genetics) के जनक कौन हैं?", a: "ग्रेगर जॉन मेंडल", b: "चार्ल्स डार्विन", c: "ह्यूगो डी व्रीज", d: "मॉर्गन", correct: "a" },
+        { question: "5. DNA का द्विकुंडलिनी मॉडल (Double helix model) किसने दिया?", a: "रॉबर्ट ब्राउन", b: "वाटसन एवं क्रिक", c: "विल्किंस", d: "खुराना", correct: "b" },
+        { question: "6. एड्स (AIDS) का कारण क्या है?", a: "जीवाणु", b: "कवक", c: "HIV वायरस", d: "प्रोटोजोआ", correct: "c" },
+        { question: "7. पेनिसिलिन की खोज किसने की?", a: "लुई पाश्चर", b: "अलेक्जेंडर फ्लेमिंग", c: "एडवर्ड जेनर", d: "रॉबर्ट कोच", correct: "b" },
+        { question: "8. पीसीआर (PCR) तकनीक का उपयोग किसमें होता है?", a: "प्रोटीन संश्लेषण", b: "DNA संवर्धन (Amplification)", c: "एंजाइम निर्माण", d: "RNA संश्लेषण", correct: "b" },
+        { question: "9. बीटी कपास (Bt Cotton) में 'Bt' क्या है?", a: "बेसिलस थुरिंजिएंसिस", b: "बायोटेक्नोलॉजी", c: "बोटैनिकल टिश्यू", d: "बैक्टीरियल टॉक्सिन", correct: "a" },
+        { question: "10. ऊर्जा का पिरामिड कैसा होता है?", a: "हमेशा उल्टा", b: "हमेशा सीधा", c: "उल्टा और सीधा दोनों", d: "अनियमित", correct: "b" },
+        { question: "11. विश्व पर्यावरण दिवस कब मनाया जाता है?", a: "5 जून", b: "11 जुलाई", c: "1 दिसंबर", d: "22 अप्रैल", correct: "a" },
+        { question: "12. बायोगैस में मुख्य रूप से कौन सी गैस होती है?", a: "CO2", b: "मीथेन (CH4)", c: "H2S", d: "O2", correct: "b" },
+        { question: "13. मनुष्य में लिंग निर्धारण किसके द्वारा होता है?", a: "माता के X गुणसूत्र से", b: "पिता के Y गुणसूत्र से", c: "भोजन से", d: "पर्यावरण से", correct: "b" },
+        { question: "14. टर्नर सिंड्रोम में गुणसूत्रों की संख्या कितनी होती है?", a: "45 (44+XO)", b: "47 (44+XXY)", c: "46", d: "48", correct: "a" },
+        { question: "15. डाउन सिंड्रोम किस गुणसूत्र की त्रिसूत्रता (Trisomy) के कारण होता है?", a: "18वें", b: "13वें", c: "21वें", d: "5वें", correct: "c" },
+        { question: "16. प्लाज्मोडियम से कौन सा रोग होता है?", a: "डेंगू", b: "मलेरिया", c: "टाइफाइड", d: "निमोनिया", correct: "b" },
+        { question: "17. टाइफाइड की जांच के लिए कौन सा टेस्ट होता है?", a: "एलिसा टेस्ट (ELISA)", b: "विडाल टेस्ट (Widal Test)", c: "PCR", d: "ईसीजी (ECG)", correct: "b" },
+        { question: "18. इकोलॉजी (Ecology) शब्द का प्रयोग सबसे पहले किसने किया?", a: "ए. जी. टैन्सले", b: "ओडम", c: "अर्न्स्ट हैकेल", d: "डार्विन", correct: "c" },
+        { question: "19. ग्रीनहाउस गैसों में मुख्य गैस कौन सी है?", a: "O2", b: "N2", c: "CO2", d: "SO2", correct: "c" },
+        { question: "20. ओजोन परत वायुमंडल के किस भाग में पाई जाती है?", a: "क्षोभ मंडल (Troposphere)", b: "समताप मंडल (Stratosphere)", c: "मध्य मंडल", d: "आयन मंडल", correct: "b" },
+        { question: "21. चिपको आंदोलन किससे संबंधित है?", a: "जल संरक्षण", b: "वन संरक्षण", c: "मृदा संरक्षण", d: "वायु प्रदूषण", correct: "b" },
+        { question: "22. लाइकेन किसके सूचक होते हैं?", a: "जल प्रदूषण", b: "वायु प्रदूषण (SO2)", c: "मृदा प्रदूषण", d: "ध्वनि प्रदूषण", correct: "b" },
+        { question: "23. इंसुलिन का निर्माण शरीर के किस अंग में होता है?", a: "यकृत (Liver)", b: "अग्न्याशय (Pancreas)", c: "वृक्क (Kidney)", d: "आमाशय", correct: "b" },
+        { question: "24. रुधिर वर्ग (Blood Group) की खोज किसने की?", a: "विलियम हार्वे", b: "कार्ल लैंडस्टीनर", c: "रॉबर्ट हुक", d: "रॉबर्ट ब्राउन", correct: "b" },
+        { question: "25. DNA में कौन सा नाइट्रोजन क्षारक नहीं होता है?", a: "एडेनिन", b: "थायमीन", c: "साइटोसिन", d: "यूरेसिल", correct: "d" },
+        { question: "26. 'ओपेरॉन मॉडल' किसने प्रस्तुत किया?", a: "जैकब और मोनोड", b: "वाटसन और क्रिक", c: "नीरेनबर्ग", d: "मेंडल", correct: "a" },
+        { question: "27. भोपाल गैस त्रासदी में किस गैस का रिसाव हुआ था?", a: "CO", b: "मिथाइल आइसोसायनेट (MIC)", c: "SO2", d: "NH3", correct: "b" },
+        { question: "28. भारत का राष्ट्रीय पशु कौन है?", a: "शेर", b: "बाघ (Tiger)", c: "हाथी", d: "चीता", correct: "b" },
+        { question: "29. पारिस्थितिकी तंत्र (Ecosystem) शब्द किसने दिया?", a: "अर्न्स्ट हैकेल", b: "ए. जी. टैन्सले", c: "लिंडमैन", d: "डार्विन", correct: "b" },
+        { question: "30. फूलों में नर जननांग को क्या कहते हैं?", a: "जायांग (Gynoecium)", b: "पुंकेसर (Androecium)", c: "बाह्यदल", d: "दलपुंज", correct: "b" },
+        { question: "31. फलों का निर्माण किससे होता है?", a: "बीजांड से", b: "अंडाशय (Ovary) से", c: "परागकण से", d: "पुष्पासन से", correct: "b" },
+        { question: "32. मनुष्य में निषेचन (Fertilization) कहाँ होता है?", a: "गर्भाशय में", b: "योनि में", c: "फैलोपियन नलिका (Fallopian tube) में", d: "अंडाशय में", correct: "c" },
+        { question: "33. शुक्राणु को पोषण कौन प्रदान करता है?", a: "लीडिग कोशिकाएँ", b: "सार्टोली कोशिकाएँ", c: "प्रोस्टेट ग्रंथि", d: "शुक्राशय", correct: "b" },
+        { question: "34. गर्भनिरोधक गोलियों में मुख्य रूप से क्या होता है?", a: "एस्ट्रोजन और प्रोजेस्टेरोन", b: "टेस्टोस्टेरोन", c: "इंसुलिन", d: "थायरोक्सिन", correct: "a" },
+        { question: "35. मेण्डल ने अपने प्रयोग किस पौधे पर किए थे?", a: "चना", b: "मटर (Pisum sativum)", c: "सरसों", d: "गेहूँ", correct: "b" },
+        { question: "36. अपूर्ण प्रभाविता (Incomplete dominance) का उदाहरण है?", a: "मटर", b: "मिराबिलिस जलापा (4 O'clock plant)", c: "गुलाब", d: "कुत्ता", correct: "b" },
+        { question: "37. सर्वदाता (Universal donor) रक्त समूह कौन सा है?", a: "A", b: "B", c: "AB", d: "O", correct: "d" },
+        { question: "38. उत्परिवर्तन (Mutation) का सिद्धांत किसने दिया?", a: "डार्विन", b: "लैमार्क", c: "ह्यूगो डी व्रीज", d: "मेंडल", correct: "c" },
+        { question: "39. जीवन की उत्पत्ति किस काल में हुई?", a: "प्रीकैम्ब्रियन काल", b: "मीसोजोइक काल", c: "पेलियोजोइक काल", d: "सीनोजोइक काल", correct: "a" },
+        { question: "40. 'Origin of Species' पुस्तक के लेखक कौन हैं?", a: "लैमार्क", b: "चार्ल्स डार्विन", c: "ओपेरिन", d: "वालेस", correct: "b" },
+        { question: "41. टीबी (Tuberculosis) के टीके का क्या नाम है?", a: "DPT", b: "BCG", c: "OPV", d: "TT", correct: "b" },
+        { question: "42. कैंसर के अध्ययन को क्या कहते हैं?", a: "साइटोलॉजी", b: "ऑन्कोलॉजी", c: "हिस्टोलॉजी", d: "डर्मेटोलॉजी", correct: "b" },
+        { question: "43. प्रतिबंध एंडोन्यूक्लिएज (Restriction endonuclease) को क्या कहा जाता है?", a: "आणविक कैंची (Molecular scissors)", b: "आणविक गोंद", c: "वेक्टर", d: "प्राइमर", correct: "a" },
+        { question: "44. पहली क्लोन स्तनधारी (Mammal) कौन थी?", a: "गाय", b: "कुत्ता", c: "डॉली (भेड़)", d: "बंदर", correct: "c" },
+        { question: "45. सुनहरे चावल (Golden Rice) में कौन सा विटामिन प्रचुर मात्रा में होता है?", a: "विटामिन B", b: "विटामिन C", c: "विटामिन D", d: "विटामिन A", correct: "d" },
+        { question: "46. 'प्रोजेक्ट टाइगर' भारत में कब शुरू हुआ?", a: "1972", b: "1973", c: "1980", d: "1992", correct: "b" },
+        { question: "47. रेड डाटा बुक (Red Data Book) कौन जारी करता है?", a: "WHO", b: "WWF", c: "IUCN", d: "UNEP", correct: "c" },
+        { question: "48. काजीरंगा राष्ट्रीय उद्यान किसके लिए प्रसिद्ध है?", a: "बाघ", b: "हाथी", c: "एक सींग वाले गैंडे", d: "शेर", correct: "c" },
+        { question: "49. पृथ्वी के फेफड़े (Lungs of the planet) किसे कहा जाता है?", a: "सुंदरवन", b: "अमेज़न वर्षा वन", c: "हिमालय के वन", d: "पश्चिमी घाट", correct: "b" },
+        { question: "50. इनमें से कौन सा एक स्व-प्रतिरक्षा (Auto-immune) रोग है?", a: "एड्स", b: "मलेरिया", c: "रुमेटॉइड अर्थराइटिस", d: "हैजा", correct: "c" }
       ]
     };
 
@@ -627,6 +707,7 @@
       if(subjectKey === 'physics') subName = "भौतिक विज्ञान (Physics)";
       if(subjectKey === 'chemistry') subName = "रसायन विज्ञान (Chemistry)";
       if(subjectKey === 'math') subName = "गणित (Mathematics)";
+      if(subjectKey === 'biology') subName = "जीव विज्ञान (Biology)";
       
       document.getElementById('subjectNameDisplay').innerText = subName;
       document.getElementById('totalQNum').innerText = currentSubjectData.length;
@@ -846,5 +927,4 @@
     }
   </script>
 </body>
-  </html>
-  
+</html>
