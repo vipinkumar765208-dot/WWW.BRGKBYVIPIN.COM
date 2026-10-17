@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class 12th Board - Live Mock Test</title>
+  <title>UP Board Live Mock Test - Exam Sathee Vipin</title>
   
   <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -75,8 +75,15 @@
 
     /* --- Main Container --- */
     .container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px 20px; text-align: center; }
-    h2.section-title { font-size: 2rem; margin-bottom: 30px; font-weight: 700; position: relative; display: inline-block; }
-    h2.section-title::after { content: ''; width: 50%; height: 4px; background: var(--primary-color); position: absolute; bottom: -8px; left: 25%; border-radius: 5px; }
+    
+    .section-title { 
+      font-size: 2.2rem; margin-top: 40px; margin-bottom: 30px; font-weight: 700; 
+      color: var(--text-color); position: relative; display: inline-block; 
+    }
+    .section-title::after { 
+      content: ''; width: 50%; height: 4px; background: var(--primary-color); 
+      position: absolute; bottom: -8px; left: 25%; border-radius: 5px; 
+    }
 
     /* --- Subject Cards Grid --- */
     .subject-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 20px; }
@@ -156,6 +163,7 @@
     .bg-skipped { background: var(--warning); color: #333; }
     .bg-percent { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); }
 
+    /* Changed text color to black for better visibility */
     .btn-review { background: linear-gradient(45deg, #11998e, #38ef7d); box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3); flex: 1; min-width: 200px; color: #000000 !important; }
     .btn-home { background: var(--info); box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); flex: 1; min-width: 200px; color: #000000 !important; }
 
@@ -198,20 +206,20 @@
   <!-- HOMEPAGE SECTION -->
   <div id="homeSection">
     <header id="mainHeader">
-      <div class="logo">Class 12th Test Portal</div>
+      <div class="logo">Exam Sathee Vipin</div>
       <button id="modeToggle" class="mode-btn">🌙</button>
     </header>
 
     <section class="hero">
       <h1>UP Board Live Mock Tests 🎯</h1>
-      <p>असली बोर्ड परीक्षा जैसा अनुभव। अपना विषय चुनें और टेस्ट शुरू करें।</p>
+      <p>असली बोर्ड परीक्षा जैसा अनुभव। अपनी कक्षा और विषय चुनें।</p>
     </section>
 
     <div class="container">
-      <h2 class="section-title">विषय चुनें (Select Subject)</h2>
+      
+      <!-- ================= CLASS 12TH SECTION ================= -->
+      <h2 class="section-title">Class 12th Board Test</h2>
       <div class="subject-grid">
-        
-        <!-- Hindi Card -->
         <div class="subject-card" onclick="startSubjectTest('hindi', 30)">
           <h3 style="color: #e74c3c;">सामान्य हिंदी</h3>
           <p>50 Important MCQs</p>
@@ -220,8 +228,6 @@
             <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 5,420+ Students</span>
           </div>
         </div>
-
-        <!-- Physics Card -->
         <div class="subject-card" onclick="startSubjectTest('physics', 40)">
           <h3 style="color: #3498db;">भौतिक विज्ञान</h3>
           <p>50 Important MCQs</p>
@@ -230,8 +236,6 @@
             <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 4,830+ Students</span>
           </div>
         </div>
-
-        <!-- Chemistry Card -->
         <div class="subject-card" onclick="startSubjectTest('chemistry', 40)">
           <h3 style="color: #2ecc71;">रसायन विज्ञान</h3>
           <p>50 Important MCQs</p>
@@ -240,8 +244,6 @@
             <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 4,150+ Students</span>
           </div>
         </div>
-
-        <!-- Math Card -->
         <div class="subject-card" onclick="startSubjectTest('math', 60)">
           <h3 style="color: #f39c12;">गणित</h3>
           <p>50 Important MCQs</p>
@@ -250,22 +252,73 @@
             <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 3,920+ Students</span>
           </div>
         </div>
-
-        <!-- Biology Card -->
         <div class="subject-card" onclick="startSubjectTest('biology', 40)">
-          <h3 style="color: #9b59b6;">जीव विज्ञान (Biology)</h3>
+          <h3 style="color: #9b59b6;">जीव विज्ञान</h3>
           <p>50 Important MCQs</p>
           <div class="card-badges">
             <span class="time-badge">⏱️ 40 Mins</span>
             <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 4,500+ Students</span>
           </div>
         </div>
-
       </div>
+
+      <!-- ================= CLASS 10TH SECTION (NEW) ================= -->
+      <h2 class="section-title" style="margin-top: 60px;">Class 10th Board Test</h2>
+      <div class="subject-grid">
+        <div class="subject-card" onclick="startSubjectTest('class10_hindi', 30)">
+          <h3 style="color: #e74c3c;">सामान्य हिंदी</h3>
+          <p>50 Important MCQs</p>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 30 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 6,100+ Students</span>
+          </div>
+        </div>
+        <div class="subject-card" onclick="startSubjectTest('class10_english', 30)">
+          <h3 style="color: #34495e;">English</h3>
+          <p>50 Important MCQs</p>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 30 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 5,800+ Students</span>
+          </div>
+        </div>
+        <div class="subject-card" onclick="startSubjectTest('class10_science', 40)">
+          <h3 style="color: #2ecc71;">विज्ञान (Science)</h3>
+          <p>50 Important MCQs</p>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 40 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 6,500+ Students</span>
+          </div>
+        </div>
+        <div class="subject-card" onclick="startSubjectTest('class10_math', 60)">
+          <h3 style="color: #f39c12;">गणित (Math)</h3>
+          <p>50 Important MCQs</p>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 60 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 6,200+ Students</span>
+          </div>
+        </div>
+        <div class="subject-card" onclick="startSubjectTest('class10_social', 40)">
+          <h3 style="color: #e67e22;">सामाजिक विज्ञान</h3>
+          <p>50 Important MCQs</p>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 40 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 5,900+ Students</span>
+          </div>
+        </div>
+        <div class="subject-card" onclick="startSubjectTest('class10_home_science', 30)">
+          <h3 style="color: #e84393;">गृह विज्ञान</h3>
+          <p>50 Important MCQs</p>
+          <div class="card-badges">
+            <span class="time-badge">⏱️ 30 Mins</span>
+            <span class="attempt-badge"><i class="fas fa-user-graduate"></i> 3,400+ Students</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <footer id="mainFooter">
-      <p>© 2026 Exam Sathee Vipin | Class 12th Test Portal</p>
+      <p>© 2026 Exam Sathee Vipin | Class 10th & 12th Test Portal</p>
       
       <!-- SOCIAL MEDIA LINKS IN FOOTER -->
       <div class="social-links">
@@ -413,9 +466,333 @@
     });
 
     // ==========================================
-    // ALL SUBJECTS QUESTIONS DATABASE (250 Questions Total)
+    // ALL SUBJECTS QUESTIONS DATABASE
     // ==========================================
-    const allQuestions = {
+      // =========================================================
+      // CLASS 10th QUESTIONS (50 Qs Each) 
+      // =========================================================
+
+      class10_hindi: [
+        { question: "1. 'चिंतामणि' निबंध संग्रह के रचयिता कौन हैं?", a: "डॉ. रामकुमार वर्मा", b: "जयशंकर प्रसाद", c: "आचार्य रामचंद्र शुक्ल", d: "प्रेमचंद", correct: "c" },
+        { question: "2. 'रसमीमांसा' किसकी रचना है?", a: "आचार्य रामचंद्र शुक्ल", b: "महावीर प्रसाद द्विवेदी", c: "हजारी प्रसाद द्विवेदी", d: "डॉ. नगेन्द्र", correct: "a" },
+        { question: "3. 'तितली' कृति की विधा क्या है?", a: "कहानी", b: "नाटक", c: "उपन्यास", d: "निबंध", correct: "c" },
+        { question: "4. 'अर्द्धनारीश्वर' के लेखक कौन हैं?", a: "विष्णु प्रभाकर", b: "रामधारी सिंह दिनकर", c: "जयशंकर प्रसाद", d: "अज्ञेय", correct: "b" },
+        { question: "5. 'गोदान' किस युग का उपन्यास है?", a: "शुक्ल युग", b: "शुक्लोत्तर युग", c: "द्विवेदी युग", d: "भारतेन्दु युग", correct: "a" },
+        { question: "6. 'अजातशत्रु' किस विधा की रचना है?", a: "जीवनी", b: "नाटक", c: "संस्मरण", d: "आत्मकथा", correct: "b" },
+        { question: "7. 'बाणभट्ट की आत्मकथा' के लेखक हैं?", a: "हजारी प्रसाद द्विवेदी", b: "अज्ञेय", c: "महादेवी वर्मा", d: "अमृतलाल नागर", correct: "a" },
+        { question: "8. 'गुनाहों का देवता' उपन्यास के लेखक हैं?", a: "धर्मवीर भारती", b: "मुंशी प्रेमचंद", c: "कमलेश्वर", d: "इलाचंद्र जोशी", correct: "a" },
+        { question: "9. 'हंस' पत्रिका के संपादक कौन थे?", a: "गुलाबराय", b: "बालकृष्ण भट्ट", c: "मुंशी प्रेमचंद", d: "जयशंकर प्रसाद", correct: "c" },
+        { question: "10. 'कलम का सिपाही' की विधा है?", a: "रेखाचित्र", b: "जीवनी", c: "उपन्यास", d: "संस्मरण", correct: "b" },
+        { question: "11. 'साकेत' महाकाव्य की रचना किसने की?", a: "मैथिलीशरण गुप्त", b: "हरिऔध", c: "तुलसीदास", d: "दिनकर", correct: "a" },
+        { question: "12. 'तार सप्तक' का प्रकाशन वर्ष है?", a: "1936", b: "1943", c: "1953", d: "1950", correct: "b" },
+        { question: "13. 'कामायनी' महाकाव्य के रचयिता हैं?", a: "सुमित्रानंदन पंत", b: "जयशंकर प्रसाद", c: "निराला", d: "महादेवी वर्मा", correct: "b" },
+        { question: "14. 'यामा' के रचयिता हैं?", a: "सुभद्रा कुमारी चौहान", b: "महादेवी वर्मा", c: "मीराबाई", d: "तुलसीदास", correct: "b" },
+        { question: "15. 'आँगन के पार द्वार' के रचयिता हैं?", a: "अज्ञेय", b: "दिनकर", c: "धर्मवीर भारती", d: "गिरिजाकुमार माथुर", correct: "a" },
+        { question: "16. 'पृथ्वीराज रासो' किसकी रचना है?", a: "जगनिक", b: "नरपति नाल्ह", c: "चंदबरदाई", d: "दलपति विजय", correct: "c" },
+        { question: "17. 'रामचरितमानस' में कितने कांड हैं?", a: "5", b: "6", c: "7", d: "8", correct: "c" },
+        { question: "18. 'बीजक' किसकी रचना है?", a: "सूरदास", b: "तुलसीदास", c: "रहीम", d: "कबीरदास", correct: "d" },
+        { question: "19. रीतिकाल की समय सीमा मानी जाती है?", a: "1343-1643", b: "1643-1843", c: "1843-आज तक", d: "इनमे से कोई नहीं", correct: "b" },
+        { question: "20. 'सूरसागर' के रचयिता हैं?", a: "तुलसीदास", b: "कबीरदास", c: "सूरदास", d: "मीराबाई", correct: "c" },
+        { question: "21. हास्य रस का स्थायी भाव है?", a: "रति", b: "शोक", c: "हास", d: "भय", correct: "c" },
+        { question: "22. करुण रस का स्थायी भाव है?", a: "हास", b: "शोक", c: "क्रोध", d: "उत्साह", correct: "b" },
+        { question: "23. 'पीपर पात सरिस मन डोला' में कौन सा अलंकार है?", a: "रूपक", b: "उपमा", c: "उत्प्रेक्षा", d: "यमक", correct: "b" },
+        { question: "24. 'चरन कमल बंदौ हरि राई' में कौन सा अलंकार है?", a: "रूपक", b: "उपमा", c: "उत्प्रेक्षा", d: "श्लेष", correct: "a" },
+        { question: "25. रोला छंद में कितने चरण होते हैं?", a: "2", b: "4", c: "6", d: "8", correct: "b" },
+        { question: "26. रोला छंद के प्रत्येक चरण में कितनी मात्राएँ होती हैं?", a: "11", b: "13", c: "24", d: "16", correct: "c" },
+        { question: "27. 'सोना' का पर्यायवाची शब्द है?", a: "कनक", b: "चांदी", c: "लोहा", d: "पन्ना", correct: "a" },
+        { question: "28. 'आकाश' का पर्यायवाची शब्द नहीं है?", a: "गगन", b: "नभ", c: "पावक", d: "अंबर", correct: "c" },
+        { question: "29. 'आँख' का तत्सम रूप क्या है?", a: "लोचन", b: "नेत्र", c: "अक्षि", d: "नयन", correct: "c" },
+        { question: "30. 'आग' का तत्सम रूप है?", a: "अग्नि", b: "अनल", c: "पावक", d: "दहन", correct: "a" },
+        { question: "31. 'सु' उपसर्ग लगाकर सही शब्द बनेगा?", a: "सुदर्शन", b: "सुरेश", c: "सूरज", d: "सुख", correct: "a" },
+        { question: "32. 'आहट' प्रत्यय लगाकर कौन सा शब्द बनेगा?", a: "घबराहट", b: "पहाड़ी", c: "मिठास", d: "बचपन", correct: "a" },
+        { question: "33. 'चौराहा' में कौन सा समास है?", a: "द्वंद्व", b: "द्विगु", c: "कर्मधारय", d: "बहुव्रीहि", correct: "b" },
+        { question: "34. 'माता-पिता' में कौन सा समास है?", a: "द्विगु", b: "अव्ययीभाव", c: "द्वंद्व", d: "तत्पुरुष", correct: "c" },
+        { question: "35. 'दशानन' में कौन सा समास है?", a: "बहुव्रीहि", b: "द्विगु", c: "कर्मधारय", d: "तत्पुरुष", correct: "a" },
+        { question: "36. 'कमल' का पर्यायवाची है?", a: "जलज", b: "वारिद", c: "नीरद", d: "पयोद", correct: "a" },
+        { question: "37. 'इत्यादि' में कौन सी संधि है?", a: "दीर्घ संधि", b: "गुण संधि", c: "यण संधि", d: "वृद्धि संधि", correct: "c" },
+        { question: "38. 'स्वागतम्' का सही संधि विच्छेद है?", a: "स्व + आगतम्", b: "सु + आगतम्", c: "स्वा + गतम्", d: "स + वागतम्", correct: "b" },
+        { question: "39. 'महोत्सव' का संधि विच्छेद है?", a: "महा + उत्सव", b: "मह + उत्सव", c: "महो + त्सव", d: "मही + उत्सव", correct: "a" },
+        { question: "40. 'तथापि' का संधि विच्छेद है?", a: "तथ + अपि", b: "तथा + अपि", c: "तथो + अपि", d: "तथा + पी", correct: "b" },
+        { question: "41. 'नदी' शब्द का तृतीया एकवचन रूप है?", a: "नदीम्", b: "नद्या", c: "नदीभिः", d: "नद्यौ", correct: "b" },
+        { question: "42. 'मधु' शब्द का द्वितीया बहुवचन रूप है?", a: "मधु", b: "मधूनि", c: "मधुनी", d: "मधुना", correct: "b" },
+        { question: "43. 'पठामि' पठ् धातु का कौन सा पुरुष और वचन है?", a: "प्रथम पुरुष, एकवचन", b: "मध्यम पुरुष, बहुवचन", c: "उत्तम पुरुष, एकवचन", d: "उत्तम पुरुष, बहुवचन", correct: "c" },
+        { question: "44. 'हसति' हस् धातु का रूप है?", a: "लट् लकार, प्रथम पुरुष, एकवचन", b: "लोट् लकार, प्रथम पुरुष, एकवचन", c: "लृट् लकार, उत्तम पुरुष", d: "लङ् लकार, प्रथम पुरुष", correct: "a" },
+        { question: "45. 'उपदेश' शब्द में उपसर्ग है?", a: "उ", b: "उप", c: "देश", d: "उप्", correct: "b" },
+        { question: "46. 'पढ़ाई' शब्द में प्रत्यय है?", a: "पढ़", b: "ढाई", c: "ई", d: "आई", correct: "d" },
+        { question: "47. 'पञ्चवटी' में कौन सा समास है?", a: "कर्मधारय", b: "द्विगु", c: "बहुव्रीहि", d: "द्वंद्व", correct: "b" },
+        { question: "48. 'कमल-नयन' में समास है?", a: "कर्मधारय", b: "तत्पुरुष", c: "द्विगु", d: "बहुव्रीहि", correct: "a" },
+        { question: "49. 'अमृत' का विलोम शब्द है?", a: "पीयूष", b: "सुधा", c: "विष", d: "जल", correct: "c" },
+        { question: "50. 'अंधकार' का विलोम है?", a: "उजाला", b: "प्रकाश", c: "रोशनी", d: "उपरोक्त सभी", correct: "b" }
+      ],
+
+      class10_science: [
+        { question: "1. समतल दर्पण की फोकस दूरी होती है?", a: "शून्य", b: "अनंत", c: "25 सेमी", d: "-25 सेमी", correct: "b" },
+        { question: "2. निर्वात में प्रकाश की चाल होती है?", a: "3 × 10⁸ m/s", b: "3 × 10¹⁰ m/s", c: "3 × 10⁶ m/s", d: "3 × 10⁴ m/s", correct: "a" },
+        { question: "3. किस रंग के प्रकाश का प्रकीर्णन सबसे कम होता है?", a: "बैंगनी", b: "नीला", c: "हरा", d: "लाल", correct: "d" },
+        { question: "4. मानव नेत्र में वस्तु का प्रतिबिम्ब कहाँ बनता है?", a: "कॉर्निया पर", b: "आइरिस पर", c: "पुतली पर", d: "रेटिना पर", correct: "d" },
+        { question: "5. स्पष्ट दृष्टि की न्यूनतम दूरी कितनी होती है?", a: "25 मीटर", b: "2.5 सेमी", c: "25 सेमी", d: "अनंत", correct: "c" },
+        { question: "6. दूर दृष्टि दोष के निवारण के लिए कौन सा लेंस प्रयुक्त होता है?", a: "उत्तल लेंस", b: "अवतल लेंस", c: "समतल लेंस", d: "बाइफोकल लेंस", correct: "a" },
+        { question: "7. निकट दृष्टि दोष के निवारण के लिए प्रयुक्त लेंस है?", a: "उत्तल लेंस", b: "अवतल लेंस", c: "बेलनाकार लेंस", d: "समतल लेंस", correct: "b" },
+        { question: "8. विद्युत धारा का SI मात्रक क्या है?", a: "कूलाम", b: "एम्पियर", c: "जूल", d: "ओम", correct: "b" },
+        { question: "9. प्रतिरोध का मात्रक है?", a: "ओम", b: "ओम-मीटर", c: "एम्पियर", d: "वोल्ट", correct: "a" },
+        { question: "10. विभवांतर को मापने वाला यंत्र है?", a: "अमीटर", b: "गैल्वेनोमीटर", c: "वोल्टमीटर", d: "लैक्टोमीटर", correct: "c" },
+        { question: "11. विद्युत शक्ति (P) का सूत्र है?", a: "P = V/I", b: "P = VI", c: "P = I/V", d: "P = V²I", correct: "b" },
+        { question: "12. एक अश्व शक्ति (HP) बराबर होता है?", a: "726 वाट", b: "736 वाट", c: "746 वाट", d: "756 वाट", correct: "c" },
+        { question: "13. डायनेमो उत्पन्न करता है?", a: "आवेश", b: "विद्युत वाहक बल", c: "चुम्बकीय क्षेत्र", d: "विद्युत क्षेत्र", correct: "b" },
+        { question: "14. चुंबकीय बल रेखाएं:", a: "एक दूसरे को कभी नहीं काटतीं", b: "एक बिंदु पर मिलती हैं", c: "एक दूसरे को काटती हैं", d: "समांतर नहीं होतीं", correct: "a" },
+        { question: "15. जीवाश्म ऊर्जा का स्रोत है?", a: "पवन ऊर्जा", b: "सौर ऊर्जा", c: "कोयला", d: "जल विद्युत", correct: "c" },
+        { question: "16. शुद्ध जल का pH मान है?", a: "0", b: "1", c: "7", d: "14", correct: "c" },
+        { question: "17. किसी अम्ल का pH मान होता है?", a: "7", b: "7 से कम", c: "7 से अधिक", d: "14", correct: "b" },
+        { question: "18. क्षारक का pH मान होता है?", a: "7", b: "7 से कम", c: "7 से अधिक", d: "0", correct: "c" },
+        { question: "19. धावन सोडा (Washing Soda) का रासायनिक सूत्र है?", a: "NaHCO3", b: "Na2CO3.10H2O", c: "CaOCl2", d: "NaOH", correct: "b" },
+        { question: "20. बेकिंग सोडा (खाने का सोडा) का सूत्र है?", a: "Na2CO3", b: "NaHCO3", c: "NaCl", d: "NH4Cl", correct: "b" },
+        { question: "21. विरंजक चूर्ण का रासायनिक सूत्र है?", a: "CaOCl2", b: "CaCO3", c: "CaSO4", d: "CaCl2", correct: "a" },
+        { question: "22. प्लास्टर ऑफ पेरिस का सूत्र है?", a: "CaSO4.2H2O", b: "CaSO4.1/2H2O", c: "CaSO4.H2O", d: "CaCO3", correct: "b" },
+        { question: "23. कौन सी धातु कमरे के ताप पर द्रव होती है?", a: "सोना", b: "चांदी", c: "पारा (Mercury)", d: "तांबा", correct: "c" },
+        { question: "24. कौन सी अधातु कमरे के ताप पर द्रव होती है?", a: "आयोडीन", b: "ब्रोमीन", c: "क्लोरीन", d: "कार्बन", correct: "b" },
+        { question: "25. पीतल (Brass) है?", a: "धातु", b: "अधातु", c: "उपधातु", d: "मिश्र धातु", correct: "d" },
+        { question: "26. कार्बन की संयोजकता (Valency) होती है?", a: "2", b: "3", c: "4", d: "6", correct: "c" },
+        { question: "27. एल्केन (Alkane) का सामान्य सूत्र है?", a: "CnH2n", b: "CnH2n+2", c: "CnH2n-2", d: "CnH2n+1", correct: "b" },
+        { question: "28. एल्कीन (Alkene) का सामान्य सूत्र है?", a: "CnH2n+2", b: "CnH2n-2", c: "CnH2n", d: "CnH2n-1", correct: "c" },
+        { question: "29. एल्काइन (Alkyne) का सामान्य सूत्र है?", a: "CnH2n+2", b: "CnH2n", c: "CnH2n-2", d: "CnH2n-6", correct: "c" },
+        { question: "30. एसिटिक अम्ल का IUPAC नाम है?", a: "मेथेनोइक अम्ल", b: "एथेनोइक अम्ल", c: "प्रोपेनोइक अम्ल", d: "ब्यूटेनोइक अम्ल", correct: "b" },
+        { question: "31. आधुनिक आवर्त सारणी किसने प्रस्तुत की?", a: "मेंडलीफ", b: "मोजले", c: "डॉबेराइनर", d: "न्यूलैंड्स", correct: "b" },
+        { question: "32. आधुनिक आवर्त सारणी में वर्गों (Groups) की संख्या है?", a: "7", b: "8", c: "18", d: "9", correct: "c" },
+        { question: "33. मनुष्य में वृक्क (Kidney) एक तंत्र का भाग है जो संबंधित है?", a: "पोषण से", b: "श्वसन से", c: "उत्सर्जन से", d: "परिवहन से", correct: "c" },
+        { question: "34. पादप में जाइलम (Xylem) उत्तरदायी है?", a: "जल का वहन", b: "भोजन का वहन", c: "अमीनो अम्ल का वहन", d: "ऑक्सीजन का वहन", correct: "a" },
+        { question: "35. पादप में फ्लोएम (Phloem) उत्तरदायी है?", a: "जल का वहन", b: "भोजन का वहन", c: "उत्सर्जी पदार्थों का वहन", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "36. स्वपोषी पोषण के लिए आवश्यक है?", a: "CO2 और जल", b: "क्लोरोफिल", c: "सूर्य का प्रकाश", d: "उपरोक्त सभी", correct: "d" },
+        { question: "37. मानव हृदय में कक्षों (Chambers) की संख्या होती है?", a: "2", b: "3", c: "4", d: "5", correct: "c" },
+        { question: "38. मास्टर ग्रंथि किसे कहते हैं?", a: "थायरॉयड ग्रंथि", b: "पीयूष ग्रंथि (Pituitary)", c: "एड्रीनल ग्रंथि", d: "अग्न्याशय", correct: "b" },
+        { question: "39. थायरोक्सिन हार्मोन के लिए आवश्यक है?", a: "आयरन", b: "सोडियम", c: "आयोडीन", d: "कैल्शियम", correct: "c" },
+        { question: "40. इंसुलिन नामक हार्मोन स्रावित होता है?", a: "यकृत से", b: "अग्न्याशय से", c: "वृक्क से", d: "आमाशय से", correct: "b" },
+        { question: "41. द्विखंडन (Binary fission) विधि द्वारा जनन होता है?", a: "अमीबा में", b: "हाइड्रा में", c: "प्लैनेरिया में", d: "ब्रायोफिलम में", correct: "a" },
+        { question: "42. मुकुलन (Budding) द्वारा प्रजनन होता है?", a: "अमीबा में", b: "हाइड्रा में", c: "केंचुआ में", d: "मेंढक में", correct: "b" },
+        { question: "43. परागकोष में होते हैं?", a: "बाह्यदल", b: "अंडाशय", c: "परागकण", d: "बीजांड", correct: "c" },
+        { question: "44. मनुष्य में गुणसूत्रों की संख्या होती है?", a: "44", b: "46", c: "48", d: "23", correct: "b" },
+        { question: "45. आनुवंशिकी के जनक हैं?", a: "चार्ल्स डार्विन", b: "ग्रेगर जॉन मेंडल", c: "ह्यूगो डी व्रीज", d: "रॉबर्ट हुक", correct: "b" },
+        { question: "46. नर में कौन से लिंग गुणसूत्र होते हैं?", a: "XX", b: "XY", c: "YY", d: "X", correct: "b" },
+        { question: "47. मादा में कौन से लिंग गुणसूत्र होते हैं?", a: "XX", b: "XY", c: "YY", d: "Y", correct: "a" },
+        { question: "48. 'प्राकृतिक वरण' (Natural Selection) का सिद्धांत किसने दिया?", a: "लैमार्क", b: "डार्विन", c: "मेंडल", d: "अरस्तु", correct: "b" },
+        { question: "49. ओजोन (O3) परत सुरक्षा करती है?", a: "एक्स-किरणों से", b: "अवरक्त किरणों से", c: "पराबैंगनी किरणों (UV rays) से", d: "गामा किरणों से", correct: "c" },
+        { question: "50. गंगा सफाई योजना किस वर्ष शुरू हुई?", a: "1980", b: "1985", c: "1990", d: "2000", correct: "b" }
+      ],
+
+      class10_social: [
+        { question: "1. फ्रांसीसी क्रांति कब हुई थी?", a: "1788", b: "1789", c: "1790", d: "1787", correct: "b" },
+        { question: "2. राष्ट्रवाद का प्रारंभ सर्वप्रथम किस देश से हुआ?", a: "जर्मनी", b: "इटली", c: "फ्रांस", d: "इंग्लैंड", correct: "c" },
+        { question: "3. नेपोलियन की हार कब हुई थी?", a: "1814", b: "1815", c: "1816", d: "1817", correct: "b" },
+        { question: "4. इटली का एकीकरण किसके नेतृत्व में हुआ?", a: "गैरीबाल्डी", b: "बिस्मार्क", c: "नेपोलियन", d: "हिटलर", correct: "a" },
+        { question: "5. जर्मनी का एकीकरण किसने किया?", a: "मेजिनी", b: "कावूर", c: "बिस्मार्क", d: "विलियम प्रथम", correct: "c" },
+        { question: "6. 'हिंद स्वराज' पुस्तक के लेखक कौन थे?", a: "सरदार पटेल", b: "सुभाष चंद्र बोस", c: "महात्मा गांधी", d: "बाल गंगाधर तिलक", correct: "c" },
+        { question: "7. चौरी-चौरा कांड किस वर्ष हुआ था?", a: "1920", b: "1921", c: "1922", d: "1925", correct: "c" },
+        { question: "8. जलियांवाला बाग हत्याकांड कब हुआ था?", a: "13 अप्रैल 1919", b: "15 अप्रैल 1919", c: "20 अप्रैल 1919", d: "10 अप्रैल 1919", correct: "a" },
+        { question: "9. सविनय अवज्ञा आंदोलन कब शुरू हुआ?", a: "1920", b: "1922", c: "1930", d: "1942", correct: "c" },
+        { question: "10. 'करो या मरो' का नारा किसने दिया?", a: "भगत सिंह", b: "महात्मा गांधी", c: "चंद्रशेखर आजाद", d: "सुभाष चंद्र बोस", correct: "b" },
+        { question: "11. वंदे मातरम गीत किसने लिखा था?", a: "रवींद्रनाथ टैगोर", b: "बंकिम चंद्र चटर्जी", c: "शरद चंद्र चटर्जी", d: "महात्मा गांधी", correct: "b" },
+        { question: "12. भारत छोड़ो आंदोलन कब शुरू हुआ?", a: "1920", b: "1930", c: "1942", d: "1947", correct: "c" },
+        { question: "13. प्रथम विश्व युद्ध कब शुरू हुआ था?", a: "1914", b: "1918", c: "1939", d: "1945", correct: "a" },
+        { question: "14. महान मंदी (Great Depression) किस वर्ष शुरू हुई?", a: "1919", b: "1929", c: "1939", d: "1949", correct: "b" },
+        { question: "15. ब्रेटन वुड्स सम्मेलन कब हुआ था?", a: "1944", b: "1945", c: "1946", d: "1947", correct: "a" },
+        { question: "16. कपास की खेती के लिए सबसे उपयुक्त मिट्टी कौन सी है?", a: "लाल मिट्टी", b: "जलोढ़ मिट्टी", c: "काली मिट्टी", d: "लैटराइट मिट्टी", correct: "c" },
+        { question: "17. भारत के किस राज्य में सीढ़ीदार (सोपानी) खेती की जाती है?", a: "पंजाब", b: "हरियाणा", c: "उत्तर प्रदेश के मैदान", d: "उत्तराखंड", correct: "d" },
+        { question: "18. इनमें से कौन सी रबी की फसल है?", a: "चावल", b: "मोटे अनाज", c: "गेहूँ", d: "कपास", correct: "c" },
+        { question: "19. इनमें से कौन सी खरीफ की फसल है?", a: "चना", b: "सरसों", c: "गेहूँ", d: "धान (चावल)", correct: "d" },
+        { question: "20. चाय की खेती के लिए कौन सा राज्य प्रसिद्ध है?", a: "असम", b: "गुजरात", c: "राजस्थान", d: "पंजाब", correct: "a" },
+        { question: "21. 'ऑपरेशन फ्लड' किससे संबंधित है?", a: "बाढ़ नियंत्रण", b: "दुग्ध उत्पादन", c: "सिंचाई", d: "मत्स्य पालन", correct: "b" },
+        { question: "22. झरिया किसके लिए प्रसिद्ध है?", a: "लौह अयस्क", b: "कोयला", c: "तांबा", d: "सोना", correct: "b" },
+        { question: "23. भारत का सबसे पुराना तेल उत्पादक राज्य कौन सा है?", a: "गुजरात", b: "महाराष्ट्र", c: "असम", d: "तमिलनाडु", correct: "c" },
+        { question: "24. निम्न में से कौन सा गैर-परंपरागत ऊर्जा स्रोत है?", a: "कोयला", b: "पेट्रोलियम", c: "प्राकृतिक गैस", d: "सौर ऊर्जा", correct: "d" },
+        { question: "25. 'स्वर्णिम चतुर्भुज' महाराजमार्ग किससे संबंधित है?", a: "रेल परिवहन", b: "सड़क परिवहन", c: "जल परिवहन", d: "वायु परिवहन", correct: "b" },
+        { question: "26. भारत में रेलवे की शुरुआत कब हुई?", a: "1853", b: "1854", c: "1855", d: "1856", correct: "a" },
+        { question: "27. श्रीलंका कब स्वतंत्र राष्ट्र बना?", a: "1947", b: "1948", c: "1949", d: "1950", correct: "b" },
+        { question: "28. बेल्जियम की राजधानी क्या है?", a: "लंदन", b: "पेरिस", c: "ब्रुसेल्स", d: "बर्लिन", correct: "c" },
+        { question: "29. भारत में सत्ता का विकेंद्रीकरण (पंचायती राज) कब हुआ?", a: "1990", b: "1992", c: "1995", d: "2000", correct: "b" },
+        { question: "30. भारत के संविधान में कितनी अनुसूचियां हैं?", a: "8", b: "10", c: "12", d: "14", correct: "c" },
+        { question: "31. 'शिक्षा' किस सूची का विषय है?", a: "संघ सूची", b: "राज्य सूची", c: "समवर्ती सूची", d: "इनमें से कोई नहीं", correct: "c" },
+        { question: "32. भारत में मताधिकार की न्यूनतम आयु क्या है?", a: "16 वर्ष", b: "18 वर्ष", c: "21 वर्ष", d: "25 वर्ष", correct: "b" },
+        { question: "33. भारतीय जनता पार्टी (BJP) का स्थापना वर्ष क्या है?", a: "1975", b: "1980", c: "1984", d: "1990", correct: "b" },
+        { question: "34. भारतीय राष्ट्रीय कांग्रेस की स्थापना कब हुई?", a: "1885", b: "1895", c: "1905", d: "1915", correct: "a" },
+        { question: "35. लोकतंत्र की सबसे बड़ी विशेषता क्या है?", a: "राजा का शासन", b: "सेना का शासन", c: "जनता का शासन", d: "पूंजीपतियों का शासन", correct: "c" },
+        { question: "36. सूचना का अधिकार (RTI) कानून कब पारित हुआ?", a: "2002", b: "2005", c: "2008", d: "2010", correct: "b" },
+        { question: "37. मानवाधिकार दिवस कब मनाया जाता है?", a: "10 दिसंबर", b: "5 सितंबर", c: "14 नवंबर", d: "2 अक्टूबर", correct: "a" },
+        { question: "38. 'नर्मदा बचाओ आंदोलन' किससे संबंधित है?", a: "टिहरी बांध", b: "सरदार सरोवर बांध", c: "हीराकुंड बांध", d: "भाखड़ा नांगल बांध", correct: "b" },
+        { question: "39. विश्व व्यापार संगठन (WTO) की स्थापना कब हुई?", a: "1990", b: "1995", c: "2000", d: "2005", correct: "b" },
+        { question: "40. भारत में उपभोक्ता संरक्षण अधिनियम (COPRA) कब पारित हुआ?", a: "1980", b: "1986", c: "1990", d: "1995", correct: "b" },
+        { question: "41. प्रति व्यक्ति आय (Per Capita Income) की गणना कैसे होती है?", a: "राष्ट्रीय आय × कुल जनसंख्या", b: "राष्ट्रीय आय / कुल जनसंख्या", c: "राष्ट्रीय आय + कुल जनसंख्या", d: "राष्ट्रीय आय - कुल जनसंख्या", correct: "b" },
+        { question: "42. भारत में किस राज्य की प्रति व्यक्ति आय सर्वाधिक है?", a: "बिहार", b: "उत्तर प्रदेश", c: "गोवा", d: "राजस्थान", correct: "c" },
+        { question: "43. प्राथमिक क्षेत्र (Primary Sector) में कौन सी गतिविधि आती है?", a: "कृषि", b: "उद्योग", c: "बैंकिंग", d: "परिवहन", correct: "a" },
+        { question: "44. द्वितीयक क्षेत्र (Secondary Sector) किससे संबंधित है?", a: "मत्स्य पालन", b: "विनिर्माण / उद्योग", c: "संचार", d: "व्यापार", correct: "b" },
+        { question: "45. तृतीयक क्षेत्र (Tertiary Sector) को और क्या कहते हैं?", a: "कृषि क्षेत्र", b: "उद्योग क्षेत्र", c: "सेवा क्षेत्र", d: "इनमें से कोई नहीं", correct: "c" },
+        { question: "46. महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार गारंटी अधिनियम (MGNREGA) कब लागू हुआ?", a: "2000", b: "2005", c: "2010", d: "2015", correct: "b" },
+        { question: "47. मनरेगा के तहत कितने दिन के रोजगार की गारंटी दी जाती है?", a: "50 दिन", b: "100 दिन", c: "150 दिन", d: "200 दिन", correct: "b" },
+        { question: "48. भारत का केंद्रीय बैंक कौन सा है?", a: "स्टेट बैंक ऑफ इंडिया", b: "पंजाब नेशनल बैंक", c: "रिज़र्व बैंक ऑफ़ इंडिया (RBI)", d: "बैंक ऑफ बड़ौदा", correct: "c" },
+        { question: "49. रिज़र्व बैंक ऑफ़ इंडिया (RBI) की स्थापना कब हुई थी?", a: "1935", b: "1947", c: "1950", d: "1955", correct: "a" },
+        { question: "50. वैश्वीकरण (Globalization) का क्या अर्थ है?", a: "आयात पर रोक", b: "घरेलू अर्थव्यवस्था का विश्व अर्थव्यवस्था के साथ एकीकरण", c: "निर्यात पर रोक", d: "विदेशी कंपनियों पर प्रतिबंध", correct: "b" }
+      ],
+
+      class10_english: [
+        { question: "1. Who is the author of the lesson 'A Letter to God'?", a: "G.L. Fuentes", b: "Nelson Mandela", c: "Anne Frank", d: "Robert Frost", correct: "a" },
+        { question: "2. What crop was growing on Lencho's field?", a: "Corn", b: "Barley", c: "Rice", d: "Wheat", correct: "a" },
+        { question: "3. What did Lencho hope for?", a: "A good shower of rain", b: "A new tractor", c: "A pair of oxen", d: "More seeds", correct: "a" },
+        { question: "4. Who read the letter sent by Lencho?", a: "His wife", b: "The Postmaster", c: "The God", d: "The Mayor", correct: "b" },
+        { question: "5. How much money did Lencho ask for?", a: "100 Pesos", b: "1000 Pesos", c: "10 Pesos", d: "500 Pesos", correct: "a" },
+        { question: "6. According to Nelson Mandela, what is the greatest wealth of a nation?", a: "Minerals", b: "Gems", c: "Diamonds", d: "People", correct: "d" },
+        { question: "7. What did Mandela learn about courage?", a: "It is absence of fear", b: "It is the triumph over fear", c: "Both a & b", d: "None of the above", correct: "b" },
+        { question: "8. Who is the author of 'Two Stories about Flying'?", a: "Liam O' Flaherty", b: "Frederick Forsyth", c: "Both a & b", d: "None of these", correct: "c" },
+        { question: "9. Why was the young seagull afraid to fly?", a: "He was weak", b: "He thought his wings would not support him", c: "He was sick", d: "He was blind", correct: "b" },
+        { question: "10. What was the name of the aeroplane that the pilot was flying? (The Black Aeroplane)", a: "Airbus", b: "Boeing", c: "Dakota", d: "Mirage", correct: "c" },
+        { question: "11. Who is the author of 'From the Diary of Anne Frank'?", a: "Anne Frank", b: "Otto Frank", c: "Margot Frank", d: "Mr. Keesing", correct: "a" },
+        { question: "12. What name did Anne give to her diary?", a: "Betti", b: "Kitty", c: "Penny", d: "Minnie", correct: "b" },
+        { question: "13. What subject did Mr. Keesing teach?", a: "English", b: "Science", c: "Mathematics", d: "History", correct: "c" },
+        { question: "14. Who is the author of 'Glimpses of India'?", a: "Arup Kumar Datta", b: "Lokesh Abrol", c: "Lucio Rodrigues", d: "All of the above", correct: "d" },
+        { question: "15. What are the bakers known as in Goa?", a: "Pader", b: "Portugese", c: "Pekar", d: "Baker", correct: "a" },
+        { question: "16. Coorg is famous for?", a: "Coffee", b: "Spices", c: "Rainforests", d: "All of the above", correct: "d" },
+        { question: "17. Where was Rajvir and Pranjol going? (Tea from Assam)", a: "Assam", b: "Darjeeling", c: "Coorg", d: "Goa", correct: "a" },
+        { question: "18. Who is the author of 'Madam Rides the Bus'?", a: "Vallikkannan", b: "Anton Chekhov", c: "Walt Whitman", d: "Robert Frost", correct: "a" },
+        { question: "19. What was Valli's age?", a: "7 years", b: "8 years", c: "9 years", d: "10 years", correct: "b" },
+        { question: "20. What was Valli's deepest desire?", a: "To eat ice cream", b: "To ride on the bus", c: "To go to a fair", d: "To buy toys", correct: "b" },
+        { question: "21. Where did Buddha preach his first sermon?", a: "Bodh Gaya", b: "Sarnath", c: "Lumbini", d: "Kushinagar", correct: "b" },
+        { question: "22. What was the name of the woman who lost her child? (The Sermon at Benares)", a: "Kisa Gotami", b: "Sujata", c: "Yashodhara", d: "Mahamaya", correct: "a" },
+        { question: "23. Who is the poet of 'Dust of Snow'?", a: "Robert Frost", b: "John Berryman", c: "Leslie Norris", d: "Robin Klein", correct: "a" },
+        { question: "24. What did the crow shake down on the poet?", a: "Leaves", b: "Dust of snow", c: "Flowers", d: "Rain", correct: "b" },
+        { question: "25. Who has written the poem 'Fire and Ice'?", a: "Robert Frost", b: "John Keats", c: "W.B. Yeats", d: "William Wordsworth", correct: "a" },
+        { question: "26. What does 'Ice' symbolize in the poem 'Fire and Ice'?", a: "Love", b: "Hatred", c: "Desire", d: "Passion", correct: "b" },
+        { question: "27. Who is the poet of 'A Tiger in the Zoo'?", a: "Leslie Norris", b: "Robert Frost", c: "Walt Whitman", d: "Carl Sandburg", correct: "a" },
+        { question: "28. Who is the poet of 'The Ball Poem'?", a: "John Berryman", b: "Carolyn Wells", c: "Robin Klein", d: "Adrienne Rich", correct: "a" },
+        { question: "29. Who is the author of 'A Triumph of Surgery'?", a: "James Herriot", b: "Ruskin Bond", c: "Robert Arthur", d: "H.G. Wells", correct: "a" },
+        { question: "30. What was the name of Mrs. Pumphrey's dog?", a: "Tommy", b: "Tricki", c: "Bruno", d: "Tiger", correct: "b" },
+        { question: "31. Who is the author of 'The Thief's Story'?", a: "Ruskin Bond", b: "Victor Canning", c: "K.A. Abbas", d: "Sinclair Lewis", correct: "a" },
+        { question: "32. What was the boy's real profession in 'The Thief's Story'?", a: "Cook", b: "Wrestler", c: "Thief", d: "Writer", correct: "c" },
+        { question: "33. Who is the author of 'Footprints without Feet'?", a: "H.G. Wells", b: "James Herriot", c: "Ruskin Bond", d: "Guy de Maupassant", correct: "a" },
+        { question: "34. What was the name of the scientist in 'Footprints without Feet'?", a: "Griffin", b: "Jaffers", c: "Kemp", d: "Hall", correct: "a" },
+        { question: "35. Who is the author of 'The Making of a Scientist'?", a: "Robert W. Peterson", b: "H.G. Wells", c: "Claire Boiko", d: "K.A. Abbas", correct: "a" },
+        { question: "36. Richard Ebright was a famous?", a: "Singer", b: "Scientist", c: "Doctor", d: "Engineer", correct: "b" },
+        { question: "37. Who is the author of 'The Necklace'?", a: "Guy de Maupassant", b: "Sinclair Lewis", c: "K.A. Abbas", d: "Anton Chekhov", correct: "a" },
+        { question: "38. Matilda was born into a family of?", a: "Ministers", b: "Clerks", c: "Officers", d: "Doctors", correct: "b" },
+        { question: "39. Who is the author of 'Bholi'?", a: "K.A. Abbas", b: "Ruskin Bond", c: "Sinclair Lewis", d: "James Herriot", correct: "a" },
+        { question: "40. What was Bholi's real name?", a: "Sulekha", b: "Champa", c: "Radha", d: "Mangla", correct: "a" },
+        { question: "41. Choose the correct spelling:", a: "Receive", b: "Recieve", c: "Receve", d: "Resieve", correct: "a" },
+        { question: "42. I have been living here ______ 10 years.", a: "since", b: "for", c: "from", d: "in", correct: "b" },
+        { question: "43. The earth ______ round the sun.", a: "move", b: "moves", c: "moved", d: "is moving", correct: "b" },
+        { question: "44. He is good ______ English.", a: "in", b: "at", c: "on", d: "with", correct: "b" },
+        { question: "45. Antonym of 'Knowledge' is:", a: "Ignorance", b: "Wisdom", c: "Learning", d: "Education", correct: "a" },
+        { question: "46. Synonym of 'Beautiful' is:", a: "Ugly", b: "Pretty", c: "Bad", d: "Dark", correct: "b" },
+        { question: "47. Which word is correctly spelt?", a: "Vacuum", b: "Vaccum", c: "Vacum", d: "Vaccuum", correct: "a" },
+        { question: "48. He died ______ cholera.", a: "of", b: "from", c: "with", d: "by", correct: "a" },
+        { question: "49. We should abide ______ the rules.", a: "in", b: "by", c: "with", d: "to", correct: "b" },
+        { question: "50. Find the adjective in: 'She is a clever girl.'", a: "She", b: "is", c: "clever", d: "girl", correct: "c" }
+      ],
+
+      class10_math: [
+        { question: "1. पाई (π) एक संख्या है:", a: "परिमेय (Rational)", b: "अपरिमेय (Irrational)", c: "पूर्णांक", d: "प्राकृतिक संख्या", correct: "b" },
+        { question: "2. किन्हीं दो धनात्मक पूर्णांकों a और b के लिए: HCF(a,b) × LCM(a,b) = ?", a: "a + b", b: "a - b", c: "a × b", d: "a / b", correct: "c" },
+        { question: "3. एक द्विघात बहुपद के अधिकतम कितने शून्यक (zeroes) हो सकते हैं?", a: "1", b: "2", c: "3", d: "4", correct: "b" },
+        { question: "4. यदि द्विघात बहुपद ax² + bx + c के शून्यक α और β हैं, तो α + β का मान होगा:", a: "c/a", b: "-c/a", c: "b/a", d: "-b/a", correct: "d" },
+        { question: "5. यदि α, β बहुपद ax² + bx + c के शून्यक हैं, तो α × β का मान होगा:", a: "c/a", b: "-c/a", c: "b/a", d: "-b/a", correct: "a" },
+        { question: "6. रैखिक समीकरण युग्म a₁x + b₁y + c₁ = 0 और a₂x + b₂y + c₂ = 0 के अद्वितीय हल (Unique solution) के लिए शर्त है:", a: "a₁/a₂ = b₁/b₂", b: "a₁/a₂ ≠ b₁/b₂", c: "a₁/a₂ = b₁/b₂ = c₁/c₂", d: "a₁/a₂ = b₁/b₂ ≠ c₁/c₂", correct: "b" },
+        { question: "7. समीकरण 2x + 3y = 5 और 4x + 6y = 15 के हल होंगे:", a: "अद्वितीय हल", b: "अनंत हल", c: "कोई हल नहीं", d: "दो हल", correct: "c" },
+        { question: "8. द्विघात समीकरण ax² + bx + c = 0 के मूल वास्तविक और समान होते हैं, यदि:", a: "b² - 4ac > 0", b: "b² - 4ac < 0", c: "b² - 4ac = 0", d: "b² - 4ac ≥ 0", correct: "c" },
+        { question: "9. समांतर श्रेढ़ी (A.P.) 2, 7, 12, ... का 10वाँ पद है:", a: "47", b: "50", c: "42", d: "52", correct: "a" },
+        { question: "10. समांतर श्रेढ़ी के प्रथम n पदों का योग (Sn) का सूत्र है:", a: "n/2 [2a + (n-1)d]", b: "n/2 [a + l]", c: "दोनों (a) और (b)", d: "a + (n-1)d", correct: "c" },
+        { question: "11. सभी वृत्त होते हैं:", a: "सर्वांगसम", b: "समरूप", c: "बराबर", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "12. यदि दो समरूप त्रिभुजों की भुजाओं का अनुपात 4:9 है, तो उनके क्षेत्रफलों का अनुपात होगा:", a: "2:3", b: "4:9", c: "16:81", d: "81:16", correct: "c" },
+        { question: "13. मूल बिंदु (Origin) के निर्देशांक क्या होते हैं?", a: "(1, 1)", b: "(0, 1)", c: "(1, 0)", d: "(0, 0)", correct: "d" },
+        { question: "14. बिंदु (x, y) की मूल बिंदु से दूरी होती है:", a: "x² + y²", b: "√(x² + y²)", c: "x + y", d: "√(x² - y²)", correct: "b" },
+        { question: "15. बिंदुओं (x₁, y₁) और (x₂, y₂) के बीच की दूरी का सूत्र है:", a: "√[(x₂ - x₁)² + (y₂ - y₁)²]", b: "√[(x₂ + x₁)² + (y₂ + y₁)²]", c: "x₂ - x₁ + y₂ - y₁", d: "(x₂ - x₁)² + (y₂ - y₁)²", correct: "a" },
+        { question: "16. sin²θ + cos²θ का मान होता है:", a: "0", b: "1", c: "-1", d: "2", correct: "b" },
+        { question: "17. sec²θ - tan²θ का मान होता है:", a: "1", b: "0", c: "-1", d: "2", correct: "a" },
+        { question: "18. sin 30° का मान क्या है?", a: "1/2", b: "√3/2", c: "1/√2", d: "1", correct: "a" },
+        { question: "19. tan 45° का मान है:", a: "0", b: "1", c: "√3", d: "1/√3", correct: "b" },
+        { question: "20. cos 60° का मान है:", a: "1/2", b: "√3/2", c: "1/√2", d: "0", correct: "a" },
+        { question: "21. sin (90° - θ) किसके बराबर होता है?", a: "sin θ", b: "cos θ", c: "tan θ", d: "cosec θ", correct: "b" },
+        { question: "22. किसी वृत्त की अधिकतम कितनी समांतर स्पर्श रेखाएँ हो सकती हैं?", a: "1", b: "2", c: "3", d: "अनंत", correct: "b" },
+        { question: "23. वृत्त के किसी बिंदु पर स्पर्श रेखा और उस बिंदु से जाने वाली त्रिज्या के बीच का कोण होता है:", a: "45°", b: "60°", c: "90°", d: "180°", correct: "c" },
+        { question: "24. किसी बाह्य बिंदु से वृत्त पर खींची गई स्पर्श रेखाओं की लंबाइयाँ होती हैं:", a: "असमान", b: "समान", c: "दोगुनी", d: "आधी", correct: "b" },
+        { question: "25. r त्रिज्या वाले वृत्त का क्षेत्रफल है:", a: "2πr", b: "πr²", c: "2πr²", d: "πd", correct: "b" },
+        { question: "26. r त्रिज्या वाले वृत्त की परिधि है:", a: "πr²", b: "2πr", c: "πr", d: "4πr", correct: "b" },
+        { question: "27. r त्रिज्या और θ कोण वाले त्रिज्यखंड (Sector) का क्षेत्रफल है:", a: "(θ/360) × πr²", b: "(θ/360) × 2πr", c: "(θ/180) × πr²", d: "1/2 r²θ", correct: "a" },
+        { question: "28. बेलन (Cylinder) के वक्र पृष्ठ का क्षेत्रफल है:", a: "2πrh", b: "πr²h", c: "2πr(r+h)", d: "1/3 πr²h", correct: "a" },
+        { question: "29. बेलन का आयतन है:", a: "2πrh", b: "πr²h", c: "1/3 πr²h", d: "4/3 πr³", correct: "b" },
+        { question: "30. शंकु (Cone) का आयतन है:", a: "πr²h", b: "1/3 πr²h", c: "2/3 πr³", d: "πrl", correct: "b" },
+        { question: "31. गोले (Sphere) का पृष्ठीय क्षेत्रफल है:", a: "4πr²", b: "2πr²", c: "3πr²", d: "4/3 πr³", correct: "a" },
+        { question: "32. गोले का आयतन है:", a: "4πr²", b: "4/3 πr³", c: "2/3 πr³", d: "1/3 πr²h", correct: "b" },
+        { question: "33. अर्धगोले (Hemisphere) का संपूर्ण पृष्ठीय क्षेत्रफल है:", a: "2πr²", b: "3πr²", c: "4πr²", d: "πr²", correct: "b" },
+        { question: "34. घनाभ (Cuboid) का आयतन है:", a: "l × b", b: "l + b + h", c: "l × b × h", d: "2(lb + bh + hl)", correct: "c" },
+        { question: "35. माध्य, माध्यिका और बहुलक में क्या संबंध है?", a: "बहुलक = 3 माध्यिका - 2 माध्य", b: "बहुलक = 2 माध्यिका - 3 माध्य", c: "माध्य = 3 बहुलक - 2 माध्यिका", d: "बहुलक = 3 माध्य - 2 माध्यिका", correct: "a" },
+        { question: "36. प्रथम 5 प्राकृत संख्याओं का माध्य है:", a: "2", b: "3", c: "4", d: "5", correct: "b" },
+        { question: "37. निश्चित घटना की प्रायिकता होती है:", a: "0", b: "1", c: "1/2", d: "अनंत", correct: "b" },
+        { question: "38. असंभव घटना की प्रायिकता होती है:", a: "1", b: "0", c: "-1", d: "1/2", correct: "b" },
+        { question: "39. किसी घटना E के लिए, P(E) + P(E नहीं) = ?", a: "0", b: "1", c: "-1", d: "2", correct: "b" },
+        { question: "40. प्रायिकता का मान कभी भी नहीं हो सकता:", a: "0", b: "1", c: "ऋणात्मक", d: "0.5", correct: "c" },
+        { question: "41. एक सिक्के को एक बार उछालने पर 'चित' (Head) आने की प्रायिकता है:", a: "1", b: "0", c: "1/2", d: "1/4", correct: "c" },
+        { question: "42. 52 पत्तों की ताश की गड्डी में से एक पत्ता निकाला जाता है। लाल रंग का पत्ता होने की प्रायिकता है:", a: "1/4", b: "1/2", c: "1/13", d: "1/52", correct: "b" },
+        { question: "43. यदि P(E) = 0.05 है, तो P(E नहीं) क्या होगा?", a: "0.95", b: "0.05", c: "1.05", d: "0", correct: "a" },
+        { question: "44. बिंदु (3, 4) की y-अक्ष से दूरी है:", a: "3", b: "4", c: "5", d: "1", correct: "a" },
+        { question: "45. x-अक्ष पर स्थित किसी बिंदु के निर्देशांक का रूप होता है:", a: "(x, y)", b: "(0, y)", c: "(x, 0)", d: "(0, 0)", correct: "c" },
+        { question: "46. y-अक्ष पर स्थित किसी बिंदु के निर्देशांक का रूप होता है:", a: "(x, y)", b: "(0, y)", c: "(x, 0)", d: "(0, 0)", correct: "b" },
+        { question: "47. 9 sec²A - 9 tan²A का मान है:", a: "1", b: "9", c: "8", d: "0", correct: "b" },
+        { question: "48. एक वृत्त के परिमाप और क्षेत्रफल का संख्यात्मक मान बराबर है। वृत्त की त्रिज्या है:", a: "2 मात्रक", b: "π मात्रक", c: "4 मात्रक", d: "7 मात्रक", correct: "a" },
+        { question: "49. संचयी बारंबारता (Cumulative frequency) वक्र को क्या कहते हैं?", a: "आयत चित्र", b: "तोरण (Ogive)", c: "बारंबारता बहुभुज", d: "पाई चार्ट", correct: "b" },
+        { question: "50. वर्गीकृत आँकड़ों का माध्य ज्ञात करने की 'पग-विचलन विधि' (Step-deviation method) में uᵢ = ?", a: "(xᵢ - a)/h", b: "xᵢ - a", c: "fᵢxᵢ", d: "xᵢ + a", correct: "a" }
+      ],
+
+      class10_home_science: [
+        { question: "1. जल का रासायनिक सूत्र क्या है?", a: "HO", b: "H2O", c: "H2O2", d: "HO2", correct: "b" },
+        { question: "2. कौन सा विटामिन जल में घुलनशील है?", a: "विटामिन A", b: "विटामिन B", c: "विटामिन D", d: "विटामिन K", correct: "b" },
+        { question: "3. पारिवारिक बजट बनाने का मुख्य उद्देश्य क्या है?", a: "आय-व्यय का संतुलन", b: "पैसा बचाना", c: "खर्च बढ़ाना", d: "इनमें से कोई नहीं", correct: "a" },
+        { question: "4. हैजा (Cholera) किसके द्वारा फैलता है?", a: "दूषित जल से", b: "शुद्ध जल से", c: "हवा से", d: "मच्छर से", correct: "a" },
+        { question: "5. वस्त्रों की धुलाई के लिए कौन सा जल सबसे उपयुक्त है?", a: "कठोर जल", b: "मृदु (Soft) जल", c: "समुद्री जल", d: "खारा जल", correct: "b" },
+        { question: "6. पर्यावरण दिवस कब मनाया जाता है?", a: "5 जून", b: "11 जुलाई", c: "1 दिसंबर", d: "5 सितंबर", correct: "a" },
+        { question: "7. विटामिन C की कमी से कौन सा रोग होता है?", a: "रतौंधी", b: "बेरी-बेरी", c: "स्कर्वी", d: "रिकेट्स", correct: "c" },
+        { question: "8. विटामिन A का सबसे अच्छा स्रोत है?", a: "गाजर", b: "नींबू", c: "आंवला", d: "चावल", correct: "a" },
+        { question: "9. रक्त का लाल रंग किसके कारण होता है?", a: "प्लाज्मा", b: "हीमोग्लोबिन", c: "प्लेटलेट्स", d: "WBC", correct: "b" },
+        { question: "10. मानव शरीर में कुल कितनी हड्डियां होती हैं?", a: "200", b: "206", c: "210", d: "212", correct: "b" },
+        { question: "11. 'बचत' का मुख्य उद्देश्य क्या है?", a: "मनोरंजन", b: "भविष्य की सुरक्षा", c: "दिखावा", d: "घूमना", correct: "b" },
+        { question: "12. चेचक (Smallpox) के टीके की खोज किसने की?", a: "एडवर्ड जेनर", b: "लुई पाश्चर", c: "रॉबर्ट हुक", d: "अलेक्जेंडर फ्लेमिंग", correct: "a" },
+        { question: "13. बीसीजी (BCG) का टीका किस रोग से बचाव के लिए लगाया जाता है?", a: "टीबी (क्षय रोग)", b: "पोलियो", c: "चेचक", d: "टिटनेस", correct: "a" },
+        { question: "14. आयरन की कमी से कौन सा रोग होता है?", a: "स्कर्वी", b: "एनीमिया (रक्ताल्पता)", c: "घेंघा", d: "रतौंधी", correct: "b" },
+        { question: "15. आयोडीन की कमी से कौन सा रोग होता है?", a: "घेंघा (Goitre)", b: "एनीमिया", c: "मधुमेह", d: "पीलिया", correct: "a" },
+        { question: "16. प्रोटीन का मुख्य स्रोत है?", a: "दालें", b: "चावल", c: "चीनी", d: "घी", correct: "a" },
+        { question: "17. कार्बोहाइड्रेट का मुख्य कार्य है?", a: "शरीर को ऊर्जा देना", b: "बीमारियों से बचाना", c: "हड्डियां मजबूत करना", d: "रक्त बनाना", correct: "a" },
+        { question: "18. जल को शुद्ध करने की सबसे आसान विधि है?", a: "छानना", b: "उबालना", c: "क्लोरीनीकरण", d: "निथारना", correct: "b" },
+        { question: "19. मलेरिया रोग किस मच्छर के काटने से होता है?", a: "मादा एनाफिलीज", b: "मादा एडीज", c: "क्यूलेक्स", d: "इनमें से कोई नहीं", correct: "a" },
+        { question: "20. डेंगू रोग किस मच्छर के काटने से होता है?", a: "मादा एडीज", b: "मादा एनाफिलीज", c: "क्यूलेक्स", d: "नर एनाफिलीज", correct: "a" },
+        { question: "21. शरीर का सामान्य तापमान कितना होता है?", a: "98.4°F (37°C)", b: "100°F", c: "95°F", d: "102°F", correct: "a" },
+        { question: "22. थर्मामीटर से क्या मापा जाता है?", a: "रक्तचाप", b: "तापमान", c: "हृदय गति", d: "वजन", correct: "b" },
+        { question: "23. प्राथमिक चिकित्सा (First Aid) बॉक्स में क्या होना आवश्यक है?", a: "रुई", b: "डिटॉल", c: "पट्टी", d: "उपरोक्त सभी", correct: "d" },
+        { question: "24. जलने पर तुरंत क्या करना चाहिए?", a: "गर्म पानी डालना", b: "ठंडा पानी डालना", c: "तेल लगाना", d: "घी लगाना", correct: "b" },
+        { question: "25. सिलाई मशीन का आविष्कार किसने किया?", a: "इलियास होवे", b: "न्यूटन", c: "एडिसन", d: "जेम्स वॉट", correct: "a" },
+        { question: "26. सूती वस्त्र किस मौसम में पहनने चाहिए?", a: "सर्दी", b: "गर्मी", c: "बारिश", d: "वसंत", correct: "b" },
+        { question: "27. ऊनी वस्त्र किस मौसम में पहनने चाहिए?", a: "गर्मी", b: "सर्दी", c: "बारिश", d: "हर मौसम में", correct: "b" },
+        { question: "28. रेशम के कीड़े किस पेड़ पर पाले जाते हैं?", a: "नीम", b: "आम", c: "शहतूत", d: "पीपल", correct: "c" },
+        { question: "29. बैंक में खाता खोलने के लिए क्या आवश्यक है?", a: "पैन कार्ड", b: "आधार कार्ड", c: "फोटो", d: "उपरोक्त सभी", correct: "d" },
+        { question: "30. चेक (Cheque) कितने प्रकार के होते हैं?", a: "बियरर चेक", b: "क्रॉस्ड चेक", c: "ऑर्डर चेक", d: "उपरोक्त सभी", correct: "d" },
+        { question: "31. सबसे सुरक्षित चेक कौन सा माना जाता है?", a: "बियरर चेक", b: "क्रॉस्ड चेक (रेखांकित चेक)", c: "खाली चेक", d: "इनमें से कोई नहीं", correct: "b" },
+        { question: "32. घर की सफाई का मुख्य उद्देश्य है?", a: "बीमारियों से बचाव", b: "सुंदरता", c: "मानसिक शांति", d: "उपरोक्त सभी", correct: "d" },
+        { question: "33. रसोईघर की सफाई करनी चाहिए?", a: "सप्ताह में एक बार", b: "प्रतिदिन", c: "महीने में एक बार", d: "कभी-कभी", correct: "b" },
+        { question: "34. कूड़ेदान (Dustbin) का उपयोग क्यों किया जाता है?", a: "कचरा इकट्ठा करने के लिए", b: "बीमारी फैलाने के लिए", c: "घर सजाने के लिए", d: "पानी रखने के लिए", correct: "a" },
+        { question: "35. मक्खियों द्वारा कौन सा रोग फैलता है?", a: "मलेरिया", b: "डेंगू", c: "हैजा (Cholera)", d: "एड्स", correct: "c" },
+        { question: "36. दूध को उबालने से क्या होता है?", a: "जीवाणु नष्ट हो जाते हैं", b: "दूध मीठा हो जाता है", c: "दूध पतला हो जाता है", d: "इनमें से कोई नहीं", correct: "a" },
+        { question: "37. पाश्चुरीकरण (Pasteurization) किससे संबंधित है?", a: "पानी से", b: "दूध से", c: "जूस से", d: "शराब से", correct: "b" },
+        { question: "38. सब्जियों को कब धोना चाहिए?", a: "काटने के बाद", b: "काटने से पहले", c: "उबालने के बाद", d: "नहीं धोना चाहिए", correct: "b" },
+        { question: "39. संतुलित आहार (Balanced Diet) में क्या होना चाहिए?", a: "प्रोटीन", b: "विटामिन", c: "कार्बोहाइड्रेट", d: "उपरोक्त सभी", correct: "d" },
+        { question: "40. नवजात शिशु के लिए सबसे उत्तम आहार क्या है?", a: "गाय का दूध", b: "डिब्बे का दूध", c: "माँ का दूध", d: "पानी", correct: "c" },
+        { question: "41. पर्यावरण प्रदूषण के प्रकार हैं?", a: "वायु प्रदूषण", b: "जल प्रदूषण", c: "ध्वनि प्रदूषण", d: "उपरोक्त सभी", correct: "d" },
+        { question: "42. पेड़-पौधे कौन सी गैस ग्रहण करते हैं?", a: "ऑक्सीजन", b: "कार्बन डाइऑक्साइड", c: "नाइट्रोजन", d: "हाइड्रोजन", correct: "b" },
+        { question: "43. मानव श्वसन में कौन सी गैस अंदर लेता है?", a: "कार्बन डाइऑक्साइड", b: "ऑक्सीजन", c: "नाइट्रोजन", d: "कार्बन मोनोऑक्साइड", correct: "b" },
+        { question: "44. सिलाई करते समय उंगली को सुई से बचाने के लिए किसका प्रयोग किया जाता है?", a: "अंगुस्ताना (Thimble)", b: "कैंची", c: "इंचीटेप", d: "पिन", correct: "a" },
+        { question: "45. कपड़े काटने से पहले क्या करना आवश्यक है?", a: "धोना", b: "नाप लेना और निशान लगाना", c: "प्रेस करना", d: "सिलना", correct: "b" },
+        { question: "46. गृह विज्ञान का मुख्य उद्देश्य क्या है?", a: "पारिवारिक जीवन को सुखी बनाना", b: "केवल खाना बनाना", c: "केवल सिलाई करना", d: "पैसा कमाना", correct: "a" },
+        { question: "47. कौन सा रोग कुत्ते के काटने से होता है?", a: "रेबीज", b: "मलेरिया", c: "टीबी", d: "कैंसर", correct: "a" },
+        { question: "48. ओ.आर.एस. (ORS) का घोल किस बीमारी में दिया जाता है?", a: "बुखार", b: "डायरिया (दस्त)", c: "खांसी", d: "सिरदर्द", correct: "b" },
+        { question: "49. दांतों को स्वस्थ रखने के लिए किस खनिज की आवश्यकता होती है?", a: "लोहा", b: "कैल्शियम", c: "आयोडीन", d: "सोडियम", correct: "b" },
+        { question: "50. शरीर में जल की मात्रा लगभग कितनी प्रतिशत होती है?", a: "30-40%", b: "50-60%", c: "65-70%", d: "80-90%", correct: "c" }
+      ],
+      
+      /* =========================================================
+         CLASS 12th QUESTIONS (250 Questions)
+         ========================================================= */
       hindi: [
         { question: "1. 'कामायनी' महाकाव्य के रचयिता कौन हैं?", a: "महादेवी वर्मा", b: "सुमित्रानंदन पंत", c: "सूर्यकांत त्रिपाठी 'निराला'", d: "जयशंकर प्रसाद", correct: "d" },
         { question: "2. 'तार सप्तक' का प्रकाशन वर्ष क्या है?", a: "1943 ई.", b: "1953 ई.", c: "1936 ई.", d: "1950 ई.", correct: "a" },
@@ -675,8 +1052,7 @@
         { question: "48. काजीरंगा राष्ट्रीय उद्यान किसके लिए प्रसिद्ध है?", a: "बाघ", b: "हाथी", c: "एक सींग वाले गैंडे", d: "शेर", correct: "c" },
         { question: "49. पृथ्वी के फेफड़े (Lungs of the planet) किसे कहा जाता है?", a: "सुंदरवन", b: "अमेज़न वर्षा वन", c: "हिमालय के वन", d: "पश्चिमी घाट", correct: "b" },
         { question: "50. इनमें से कौन सा एक स्व-प्रतिरक्षा (Auto-immune) रोग है?", a: "एड्स", b: "मलेरिया", c: "रुमेटॉइड अर्थराइटिस", d: "हैजा", correct: "c" }
-      ]
-    };
+      ],
 
     // Variables for State Management
     let currentSubjectData = [];
@@ -701,12 +1077,20 @@
       timeLeft = minutes * 60; // Convert mins to seconds
       
       let subName = "";
+      // 12th Subjects
       if(subjectKey === 'hindi') subName = "सामान्य हिंदी (Hindi)";
       if(subjectKey === 'physics') subName = "भौतिक विज्ञान (Physics)";
       if(subjectKey === 'chemistry') subName = "रसायन विज्ञान (Chemistry)";
       if(subjectKey === 'math') subName = "गणित (Mathematics)";
       if(subjectKey === 'biology') subName = "जीव विज्ञान (Biology)";
-      
+      // 10th Subjects
+      if(subjectKey === 'class10_hindi') subName = "कक्षा 10 - सामान्य हिंदी";
+      if(subjectKey === 'class10_english') subName = "कक्षा 10 - English";
+      if(subjectKey === 'class10_science') subName = "कक्षा 10 - विज्ञान";
+      if(subjectKey === 'class10_math') subName = "कक्षा 10 - गणित";
+      if(subjectKey === 'class10_social') subName = "कक्षा 10 - सामाजिक विज्ञान";
+      if(subjectKey === 'class10_home_science') subName = "कक्षा 10 - गृह विज्ञान";
+
       document.getElementById('subjectNameDisplay').innerText = subName;
       document.getElementById('totalQNum').innerText = currentSubjectData.length;
       
